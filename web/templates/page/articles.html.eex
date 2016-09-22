@@ -1,1 +1,9 @@
-<h3>Under construction</h3>
+<article>
+  <h1><a href="articles/new-beginnings">New beginnings</a></h1>
+  <time datetime="2016-07-15T22:22:37+00:00">Jul 15, 2016</time>
+  <section>
+    <p>For the past twenty years, I’ve been building software apps for a variety of
+    different companies, and during that time I’ve maintained a dream of starting
+    my own... <a href="articles/new-beginnings">read more</a></p>
+  </section>
+</article>

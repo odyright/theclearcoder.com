@@ -46,10 +46,6 @@ h1 {
   font-size: 1.7em;
 }
 
-h1 a {
-  color: inherit;
-}
-
 h1 em {
   color: #1A9643;
 }
@@ -159,6 +155,10 @@ p { margin: 0.5em 0; }
 
 p.license {
   color: #7F7F7F;
+}
+
+time {
+  font-style: italic;
 }
 
 @media(min-width: 25em) {

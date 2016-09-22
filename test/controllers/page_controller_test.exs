@@ -8,7 +8,7 @@ defmodule Blog.PageControllerTest do
 
   test "GET /articles", %{conn: conn} do
     conn = get conn, "/articles"
-    assert html_response(conn, 200) =~ "Under construction"
+    assert html_response(conn, 200) =~ "New beginnings"
   end
 
   test "GET /info", %{conn: conn} do

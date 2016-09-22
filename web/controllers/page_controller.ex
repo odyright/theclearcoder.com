@@ -12,4 +12,8 @@ defmodule Blog.PageController do
   def info(conn, _params) do
     render conn, "info.html"
   end
+
+  def show(conn, _params) do
+    render conn, "show.html"
+  end
 end
