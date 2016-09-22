@@ -73,13 +73,22 @@ header {
   overflow: auto;
 }
 
+i {
+  font-style: italic;
+}
+
 img {
   max-width: 100%;
   height: auto;
 }
 
-i {
-  font-style: italic;
+img.align-right {
+  float: right;
+  margin-left: 0.5rem;
+}
+
+img.align-right:after {
+  clear: both;
 }
 
 img.logo {
@@ -95,6 +104,10 @@ img.logo-bw {
   height: 3em;
   display: block;
   margin: 0 auto;
+}
+
+img.round {
+  border-radius: 50%;
 }
 
 main {

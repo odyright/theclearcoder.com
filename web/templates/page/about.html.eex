@@ -1,5 +1,8 @@
 <h3 class="underline">About</h3>
-<p>I'm a designer and software developer working in the Dallas/Fort Worth area.  I've been writing code for over twenty years.</p>
+<div class="clear">
+  <img class="round align-right" src="<%= static_path(@conn, "/images/brian.jpg") %>" height="125" width="125">
+  <p>I'm a designer and software developer living in the Dallas/Fort Worth area.  I've been writing code for over twenty years with a primary focus on web development.  Now I'm expanding my expertise to include mobile development in iOS.</p>
+</div>
 <br>
 <h3 class="underline">Colophon</h3>
 <p>This site is powered by the <a href="http://www.phoenixframework.org" target="_blank">Phoenix framework</a>, <a href="http://elixir-lang.org" target="_blank">Elixir</a>, and <a href="https://www.heroku.com/" target="_blank">Heroku</a>. 
