@@ -58,9 +58,12 @@ h2 {
   font-size: 1.5em;
 }
 
+h3 { 
+  font-size: 1.25em;
+}
+
 h3.underline {
   border-bottom: 1px solid #F0F0F0;
-  margin: 0.25em 0 1em;
 }
 
 header { 
