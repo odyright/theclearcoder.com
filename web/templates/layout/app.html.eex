@@ -16,31 +16,35 @@
   </head>
   <body>
     <header>
-      <div class="logo">
-      <a title="Home" class="logo" href="/">
-        <img class="logo" src="<%= static_path(@conn, "/images/logo.svg") %>" alt="logo" />
-      </a>
+      <div class="container">
+        <a title="Home" class="logo" href="/">
+          <img class="logo" src="<%= static_path(@conn, "/images/logo.svg") %>" alt="logo" />
+        </a>
+        <nav>
+          <ol>
+            <li><a href="/articles">Articles</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ol>
+        </nav>
       </div>
-      <nav>
-        <ol>
-          <li><a href="/articles">Articles</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ol>
-      </nav>
     </header>
     <main role="main">
-      <%= render @view_module, @view_template, assigns %>
+      <div class="container">
+        <%= render @view_module, @view_template, assigns %>
+      </div>
     </main>
     <footer>
-      <ol class="social">
-        <li><a href="https://www.linkedin.com/in/bjgamble" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-        <li><a href="https://gitlab.com/u/theclearcoder" target="_blank"><i class="fa fa-gitlab"></i></a></li>
-        <li><a href="https://twitter.com/theclearcoder" target="_blank"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="https://www.behance.net/BJGAMBLE4b6e" target="_blank"><i class="fa fa-behance"></i></a></li>
-        <li><a href="https://soundcloud.com/brian_gamble" target="_blank"><i class="fa fa-soundcloud"></i></a></li>
-      </ol>
-      <p class="license">&copy; 2016 Brian Gamble. All rights reserved.</p>
-      <img class="logo-bw" src="<%= static_path(@conn, "/images/logo-bw.svg") %>" alt="logo" />
+      <div class="container">
+        <ol class="social">
+          <li><a href="https://www.linkedin.com/in/bjgamble" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+          <li><a href="https://gitlab.com/u/theclearcoder" target="_blank"><i class="fa fa-gitlab"></i></a></li>
+          <li><a href="https://twitter.com/theclearcoder" target="_blank"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="https://www.behance.net/BJGAMBLE4b6e" target="_blank"><i class="fa fa-behance"></i></a></li>
+          <li><a href="https://soundcloud.com/brian_gamble" target="_blank"><i class="fa fa-soundcloud"></i></a></li>
+        </ol>
+        <p class="license">&copy; 2016 Brian Gamble. All rights reserved.</p>
+        <img class="logo-bw" src="<%= static_path(@conn, "/images/logo-bw.svg") %>" alt="logo" />
+      </div>
     </footer>
   </body>
 </html>
