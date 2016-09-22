@@ -15,4 +15,9 @@ defmodule Blog.PageControllerTest do
     conn = get conn, "/articles"
     assert html_response(conn, 200) =~ "Under construction"
   end
+
+  test "GET /about", %{conn: conn} do
+    conn = get conn, "/about"
+    assert html_response(conn, 200) =~ "About"
+  end
 end

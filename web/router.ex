@@ -19,6 +19,7 @@ defmodule Blog.Router do
     get "/",         PageController, :index
     get "/contact",  PageController, :contact
     get "/articles", PageController, :articles
+    get "/about",    PageController, :about
   end
 
   # Other scopes may use custom stacks.
