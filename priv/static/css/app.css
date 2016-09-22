@@ -129,7 +129,7 @@ nav ol {
 
 nav ol li {
   display: inline;
-  margin-right: 0.85em;
+  margin-right: 1.25em;
 }
 
 nav ol li:last-child {
@@ -185,6 +185,9 @@ time {
     text-align: right; 
     padding: 0.25em;
     background-color: #F0F0F0;
+  }
+  nav ol li {
+    margin-right: 1.5em;
   }
 }
 
