@@ -13,7 +13,7 @@ defmodule Blog.PageController do
     render conn, "articles.html"
   end
 
-  def about(conn, _params) do
-    render conn, "about.html"
+  def info(conn, _params) do
+    render conn, "info.html"
   end
 end
