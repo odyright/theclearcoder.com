@@ -142,17 +142,27 @@ p.license {
   a.logo {
     float: left;
   }
-
   nav ol {
     float: right;
   }
   header {
     padding: 1em 1.25em;
   }
-
-  dt { float: left; clear: left; }
+  dt { 
+    float: left; 
+    clear: left; 
+    padding: 0.25em;
+    background-color: #F0F0F0;
+  }
+  dt:nth-of-type(even), dd:nth-of-type(even) {
+    background-color: #E0E0E0;
+  }
   dt:after { content: ":"; }
-  dd { text-align: right; }
+  dd { 
+    text-align: right; 
+    padding: 0.25em;
+    background-color: #F0F0F0;
+  }
 }
 
 @media (min-width: 600px) {
@@ -202,9 +212,9 @@ p.license {
     font-size: 125%
   }
   header {
-    padding: 1em 10em;
+    padding: 1em 11em;
   }
   main {
-    padding: 2.25em 10em;
+    padding: 2.25em 11em;
   }
 }
