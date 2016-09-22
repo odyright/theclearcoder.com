@@ -1,36 +1,6 @@
-<div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}", name: "Phoenix!" %></h2>
-  <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
-</div>
-
-<div class="row marketing">
-  <div class="col-lg-6">
-    <h4>Resources</h4>
-    <ul>
-      <li>
-        <a href="http://phoenixframework.org/docs/overview">Guides</a>
-      </li>
-      <li>
-        <a href="https://hexdocs.pm/phoenix">Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-    </ul>
-  </div>
-
-  <div class="col-lg-6">
-    <h4>Help</h4>
-    <ul>
-      <li>
-        <a href="http://groups.google.com/group/phoenix-talk">Mailing list</a>
-      </li>
-      <li>
-        <a href="http://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">@elixirphoenix</a>
-      </li>
-    </ul>
-  </div>
-</div>
+<h1>I'm Brian Gamble, a designer, developer, and coffee drinker.  <em>I strive for 
+    understated designs, and I believe in tested, simple, and clear code.</em>
+</h1>
+<p>I've been making a living as a web developer since 1995&mdash;I first experienced the web through <a href="https://en.wikipedia.org/wiki/Mosaic_(web_browser)" target="_blank">Mosaic</a> running on a Sun <a href="https://en.wikipedia.org/wiki/SPARCstation_20" target="_blank">SPARCstation</a>.</p>
+<p>A lot has changed since then, and that's one of the reasons I love technology; there's always something new to learn. I've had the priviledge of working at a diverse set of companies with some really great people.</p>
+<p>Now I'm spending my days working at <a href="http://gentlelionstudios.com" target="_blank">Gentle Lion Studios</a>, a company I founded this past summer.</p>

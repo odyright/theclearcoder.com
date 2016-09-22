@@ -4,32 +4,43 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Hello Blog!</title>
+    <meta name="description" content="Brian Gamble's Web Site">
+    <meta name="author" content="Brian Gamble">
+    <title>Brian Gamble</title>
+    <script src="https://use.typekit.net/qyr4xqq.js"></script>
+    <script>try { Typekit.load({ async: true }); } catch (e) {}</script>
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/reset.css") %>">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>    
   </head>
-
   <body>
-    <div class="container">
-      <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
-          </ul>
-        </nav>
-        <span class="logo"></span>
-      </header>
-
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-
-      <main role="main">
-        <%= render @view_module, @view_template, assigns %>
-      </main>
-
-    </div> <!-- /container -->
-    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    <header>
+      <div class="logo">
+      <a title="Home" class="logo" href="/">
+        <img class="logo" src="<%= static_path(@conn, "/images/logo.svg") %>" alt="logo" />
+      </a>
+      </div>
+      <nav>
+        <ol>
+          <li><a href="/articles">Articles</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ol>
+      </nav>
+    </header>
+    <main role="main">
+      <%= render @view_module, @view_template, assigns %>
+    </main>
+    <footer>
+      <ol class="social">
+        <li><a href="https://www.linkedin.com/in/bjgamble" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a href="https://gitlab.com/u/theclearcoder" target="_blank"><i class="fa fa-gitlab"></i></a></li>
+        <li><a href="https://twitter.com/theclearcoder" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://www.behance.net/BJGAMBLE4b6e" target="_blank"><i class="fa fa-behance"></i></a></li>
+        <li><a href="https://soundcloud.com/brian_gamble" target="_blank"><i class="fa fa-soundcloud"></i></a></li>
+      </ol>
+      <p class="license">&copy; 2016 Brian Gamble. All rights reserved.</p>
+      <img class="logo-bw" src="<%= static_path(@conn, "/images/logo-bw.svg") %>" alt="logo" />
+    </footer>
   </body>
 </html>
