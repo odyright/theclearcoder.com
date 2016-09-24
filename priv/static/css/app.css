@@ -54,6 +54,10 @@ h1 {
   font-size: 1.7em;
 }
 
+h1 a {
+  font-weight: 300;
+}
+
 h1 em {
   color: #1A9643;
 }
