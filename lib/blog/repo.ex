@@ -7,6 +7,9 @@ defmodule Blog.Repo do
     [
       %Blog.Article{
         id: "1", slug: "new-beginnings", title: "New beginnings",
+        teaser: """
+        After two decades in software development, I have an exciting announcement about the next step in my career.
+        """,
         content: """
         For the past twenty years, I've been building software apps for a variety of
         different companies, and during that time I've maintained a dream of starting

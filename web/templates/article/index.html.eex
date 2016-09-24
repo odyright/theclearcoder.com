@@ -3,9 +3,8 @@
     <h1><%= link article.title, to: article_path(@conn, :show, article.slug) %></h1>
     <time datetime="2016-07-15T22:22:37+00:00">Jul 15, 2016</time>
     <section>
-      <p>For the past twenty years, I’ve been building software apps for a variety of
-      different companies, and during that time I’ve maintained a dream of starting
-      my own... <%= link "read more", to: article_path(@conn, :show, article.slug) %></p>
+      <%= md_to_html(article.teaser) %>
+      <%= link "Continue reading", to: article_path(@conn, :show, article.slug), class: "button" %>
     </section>
   </article>
 <% end %>

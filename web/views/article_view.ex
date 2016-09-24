@@ -5,4 +5,9 @@ defmodule Blog.ArticleView do
     Earmark.to_html(content)
     |> raw 
   end
+
+  def md_to_html(text) do
+    Earmark.to_html(text)
+    |> raw 
+  end
 end
