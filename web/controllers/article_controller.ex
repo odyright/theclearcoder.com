@@ -2,7 +2,8 @@ defmodule Blog.ArticleController do
   use Blog.Web, :controller
 
   def index(conn, _params) do
-    render conn, "index.html"
+    articles = Repo.all(Blog.Article)
+    render conn, "index.html", articles: articles
   end
 
   def show(conn, %{"slug" => slug}) do

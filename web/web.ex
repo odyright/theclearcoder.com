@@ -26,6 +26,7 @@ defmodule Blog.Web do
     quote do
       use Phoenix.Controller
 
+      alias Blog.Repo
       import Blog.Router.Helpers
       import Blog.Gettext
     end
