@@ -4,7 +4,22 @@ defmodule Blog.Repo do
   """
 
   def all(Blog.Article) do
-    [%Blog.Article{id: "1", slug: "new-beginnings", title: "New beginnings"}] 
+    [
+      %Blog.Article{
+        id: "1", slug: "new-beginnings", title: "New beginnings",
+        content: """
+        For the past twenty years, I've been building software apps for a variety of
+        different companies, and during that time I've maintained a dream of starting
+        my own company.  I've come close a few times, but for one reason or another the
+        timing wasn't right.
+
+        As of July, my dream is now a reality.  I would like to introduce my new company, 
+        [Gentle Lion Studios](http://www.gentlelionstudios.com).
+
+        I'm extremely excited, and I hope you'll come along for the ride.
+        """
+      }
+    ] 
   end
 
   def all(_module), do: []
