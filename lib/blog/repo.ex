@@ -4,7 +4,7 @@ defmodule Blog.Repo do
   """
 
   def all(Blog.Article) do
-    [%Blog.Article{id: "1", slug: "new-beginnings"}] 
+    [%Blog.Article{id: "1", slug: "new-beginnings", title: "New beginnings"}] 
   end
 
   def all(_module), do: []

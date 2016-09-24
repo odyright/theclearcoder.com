@@ -7,16 +7,17 @@ defmodule Blog.ArticleController do
   end
 
   def show(conn, %{"slug" => slug}) do
-    render_article(conn, slug)
+    article = Repo.get_by(Blog.Article, slug: slug)
+    render_article(conn, article)
   end
 
-  def render_article(conn, "new-beginnings") do
-    render conn, "show.html"
-  end
-
-  def render_article(conn, _slug) do
+  def render_article(conn, nil) do
     conn
     |> put_status(:not_found)
     |> render(Blog.ErrorView, "404.html")
+  end
+
+  def render_article(conn, article) do
+    render conn, "show.html", article: article
   end
 end

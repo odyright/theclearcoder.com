@@ -1,3 +1,3 @@
 defmodule Blog.Article do
-  defstruct [:id, :slug]
+  defstruct [:id, :slug, :title]
 end
