@@ -17,13 +17,13 @@
   <body>
     <header>
       <div class="container">
-        <a title="Home" class="logo" href="/">
+        <a title="Home" class="logo" href="<%= page_path(@conn, :index) %>">
           <img class="logo" src="<%= static_path(@conn, "/images/logo.svg") %>" alt="logo" />
         </a>
         <nav>
           <ol>
-            <li><a href="/articles">Articles</a></li>
-            <li><a href="/info">Info</a></li>
+            <li><%= link "Articles", to: article_path(@conn, :index) %></li>
+            <li><%= link "Info", to: page_path(@conn, :info) %></li>
           </ol>
         </nav>
       </div>
