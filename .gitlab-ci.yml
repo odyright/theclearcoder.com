@@ -6,5 +6,5 @@ before_script:
   - mix deps.get
 
 test:  
-script:
-  - mix test --trace --cover
+  script:
+    - mix test --trace --cover
