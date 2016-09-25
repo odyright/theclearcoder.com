@@ -1,7 +1,7 @@
 <%= for article <- @articles do %>
   <article>
     <h1><%= link article.title, to: article_path(@conn, :show, article.slug) %></h1>
-    <time datetime="2016-07-15T22:22:37+00:00">Jul 15, 2016</time>
+    <time datetime="<%= date_as_iso8601(article) %>"><%= date_as_readable(article) %></time>
     <section>
       <%= md_to_html(article.teaser) %>
       <%= link "Continue reading", to: article_path(@conn, :show, article.slug), class: "button" %>

@@ -1,6 +1,6 @@
 <article>
   <h1><%= @article.title %></h1>
-  <time datetime="2016-07-15T22:22:37+00:00">Jul 15, 2016</time>
+  <time datetime="<%= date_as_iso8601(@article) %>"><%= date_as_readable(@article) %></time>
   <section>
     <%= content_as_html(@article) %>
   </section>

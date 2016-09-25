@@ -20,7 +20,8 @@ defmodule Blog.Repo do
         [Gentle Lion Studios](http://www.gentlelionstudios.com).
 
         I'm extremely excited, and I hope you'll come along for the ride.
-        """
+        """,
+        created_on: ~N[2016-07-15 22:22:37]
       }
     ] 
   end
