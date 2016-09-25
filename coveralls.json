@@ -1,0 +1,8 @@
+{
+  "skip_files": [
+    "test/support",
+    "lib/blog/endpoint.ex",
+    "web/gettext.ex",
+    "web/web.ex"
+  ]
+}
