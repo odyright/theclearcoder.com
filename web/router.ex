@@ -9,12 +9,9 @@ defmodule Blog.Router do
     plug :put_secure_browser_headers
   end
 
-  pipeline :api do
-    plug :accepts, ["json"]
-  end
-
   scope "/", Blog do
-    pipe_through :browser # Use the default browser stack
+    # Use the default browser stack
+    pipe_through :browser 
 
     get "/articles",       ArticleController, :index
     get "/articles/:slug", ArticleController, :show
@@ -22,9 +19,4 @@ defmodule Blog.Router do
     get "/info",           PageController, :info
     get "/",               PageController, :index
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", Blog do
-  #   pipe_through :api
-  # end
 end
