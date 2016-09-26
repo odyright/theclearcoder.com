@@ -3,12 +3,13 @@
     "test/support",
     "lib/blog.ex",
     "lib/blog/endpoint.ex",
+    "web/web.ex",
     "web/gettext.ex",
-    "web/web.ex"
+    "web/views/error_helpers.ex"
   ],
 
   "coverage_options": {
     "treat_no_relevant_lines_as_covered": true,
-    "minimum_coverage": 76
+    "minimum_coverage": 90
   }
 }
