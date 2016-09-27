@@ -9,10 +9,9 @@
     <title>Brian Gamble</title>
     <script src="https://use.typekit.net/qyr4xqq.js"></script>
     <script>try { Typekit.load({ async: true }); } catch (e) {}</script>
-    <link rel="stylesheet" href="<%= static_path(@conn, "/css/reset.css") %>">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
-    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>    
+    <script src="<%= static_path(@conn, "/js/analytics.js") %>"></script>    
   </head>
   <body>
     <header>
