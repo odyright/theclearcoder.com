@@ -1,5 +1,6 @@
 @import "variables";
 @import "mixins";
+@import "mediaqueries";
 
 a {
   text-decoration: none;
@@ -151,7 +152,7 @@ time {
   font-style: italic;
 }
 
-@media(min-width: 25em) {
+@include breakpoint(400) {
   a.logo {
     float: left;
   }
@@ -167,7 +168,7 @@ time {
   }
 }
 
-@media (min-width: 64em) {
+@include breakpoint(1024) {
   body { 
     font-size: 110%; 
   }
@@ -183,7 +184,7 @@ time {
   }
 }
 
-@media (min-width: 85em) {
+@include breakpoint(1360) {
   body { 
     font-size: 115%; 
   }
