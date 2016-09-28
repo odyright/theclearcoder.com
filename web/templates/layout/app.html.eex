@@ -15,12 +15,12 @@
     <script src="<%= static_path(@conn, "/js/analytics.js") %>"></script>    
   </head>
   <body>
-    <header>
+    <header role="banner">
       <div class="container">
         <a title="Home" class="logo" href="<%= page_path(@conn, :index) %>">
           <img class="logo" src="<%= static_path(@conn, "/images/logo.svg") %>" alt="logo" />
         </a>
-        <nav>
+        <nav role="navigation">
           <ol>
             <li><%= link "Articles", to: article_path(@conn, :index) %></li>
             <li><%= link "Info", to: page_path(@conn, :info) %></li>
@@ -33,7 +33,7 @@
         <%= render @view_module, @view_template, assigns %>
       </div>
     </main>
-    <footer>
+    <footer role="contentinfo">
       <div class="container">
         <ol class="social">
           <li><a href="https://www.linkedin.com/in/bjgamble" target="_blank"><i class="fa fa-linkedin"></i></a></li>
