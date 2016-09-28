@@ -36,7 +36,7 @@ a.button {
 
 footer {
   padding: 0.75em 1.25em 2em;
-  border-top: 1px solid #BFBFBF;
+  border-top: 1px solid $brandDarkGray;
   font-size: 0.8em; 
   text-align: center;
 }
@@ -69,13 +69,13 @@ h3 {
 }
 
 h3.underline {
-  border-bottom: 1px solid #F0F0F0;
+  border-bottom: 1px solid $brandLightGray;
 }
 
 header { 
   padding: 0.75em 1.25em;
   border-top: 5px solid $brandGreen;
-  border-bottom: 1px solid #BFBFBF;
+  border-bottom: 1px solid $brandDarkGray;
   overflow: auto;
 }
 
@@ -167,7 +167,7 @@ ol.social li a {
 p { margin: 0.5em 0; }
 
 p.license {
-  color: #7F7F7F;
+  color: $brandMedGray;
 }
 
 time {
