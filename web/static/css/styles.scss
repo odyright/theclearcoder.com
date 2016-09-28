@@ -4,11 +4,11 @@
 a {
   text-decoration: none;
   font-weight: 700;
-  color: inherit;
+  color: $brandGreen;
 }
 
 a:hover {
-  opacity: 0.8;
+  opacity: 0.75;
   color: $brandGreen;
 }
 
@@ -116,6 +116,8 @@ nav {
   ol li {
     display: inline;
     margin-right: 1.25em;
+
+    a { color: $brandDarkGray; }
   }
 
   ol li:last-child {
@@ -135,10 +137,6 @@ ol.social {
   li:last-child {
     margin-right: 0;
   }
-
-  li a {
-    color: $brandGreen;
-  }
 }
 
 p { 
@@ -146,10 +144,6 @@ p {
 
   &.license {
     color: $brandMedGray;
-  }
-
-  a {
-    color: $brandGreen;
   }
 }
 
