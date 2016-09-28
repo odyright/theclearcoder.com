@@ -19,4 +19,10 @@ defmodule Blog.ArticleViewTest do
   test "returns the page title for the show page" do
     assert ArticleView.page_title(:show, %{article: @article}) == "Test article | "
   end
+
+  test "truncates the page title when the article title is longer than 40 chars" do
+    article = %Blog.Article{title: "I am really, really, really long title so please truncate me"}
+    assert ArticleView.page_title(:show, %{article: article}) ==
+      "I am really, really, really long title s... | "
+  end
 end

@@ -6,7 +6,16 @@ defmodule Blog.ArticleView do
 
   def page_title(:index, _assigns), do: "Articles | "
   def page_title(:show, assigns) do
-    assigns.article.title <> " | "
+    title = assigns.article.title |> concatenate
+    title <> " | "
+  end
+
+  defp concatenate(str) do
+    if String.length(str) > 40 do
+      String.slice(str, 0, 40) <> "..."
+    else
+      str
+    end
   end
 
   def content_as_html(%Blog.Article{content: content}) do
