@@ -4,6 +4,11 @@ defmodule Blog.ArticleView do
   @months  [ "January", "February", "March", "April", "May", "June",
              "July", "August", "September", "October", "November", "December" ]
 
+  def page_title(:index, _assigns), do: "Articles | "
+  def page_title(:show, assigns) do
+    assigns.article.title <> " | "
+  end
+
   def content_as_html(%Blog.Article{content: content}) do
     Earmark.to_html(content)
     |> raw 

@@ -18,4 +18,8 @@ defmodule Blog.ErrorViewTest do
     assert render_to_string(Blog.ErrorView, "505.html", []) ==
            "Internal server error"
   end
+
+  test "renders page title for error page" do
+    assert Blog.ErrorView.page_title(nil, %{}) == "An error occurred | "
+  end
 end

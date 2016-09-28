@@ -3,12 +3,12 @@ defmodule Blog.ArticleControllerTest do
 
   test "GET /articles", %{conn: conn} do
     conn = get conn, "/articles"
-    assert html_response(conn, 200) =~ "New beginnings"
+    assert html_response(conn, 200) =~ "<title>Articles | Brian Gamble</title>"
   end
 
   test "GET /articles/:slug for a known article", %{conn: conn} do
     conn = get conn, "/articles/new-beginnings"
-    assert html_response(conn, 200) =~ "New beginnings"
+    assert html_response(conn, 200) =~ "<title>New beginnings | Brian Gamble</title>"
   end
 
   test "GET /articles/:slug for a bad article", %{conn: conn} do
