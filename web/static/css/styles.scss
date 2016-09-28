@@ -10,10 +10,6 @@ a {
 a:hover {
   opacity: 0.8;
   color: $brandGreen;
-
-  img {
-    opacity: 0.85;
-  }
 }
 
 body {
@@ -36,7 +32,7 @@ a.button {
 }
 
 footer {
-  padding: 0.75em 1.25em 2em;
+  padding: 0.75em 2em;
   border-top: 1px solid $brandMedGray;
   font-size: 0.8em; 
   text-align: center;
@@ -75,10 +71,6 @@ header {
   overflow: auto;
 }
 
-i {
-  font-style: italic;
-}
-
 img {
   max-width: 100%;
   height: auto;
@@ -108,10 +100,6 @@ img {
 
 main {
   padding: 2em 1.25em;
-}
-
-p a {
-  color: $brandGreen;
 }
 
 nav { 
@@ -159,6 +147,10 @@ p {
   &.license {
     color: $brandMedGray;
   }
+
+  a {
+    color: $brandGreen;
+  }
 }
 
 time {
@@ -170,9 +162,7 @@ time {
     float: left;
   }
 
-  .container {
-    width: 85%;
-  }
+  @include container(85%);
 
   nav ol {
     float: right;
@@ -188,9 +178,7 @@ time {
     font-size: 110%; 
   }
 
-  .container {
-    width: 78%;
-  }
+  @include container(78%);
 
   img.logo {
     @include dimensions(4em);
@@ -206,7 +194,5 @@ time {
     font-size: 115%; 
   }
 
-  .container {
-    width: 65%;
-  }
+  @include container(65%);
 }

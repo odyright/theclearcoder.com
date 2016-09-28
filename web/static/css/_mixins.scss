@@ -11,3 +11,9 @@
     width: $size;
     height: $size;
 }
+
+@mixin container($size) {
+  .container {
+    width: $size;
+  }
+}
