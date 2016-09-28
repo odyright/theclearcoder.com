@@ -1,0 +1,13 @@
+@mixin fontMuseoSlab {
+  font-family: "museo-slab", serif;
+}
+
+@mixin fontProximaNova {
+  font-family: "proxima-nova", sans-serif;
+  font-weight: 500;
+}
+
+@mixin dimensions($size) {
+    width: $size;
+    height: $size;
+}
