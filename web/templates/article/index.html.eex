@@ -4,7 +4,11 @@
     <time datetime="<%= date_as_iso8601(article) %>"><%= date_as_readable(article) %></time>
     <section>
       <%= md_to_html(article.teaser) %>
-      <%= link "Continue reading", to: article_path(@conn, :show, article.slug), class: "button" %>
+      <div>
+        <%= link to: article_path(@conn, :show, article.slug) do %>
+          <button>Continue reading</button>
+        <% end %>
+      </div>
     </section>
   </article>
 <% end %>

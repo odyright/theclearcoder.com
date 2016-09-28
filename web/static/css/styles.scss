@@ -20,12 +20,14 @@ body {
   color: $brandDarkGray;
 }
 
-a.button { 
+button { 
   background-color: $brandGreen;
+  border: none;
+  padding: 0.7em;
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 100%;
   color: white;
-  padding: 0.5em 0.75em;
-  border-radius: 5px;
-  display: inline-block;
 }
 
 .container {
