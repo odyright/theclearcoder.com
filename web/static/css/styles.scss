@@ -19,7 +19,7 @@ body {
   font-family: "museo-slab", serif;
   line-height: 1.4;
   font-weight: 300;
-  color: dimgray;
+  color: $brandDarkGray;
 }
 
 a.button { 
@@ -36,7 +36,7 @@ a.button {
 
 footer {
   padding: 0.75em 1.25em 2em;
-  border-top: 1px solid $brandDarkGray;
+  border-top: 1px solid $brandMedGray;
   font-size: 0.8em; 
   text-align: center;
 }
@@ -75,7 +75,7 @@ h3.underline {
 header { 
   padding: 0.75em 1.25em;
   border-top: 5px solid $brandGreen;
-  border-bottom: 1px solid $brandDarkGray;
+  border-bottom: 1px solid $brandMedGray;
   overflow: auto;
 }
 
