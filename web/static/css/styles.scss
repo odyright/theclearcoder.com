@@ -53,10 +53,6 @@ h1 {
   a {
     font-weight: inherit;
   }
-
-  em {
-    color: $brandGreen;
-  }
 }
 
 h2 {
@@ -103,6 +99,11 @@ img {
 
 main {
   padding: 2em 1.25em;
+}
+
+mark {
+  background-color: inherit;
+  color: $brandGreen;
 }
 
 nav { 
