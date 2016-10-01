@@ -7,11 +7,11 @@
     <meta name="description" content="I believe in tested, simple, and clear code.">
     <meta name="author" content="Brian Gamble">
     <title><%= page_title(@conn, assigns) %></title>
-    <%= render Blog.LayoutView, "typekit.html" %>
+    <%= render "typekit.html" %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/reset.css") %>">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
-    <%= render Blog.LayoutView, "analytics.html" %>
+    <%= render "analytics.html" %>
   </head>
   <body>
     <header role="banner">
