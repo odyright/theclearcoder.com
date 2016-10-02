@@ -21,13 +21,13 @@ body {
 }
 
 button { 
-  background-color: $brandGreen;
-  border: none;
-  padding: 0.7em;
+  background-color: inherit;
+  color: $brandGreen;
+  border: 1px solid $brandGreen;
+  padding: 0.55em;
   border-radius: 7px;
   font-family: inherit;
   font-size: 100%;
-  color: white;
 }
 
 .container {
