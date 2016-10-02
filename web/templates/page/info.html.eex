@@ -2,7 +2,7 @@
 <div class="clear">
   <img class="round align-right" src="<%= static_path(@conn, "/images/brian.jpg") %>" height="125" width="125">
   <p>I'm a software developer living in the Dallas/Fort Worth area.  I've been writing code for over twenty years with a primary focus on web development.  Now I'm expanding my expertise to include mobile development in iOS.</p>
-  <p>If you wish to get in touch, and social media isn't for you, send a note to cc[at]theclearcoder.com.</p>
+  <p>If you would like to get in touch, and social media isn't for you, please send an email to cc[at]theclearcoder.com.</p>
 </div>
 <br>
 <h2>Colophon</h2>
