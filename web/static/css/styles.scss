@@ -53,6 +53,10 @@ h1 {
   a {
     font-weight: inherit;
   }
+
+  &.heading {
+    margin-bottom: 0.65em;
+  }
 }
 
 h2 {
