@@ -57,6 +57,13 @@ h1 {
   &.heading {
     margin-bottom: 0.65em;
   }
+
+  &.heading:after {
+    display: block;
+    color: $brandLightGray;
+    content: "§";
+    text-align: center;
+  }
 }
 
 h2 {
