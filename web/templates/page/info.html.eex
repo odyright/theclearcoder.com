@@ -1,10 +1,13 @@
-<h2>About</h2>
-<div class="clear">
-  <img class="round align-right" src="<%= static_path(@conn, "/images/brian.jpg") %>" height="125" width="125">
-  <p>I'm a software developer living in the Dallas/Fort Worth area.  I've been writing code for more than twenty years with a primary focus on web development.  Now I'm expanding my expertise to include development in iOS and macOS.</p>
-</div>
-<br>
-<h2>Colophon</h2>
-<p>This site is powered by the <a href="http://www.phoenixframework.org" target="_blank">Phoenix framework</a>, <a href="http://elixir-lang.org" target="_blank">Elixir</a>, and <a href="https://www.heroku.com/" target="_blank">Heroku</a>. 
-I created, designed, and coded the website and logo.  The typefaces used are Museo Slab and Proxima Nova and served by <a href="http://typekit.com/">Typekit</a>.
-The social media icons are provided by <a href="http://fontawesome.io" target="_blank">Font Awesome</a>.</p>
+<section>
+  <h2>About</h2>
+  <div class="clear">
+    <img class="round align-right" src="<%= static_path(@conn, "/images/brian.jpg") %>" height="125" width="125">
+    <p>I'm a software developer living in the Dallas/Fort Worth area.  I've been writing code for more than twenty years with a primary focus on web development.  Now I'm expanding my expertise to include development in iOS and macOS.</p>
+  </div>
+</section>
+<section>
+  <h2>Colophon</h2>
+  <p>This site is powered by the <a href="http://www.phoenixframework.org" target="_blank">Phoenix framework</a>, <a href="http://elixir-lang.org" target="_blank">Elixir</a>, and <a href="https://www.heroku.com/" target="_blank">Heroku</a>. 
+  I created, designed, and coded the website and logo.  The typefaces used are Museo Slab and Proxima Nova and served by <a href="http://typekit.com/">Typekit</a>.
+  The social media icons are provided by <a href="http://fontawesome.io" target="_blank">Font Awesome</a>.</p>
+</section>
