@@ -28,11 +28,11 @@ defmodule Blog.ArticleView do
     |> raw 
   end
 
-  def date_as_iso8601(%Blog.Article{created_on: dt}) do
-    NaiveDateTime.to_iso8601(dt)
+  def date_as_iso8601(%Blog.Article{inserted_at: dt}) do
+    Ecto.DateTime.to_iso8601(dt)
   end
 
-  def date_as_readable(%Blog.Article{created_on: dt}) do
+  def date_as_readable(%Blog.Article{inserted_at: dt}) do
     month = Enum.at(@months, dt.month - 1) 
     day   = dt.day
     year  = dt.year

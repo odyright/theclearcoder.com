@@ -8,3 +8,12 @@ config :blog, Blog.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+# configure database
+config :blog, Blog.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: "postgres",
+  password: "postgres",
+  database: "blog_test",
+  hostname: "localhost",
+  pool: Ecto.Adapters.SQL.Sandbox

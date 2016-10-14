@@ -10,6 +10,8 @@ defmodule Blog do
     children = [
       # Start the endpoint when the application starts
       supervisor(Blog.Endpoint, []),
+      # Start the ecto repository
+      supervisor(Blog.Repo, [])
       # Start your own worker by calling: Blog.Worker.start_link(arg1, arg2, arg3)
       # worker(Blog.Worker, [arg1, arg2, arg3]),
     ]

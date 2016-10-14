@@ -18,7 +18,11 @@ defmodule Blog.Web do
 
   def model do
     quote do
-      # Define common model functionality
+      use Ecto.Schema
+
+      import Ecto
+      import Ecto.Changeset
+      import Ecto.Query
     end
   end
 
@@ -27,6 +31,9 @@ defmodule Blog.Web do
       use Phoenix.Controller
 
       alias Blog.Repo
+      import Ecto
+      import Ecto.Query
+
       import Blog.Router.Helpers
       import Blog.Gettext
     end
