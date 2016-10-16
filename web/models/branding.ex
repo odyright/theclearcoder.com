@@ -10,5 +10,6 @@ defmodule Blog.Branding do
     model
     |> cast(params, ~w(item copy), [])
     |> validate_required([:item, :copy])
+    |> unique_constraint(:item)
   end
 end

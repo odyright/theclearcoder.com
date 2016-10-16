@@ -14,4 +14,15 @@ defmodule Blog.TestHelpers do
     |> Blog.Article.changeset(changes)
     |> Repo.insert!()
   end
+
+  def insert_branding(attrs \\ %{}) do
+    changes = Dict.merge(%{
+      item: "heading",
+      copy: "I'm Brian Gamble"
+    }, attrs)
+
+    %Blog.Branding{}
+    |> Blog.Branding.changeset(changes)
+    |> Repo.insert!()
+  end
 end
