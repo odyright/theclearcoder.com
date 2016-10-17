@@ -19,4 +19,9 @@ defmodule Blog.PageViewTest do
     assert PageView.intro([%Blog.Branding{item: "intro", copy: "Hello"}]) ==
        {:safe, "<p>Hello</p>\n"}
   end
+
+  test "returns the bio as safe html" do
+    assert PageView.bio([%Blog.Branding{item: "bio", copy: "I write code"}]) ==
+       {:safe, "<p>I write code</p>\n"}
+  end
 end

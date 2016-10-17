@@ -16,4 +16,10 @@ defmodule Blog.PageView do
     |> Branding.get_copy("intro")
     |> to_html
   end
+
+  def bio(branding) do
+    branding
+    |> Branding.get_copy("bio")
+    |> to_html
+  end
 end
