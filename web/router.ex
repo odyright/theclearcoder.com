@@ -13,7 +13,8 @@ defmodule Blog.Router do
     # Use the default browser stack
     pipe_through :browser 
 
-    get "/.well-known/acme-challenge/:content", PageController, :letsencrypt
+    # Used for letsencrypt
+    #get "/.well-known/acme-challenge/:content", PageController, :letsencrypt
 
     get "/articles",       ArticleController, :index
     get "/articles/:slug", ArticleController, :show
