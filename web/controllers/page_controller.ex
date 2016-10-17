@@ -10,7 +10,11 @@ defmodule Blog.PageController do
   end
 
   def letsencrypt(conn, %{"content" => content}) do
-    text conn, "#{content}.l-LgFiN3ROxzE7NvVOoSSICd208sHQTLgE7IC67LhmQ"
+    if System.get_env("LETSENCRYPT") == "ON" do 
+      text conn, "#{content}.l-LgFiN3ROxzE7NvVOoSSICd208sHQTLgE7IC67LhmQ"
+    else
+      text conn, ""
+    end
   end
 
   defp branding do
