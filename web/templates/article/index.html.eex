@@ -3,7 +3,7 @@
     <h1><%= link article.title, to: article_path(@conn, :show, article.slug) %></h1>
     <time datetime="<%= date_as_iso8601(article) %>"><%= date_as_readable(article) %></time>
     <section>
-      <%= md_to_html(article.teaser) %>
+      <%= to_html(article.teaser) %>
       <div>
         <%= link to: article_path(@conn, :show, article.slug) do %>
           <button>Continue reading</button>
