@@ -2,7 +2,7 @@
   <h2>About</h2>
   <div class="clear">
     <img class="round align-right" src="<%= static_path(@conn, "/images/brian.jpg") %>" height="125" width="125">
-    <%= bio(@branding) %>
+    <%= html_copy(@branding, "bio") %>
   </div>
 </section>
 <section>

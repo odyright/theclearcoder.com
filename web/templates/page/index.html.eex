@@ -1,4 +1,4 @@
 <div class="heading">
-  <%= headline(@branding) %>
+  <%= html_copy(@branding, "headline") %>
 </div>
-<%= intro(@branding) %>
+<%= html_copy(@branding, "intro") %>
