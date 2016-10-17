@@ -14,7 +14,7 @@ defmodule Blog.Router do
     pipe_through :browser 
 
     # Used for letsencrypt
-    #get "/.well-known/acme-challenge/:content", PageController, :letsencrypt
+    get "/.well-known/acme-challenge/:content", PageController, :letsencrypt
 
     get "/articles",       ArticleController, :index
     get "/articles/:slug", ArticleController, :show
