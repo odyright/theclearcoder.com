@@ -1,3 +1,4 @@
-<h1 class="heading">I'm Brian Gamble, a developer, designer, and coffee drinker.  <mark>I believe in tested, simple, and clear code, and I strive for minimalism in my designs.</mark></h1>
-<p>For over two decades I've made a living as a web developer.  (My first web browser was <a href="https://en.wikipedia.org/wiki/Mosaic_(web_browser)" target="_blank">NCSA Mosaic</a> running on a <a href="https://en.wikipedia.org/wiki/SPARCstation_20" target="_blank">Sun SPARCstation</a>.)  A lot has changed during that time, and that's why I love technology&mdash;there's always something new to learn.</p>
-<p>Throughout my career I've been blessed to collaborate with really great people and to work at a diverse set of companies.  Now I'm stepping out with my own company, <a href="http://gentlelionstudios.com" target="_blank">Gentle Lion Studios</a>.</p>
+<div class="heading">
+  <%= headline(@branding) %>
+</div>
+<%= intro(@branding) %>

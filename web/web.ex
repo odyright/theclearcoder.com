@@ -52,6 +52,8 @@ defmodule Blog.Web do
       import Blog.Router.Helpers
       import Blog.ErrorHelpers
       import Blog.Gettext
+
+      import Blog.ViewHelpers
     end
   end
 
