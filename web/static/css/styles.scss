@@ -55,13 +55,14 @@ h1 {
   }
 
   &.heading {
-    margin-bottom: 0.65em;
+    margin-bottom: 0.3em;
   }
 
   &.heading:after {
     display: block;
+    padding-top: 0.5em;
     color: $brandLightGray;
-    content: "§";
+    content: "* * * * *";
     text-align: center;
   }
 }
@@ -199,7 +200,7 @@ time {
     font-size: 112%; 
   }
 
-  @include container(78%);
+  @include container(75%);
 
   img.logo {
     @include dimensions(4em);
@@ -215,5 +216,5 @@ time {
     font-size: 117%; 
   }
 
-  @include container(65%);
+  @include container(60%);
 }
