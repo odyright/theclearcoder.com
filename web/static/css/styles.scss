@@ -54,13 +54,9 @@ h1 {
     font-weight: inherit;
   }
 
-  &.heading {
-    margin-bottom: 0.3em;
-  }
-
   &.heading:after {
     display: block;
-    padding-top: 0.5em;
+    padding-top: 0.6em;
     color: $brandLightGray;
     content: "* * * * *";
     text-align: center;
