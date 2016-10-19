@@ -10,7 +10,6 @@ defmodule Blog.Router do
   end
 
   scope "/", Blog do
-    # Use the default browser stack
     pipe_through :browser 
 
     # Used for letsencrypt
@@ -21,5 +20,12 @@ defmodule Blog.Router do
 
     get "/info",           PageController, :info
     get "/",               PageController, :index
+  end
+
+  scope "/admin", Blog do
+    pipe_through :browser 
+
+    get "/users",     UserController, :index
+    get "/users/:id", UserController, :show
   end
 end
