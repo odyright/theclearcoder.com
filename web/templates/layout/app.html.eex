@@ -28,6 +28,20 @@
         </nav>
       </div>
     </header>
+    <%= if @current_user do %>
+      <div class="admin">
+        <nav>
+          <ol>
+            <li><%= @current_user.username %></li>
+            <li>
+              <%= link "Log out", 
+                    to: session_path(@conn, :delete, @current_user),
+                    method: "delete" %>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    <% end %>
     <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p> 
     <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
     <main role="main">
@@ -48,5 +62,6 @@
         <div><img class="logo-bw" src="<%= static_path(@conn, "/images/logo-bw.svg") %>" alt="logo" /></div>
       </div>
     </footer>
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script> 
   </body>
 </html>
