@@ -22,8 +22,8 @@ defmodule Blog.Mixfile do
 
   def application do
     [mod: {Blog, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, 
+                    :gettext, :phoenix_ecto, :postgrex, :comeonin]]
   end
 
   defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
@@ -40,7 +40,8 @@ defmodule Blog.Mixfile do
       {:gettext,             "~> 0.11"},
       {:cowboy,              "~> 1.0"},
       {:excoveralls,         "~> 0.5", only: :test},
-      {:earmark,             "~> 1.0"}
+      {:earmark,             "~> 1.0"},
+      {:comeonin,            "~> 2.0"}
    ]
   end
 
