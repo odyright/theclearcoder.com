@@ -25,7 +25,6 @@ defmodule Blog.Router do
   scope "/admin", Blog do
     pipe_through :browser 
 
-    get "/users",     UserController, :index
-    get "/users/:id", UserController, :show
+    resources "/users", UserController, only: [:index, :show, :new, :create]
   end
 end
