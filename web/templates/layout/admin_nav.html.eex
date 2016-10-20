@@ -1,0 +1,13 @@
+<%= if @current_user do %>
+  <div class="admin-nav">
+    <span><b><%= @current_user.username %></b></span>
+    <ol>
+      <li><%= link "Users", to: user_path(@conn, :index) %></li>
+      <li>
+        <%= link "Log out", 
+        to: session_path(@conn, :delete, @current_user),
+        method: "delete" %>
+      </li>
+    </ol>
+  </div>
+<% end %>

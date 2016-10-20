@@ -14,6 +14,43 @@ a:hover {
   color: $brandGreen;
 }
 
+.admin-nav {
+  background-color: lighten($brandLightGray, 10%);
+  border: $brandMedGray 1px solid;
+  border-radius: 5px;
+  font-size: 80%; 
+  margin-bottom: 1em;
+  padding: 0.65em;
+  overflow: auto;
+  
+  span {
+    float: left;
+  }
+
+  ol {
+    float: right;
+    text-align: right;
+  }
+
+  ol li {
+    display: inline-block;
+    margin-right: 1em;
+
+    a { 
+      color: $brandDarkGray;
+      font-weight: inherit;
+    }
+  }
+
+  ol li:last-child {
+    margin-right: 0;
+  }
+}
+
+b {
+  font-weight: 700
+}
+
 body {
   @include fontMuseoSlab;
   line-height: 1.4;

@@ -30,21 +30,8 @@
     </header>
     <main role="main">
       <div class="container">
-        <%= if @current_user do %>
-          <div class="admin">
-            <nav>
-              <ol>
-                <li><%= @current_user.username %></li>
-                <li>
-                  <%= link "Log out", 
-                        to: session_path(@conn, :delete, @current_user),
-                        method: "delete" %>
-                </li>
-              </ol>
-            </nav>
-          </div>
-        <% end %>
         <%= render "alerts.html", conn: @conn %>
+        <%= render "admin_nav.html", conn: @conn, current_user: @current_user %>
         <%= render @view_module, @view_template, assigns %>
       </div>
     </main>
