@@ -1,0 +1,13 @@
+table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid $brandLightGray;
+
+  th,
+  td {
+    padding: 1em;
+    vertical-align: top;
+    border-top: 1px solid $brandLightGray;
+  }
+}
