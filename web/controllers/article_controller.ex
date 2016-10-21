@@ -5,7 +5,8 @@ defmodule Blog.ArticleController do
   alias Blog.Article
 
   def index(conn, _params) do
-    articles = Repo.all(Article)
+    query = Article |> order_by(desc: :inserted_at)
+    articles = Repo.all(query)
     render conn, "index.html", articles: articles
   end
 
