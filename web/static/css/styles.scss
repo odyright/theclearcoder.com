@@ -49,6 +49,18 @@ a:hover {
   }
 }
 
+article { 
+  border-bottom: $brandLightGray 1px dotted; 
+  padding-bottom: 1.5em;
+  margin-bottom: 1.5em;
+
+  &:last-child { 
+    border-bottom: none; 
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+}
+
 b {
   font-weight: 700
 }
