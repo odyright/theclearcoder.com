@@ -22,5 +22,5 @@
     <%= textarea f, :content, placeholder: "Content goes here...", rows: 15, class: "form-control" %>
     <%= error_tag f, :content %>
   </div>
-  <%= submit "Create Artcle", class: "btn" %>
+  <%= submit "Create Article", class: "btn" %>
 <% end %>
