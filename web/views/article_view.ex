@@ -4,11 +4,11 @@ defmodule Blog.ArticleView do
   @months  [ "January", "February", "March", "April", "May", "June",
              "July", "August", "September", "October", "November", "December" ]
 
-  def page_title(:index, _assigns), do: "Articles | "
   def page_title(:show, assigns) do
     title = assigns.article.title |> concatenate
     title <> " | "
   end
+  def page_title(_action, _assigns), do: "Articles | "
 
   defp concatenate(str) do
     if String.length(str) > 40 do
