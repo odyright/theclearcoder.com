@@ -1,5 +1,4 @@
 <h1>Listing Users</h1>
-
 <table>
   <%= for user <- @users do %>
     <tr>
@@ -8,3 +7,4 @@
     </tr>
   <% end %>
 </table>
+<p><%= link "New user", to: user_path(@conn, :new) %></p>

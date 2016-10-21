@@ -3,12 +3,13 @@
 }
 
 .form-control {
-  width: 100%;
-  border: $brandLightGray 1px solid;
+  border: $brandLightGray 2px solid;
   border-radius: 4px;
+  color: $brandMedGray;
   font-family: inherit;
   font-size: 85%;
   padding: 0.55em;
+  width: 100%;
 }
 
 .help-block {
