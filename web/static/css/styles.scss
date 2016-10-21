@@ -82,8 +82,18 @@ button, .btn {
   font-size: 100%;
 }
 
+.btn-cancel {
+  border-color: $brandMedGray;
+  color: $brandMedGray;
+  font-weight: inherit;
+}
+
 .container {
   margin: 0 auto;
+}
+
+em {
+  font-style: italic;
 }
 
 footer {
@@ -128,6 +138,11 @@ header {
   border-top: 5px solid $brandGreen;
   border-bottom: 1px solid $brandLightGray;
   overflow: auto;
+}
+
+i.edit {
+  margin-left: 0.35em;
+  font-size: 75%;
 }
 
 img {

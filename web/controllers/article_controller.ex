@@ -33,6 +33,25 @@ defmodule Blog.ArticleController do
     end
   end
 
+  def edit(conn, %{"slug" => slug}) do
+    article = Repo.get_by!(Article, slug: slug)
+    changeset = Article.changeset(article)
+    render(conn, "edit.html", article: article, changeset: changeset)
+  end
+
+  def update(conn, %{"slug" => slug, "article" => article_params}) do 
+    article = Repo.get_by!(Article, slug: slug)
+    changeset = Article.changeset(article, article_params)
+    case Repo.update(changeset) do 
+      {:ok, article} ->
+        conn
+        |> put_flash(:info, "Article updated successfully.") 
+        |> redirect(to: article_path(conn, :show, article.slug))
+      {:error, changeset} ->
+        render(conn, "edit.html", article: article, changeset: changeset)
+    end 
+  end
+
   defp render_article(conn, nil) do
     conn
     |> put_status(:not_found)
