@@ -52,6 +52,15 @@ defmodule Blog.ArticleController do
     end 
   end
 
+  def delete(conn, %{"slug" => slug}) do 
+    article = Repo.get_by!(Article, slug: slug) 
+    Repo.delete!(article)
+
+    conn
+    |> put_flash(:info, "Article deleted successfully.") 
+    |> redirect(to: article_path(conn, :index))
+  end
+
   defp render_article(conn, nil) do
     conn
     |> put_status(:not_found)

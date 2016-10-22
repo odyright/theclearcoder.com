@@ -17,7 +17,7 @@ defmodule Blog.Router do
     get "/.well-known/acme-challenge/:content", PageController, :letsencrypt
 
     resources "/articles", ArticleController, param: "slug", 
-                                              only: [:index, :show, :new, :create, :edit, :update]
+                                              only: [:index, :show, :new, :create, :edit, :update, :delete]
     resources "/sessions", SessionController, only: [:new, :create, :delete]
     get "/info",           PageController, :info
     get "/",               PageController, :index

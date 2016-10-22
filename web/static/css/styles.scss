@@ -16,6 +16,23 @@ a:hover {
   color: $brandGreen;
 }
 
+.actions {
+  font-size: 120%;
+
+  .delete {
+    color: darken($red, 20%);
+  }
+
+  .edit {
+    color: darken(yellow, 5%);
+  }
+
+  ol li {
+    padding-right: 0.5em;
+    display: inline-block;
+  }
+}
+
 .admin-nav {
   background-color: lighten($brandLightGray, 10%);
   border: $brandMedGray 1px solid;
@@ -138,11 +155,6 @@ header {
   border-top: 5px solid $brandGreen;
   border-bottom: 1px solid $brandLightGray;
   overflow: auto;
-}
-
-i.edit {
-  margin-left: 0.35em;
-  font-size: 75%;
 }
 
 img {

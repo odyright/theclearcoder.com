@@ -1,12 +1,23 @@
 <article itemscope itemType="http://schema.org/BlogPosting">
-  <h1 itemprop="headline">
-    <%= @article.title %>
-    <%= if @current_user do %>
-      <%= link to: article_path(@conn, :edit, @article.slug) do %>
-        <i class="edit fa fa-pencil-square-o" aria-hidden="true"></i>
-      <% end %>
-    <% end %>
-  </h1>
+  <%= if @current_user do %>
+    <div class="actions">
+      <ol>
+        <li>
+          <%= link to: article_path(@conn, :edit, @article.slug) do %>
+            <i class="edit fa fa-pencil-square-o" aria-hidden="true"></i>
+          <% end %>
+        </li>
+        <li>
+          <%= link to: article_path(@conn, :delete, @article.slug), 
+                       method: "delete",
+                       data: [confirm: "Are you sure you want to delete this article?"] do %>
+            <i class="delete fa fa-trash-o" aria-hidden="true"></i>
+          <% end %>
+        </li>
+      </ol>
+    </div>
+  <% end %>
+  <h1 itemprop="headline"><%= @article.title %></h1>
   <time datetime="<%= date_as_iso8601(@article) %>" itemprop="datePublished"><%= date_as_readable(@article) %></time>
   <section itemprop="articleBody">
     <%= content_as_html(@article) %>
