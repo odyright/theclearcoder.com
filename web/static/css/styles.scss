@@ -17,7 +17,7 @@ a:hover {
 }
 
 .actions {
-  font-size: 120%;
+  font-size: 130%;
 
   .delete {
     color: darken($red, 20%);
@@ -28,7 +28,7 @@ a:hover {
   }
 
   ol li {
-    padding-right: 0.5em;
+    padding-right: 1em;
     display: inline-block;
   }
 }
