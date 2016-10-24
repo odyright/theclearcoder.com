@@ -1,12 +1,14 @@
 defmodule Blog.PageController do
   use Blog.Web, :controller
 
+  plug :load_branding when action in [:index, :info]
+
   def index(conn, _params) do
-    render conn, "index.html", branding: branding()
+    render conn, "index.html"
   end
   
   def info(conn, _params) do
-    render conn, "info.html", branding: branding()
+    render conn, "info.html"
   end
 
   def letsencrypt(conn, %{"content" => content}) do
@@ -17,7 +19,8 @@ defmodule Blog.PageController do
     end
   end
 
-  defp branding do
-    Repo.all(Blog.Branding)
+  defp load_branding(conn, _) do
+    content = Repo.all(Blog.Branding)
+    assign(conn, :branding, content)
   end
 end
