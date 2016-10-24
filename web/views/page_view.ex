@@ -7,7 +7,12 @@ defmodule Blog.PageView do
 
   def html_copy(branding, item) do
     branding
-    |> Branding.get_copy(item)
+    |> get_copy(item)
     |> to_html
+  end
+
+  def get_copy(content, item) do
+    content = Enum.find(content, fn(branding) -> branding.item == item end)
+    content && content.copy
   end
 end
