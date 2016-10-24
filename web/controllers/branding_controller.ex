@@ -7,4 +7,9 @@ defmodule Blog.BrandingController do
     branding = Repo.all(query)
     render conn, "index.html", branding: branding
   end
+
+  def show(conn, %{"id" => id}) do
+    content = Repo.get!(Branding, id)
+    render conn, "show.html", content: content
+  end
 end

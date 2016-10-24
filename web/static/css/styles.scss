@@ -89,6 +89,12 @@ body {
   color: $brandDarkGray;
 }
 
+.box {
+  border: $brandLightGray 1px solid;
+  border-radius: 5px;
+  padding: 1em;
+}
+
 button, .btn { 
   background-color: inherit;
   color: $brandGreen;

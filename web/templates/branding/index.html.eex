@@ -2,7 +2,11 @@
 <table>
   <%= for content <- @branding do %>
     <tr>
-      <td><%= content.item %></td>
+      <td>
+        <%= link to: branding_path(@conn, :show, content.id) do %>
+          <%= content.item %>
+        <% end %>
+      </td>
       <td><%= content.copy %></td>
     </tr>
   <% end %>
