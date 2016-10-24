@@ -1,0 +1,9 @@
+<h1>Branding</h1>
+<table>
+  <%= for content <- @branding do %>
+    <tr>
+      <td><%= content.item %></td>
+      <td><%= content.copy %></td>
+    </tr>
+  <% end %>
+</table>

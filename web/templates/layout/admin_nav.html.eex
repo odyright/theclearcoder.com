@@ -3,6 +3,7 @@
     <span><b><%= @current_user.username %></b></span>
     <ol>
       <li><%= link "New Article", to: article_path(@conn, :new) %></li>
+      <li><%= link "Branding", to: branding_path(@conn, :index) %></li>
       <li><%= link "Users", to: user_path(@conn, :index) %></li>
       <li>
         <%= link "Log out", 

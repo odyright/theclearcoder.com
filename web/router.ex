@@ -27,5 +27,6 @@ defmodule Blog.Router do
     pipe_through [:browser, :authenticate_user] 
 
     resources "/users", UserController, only: [:index, :show, :new, :create]
+    resources "/branding", BrandingController, only: [:index]
   end
 end
