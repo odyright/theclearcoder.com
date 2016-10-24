@@ -37,7 +37,7 @@ defmodule Blog.BrandingController do
   end
 
   def update(conn, %{"id" => id, "branding" => branding_params}) do 
-    branding = Repo.get_by!(Branding, id: id)
+    branding = Repo.get!(Branding, id)
     changeset = Branding.changeset(branding, branding_params)
     case Repo.update(changeset) do 
       {:ok, branding} ->
@@ -47,5 +47,14 @@ defmodule Blog.BrandingController do
       {:error, changeset} ->
         render(conn, "edit.html", branding: branding, changeset: changeset)
     end 
+  end
+
+  def delete(conn, %{"id" => id}) do 
+    branding = Repo.get!(Branding, id) 
+    Repo.delete!(branding)
+
+    conn
+    |> put_flash(:info, "Branding deleted successfully.") 
+    |> redirect(to: branding_path(conn, :index))
   end
 end

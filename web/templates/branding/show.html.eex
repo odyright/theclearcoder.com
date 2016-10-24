@@ -6,6 +6,13 @@
           <i class="edit fa fa-pencil-square-o" aria-hidden="true"></i>
         <% end %>
       </li>
+      <li>
+        <%= link to: branding_path(@conn, :delete, @branding.id), 
+                     method: "delete",
+                     data: [confirm: "Are you sure you want to delete this branding?"] do %>
+          <i class="delete fa fa-trash-o" aria-hidden="true"></i>
+        <% end %>
+      </li>
     </ol>
   </div>
 <% end %>
