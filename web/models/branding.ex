@@ -6,7 +6,7 @@ defmodule Blog.Branding do
     field :copy, :string
   end
 
-  def changeset(model, params \\ :empty) do
+  def changeset(model, params \\ %{}) do
     model
     |> cast(params, ~w(item copy), [])
     |> validate_required([:item, :copy])

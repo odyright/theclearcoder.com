@@ -1,9 +1,20 @@
+<%= if @current_user do %>
+  <div class="actions">
+    <ol>
+      <li>
+        <%= link to: branding_path(@conn, :edit, @branding.id) do %>
+          <i class="edit fa fa-pencil-square-o" aria-hidden="true"></i>
+        <% end %>
+      </li>
+    </ol>
+  </div>
+<% end %>
 <h1>Showing Branding</h1>
-<p>Item: <b><%= @content.item %></b></p>
+<p>Item: <b><%= @branding.item %></b></p>
 <section class="box">
-  <p><%= @content.copy %></p>
+  <p><%= @branding.copy %></p>
 </section>
 <p>HTML preview:</p>
 <section class="box">
-  <%= to_html(@content.copy) %>
+  <%= to_html(@branding.copy) %>
 </section>
