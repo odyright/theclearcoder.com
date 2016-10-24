@@ -13,6 +13,23 @@ defmodule Blog.BrandingController do
     render conn, "show.html", branding: branding
   end
 
+  def new(conn, _) do
+    changeset = Branding.changeset(%Branding{})
+    render conn, "new.html", changeset: changeset
+  end
+
+  def create(conn, %{"branding" => branding_params}) do
+    changeset = Branding.changeset(%Branding{}, branding_params)
+    case Repo.insert(changeset) do
+      {:ok, branding} ->
+        conn
+        |> put_flash(:info, "#{branding.item} created!")
+        |> redirect(to: branding_path(conn, :index))
+      {:error, changeset} ->
+        render(conn, "new.html", changeset: changeset)
+    end
+  end
+
   def edit(conn, %{"id" => id}) do
     branding = Repo.get!(Branding, id)
     changeset = Branding.changeset(branding)
@@ -23,7 +40,7 @@ defmodule Blog.BrandingController do
     branding = Repo.get_by!(Branding, id: id)
     changeset = Branding.changeset(branding, branding_params)
     case Repo.update(changeset) do 
-      {:ok, article} ->
+      {:ok, branding} ->
         conn
         |> put_flash(:info, "Branding updated successfully.") 
         |> redirect(to: branding_path(conn, :show, branding.id))

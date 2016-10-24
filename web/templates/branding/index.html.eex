@@ -11,3 +11,4 @@
     </tr>
   <% end %>
 </table>
+<p><%= link "New branding", to: branding_path(@conn, :new) %></p>
