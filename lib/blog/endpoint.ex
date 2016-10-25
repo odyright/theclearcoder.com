@@ -36,7 +36,7 @@ defmodule Blog.Endpoint do
   plug Plug.Session,
     store: :cookie,
     key: "_blog_key",
-    signing_salt: "/Am9GUHv"
+    signing_salt: System.get_env("SIGNING_SALT") || "r3zeRM7N"
 
   plug Blog.Router
 end
