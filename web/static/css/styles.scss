@@ -33,6 +33,11 @@ a:hover {
   }
 }
 
+abbr {
+  border-bottom: $brandLightGray 2px dotted;
+  cursor: help;
+}
+
 .admin-nav {
   background-color: lighten($brandLightGray, 10%);
   border: $brandMedGray 1px solid;
