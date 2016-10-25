@@ -1,6 +1,6 @@
 <%= if @current_user do %>
   <div class="admin-nav">
-    <span><b><%= @current_user.username %></b></span>
+    <p><b><%= @current_user.username %></b></p>
     <ol>
       <li><%= link "New Article", to: article_path(@conn, :new) %></li>
       <li><%= link "Branding", to: branding_path(@conn, :index) %></li>

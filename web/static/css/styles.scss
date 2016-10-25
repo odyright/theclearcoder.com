@@ -41,23 +41,19 @@ a:hover {
   margin-bottom: 1em;
   padding: 0.65em;
   overflow: auto;
-  
-  span {
-    float: left;
-  }
-
-  ol {
-    float: right;
-    text-align: right;
-  }
+  text-align: center;
 
   ol li {
     display: inline-block;
-    margin-right: 1em;
+    margin-right: 0.65em;
 
     a { 
       color: $brandDarkGray;
       font-weight: inherit;
+
+      &:hover {
+        color: $brandGreen;
+      }
     }
   }
 
@@ -257,7 +253,7 @@ time {
   font-style: italic;
 }
 
-@include breakpoint(400) {
+@include breakpoint(25em) {
   body {
     font-size: 105%;
   }
@@ -277,7 +273,25 @@ time {
   }
 }
 
-@include breakpoint(1024) {
+@include breakpoint(62em) {
+  .admin-nav {
+    text-align: left;
+
+    p {
+      float: left;
+    }
+
+    ol {
+      float: right;
+      text-align: right;
+
+      li {
+        padding-top: 0.5em;
+        margin-right: 1.5em;
+      }
+    }
+  }
+
   body { 
     font-size: 112%; 
   }
@@ -293,7 +307,7 @@ time {
   }
 }
 
-@include breakpoint(1360) {
+@include breakpoint(85em) {
   body { 
     font-size: 117%; 
   }
