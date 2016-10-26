@@ -3,7 +3,7 @@ defmodule Blog.BrandingController do
   alias Blog.Branding
 
   def index(conn, _) do
-    query = Branding |> order_by(desc: :item)
+    query = Branding |> order_by(asc: :item)
     branding = Repo.all(query)
     render conn, "index.html", branding: branding
   end
