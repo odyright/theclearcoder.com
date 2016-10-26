@@ -7,8 +7,5 @@
 </section>
 <section>
   <h2>Colophon</h2>
-  <p>I created, designed, and built the website and logo.</p>
-  <p>The site is powered by a custom <abbr title="Content management system">CMS</abbr> that uses <a href="http://www.phoenixframework.org" target="_blank">Phoenix</a>, <a href="http://elixir-lang.org" target="_blank">Elixir</a>, and <a href="https://www.postgresql.org" target="_blank">PostgreSQL</a>.  The website is hosted by <a href="https://www.heroku.com/" target="_blank">Heroku</a>.</p>
-  <p>The typefaces are Museo Slab and Proxima Nova, served by <a href="http://typekit.com/">Typekit</a>.  The social media icons are provided by <a href="http://fontawesome.io" target="_blank">Font Awesome</a>.</p>
-  <p>The logo was created using <a href="http://www.adobe.com/products/illustrator.html" target="_blank">Illustrator</a>.</p>
+  <%= html_copy(@branding, "colophon") %>
 </section>
