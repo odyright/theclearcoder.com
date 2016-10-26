@@ -4,15 +4,44 @@ defmodule Blog.ArticleTest do
 
   @valid_attrs %{slug: "hello-world", title: "Hello, World", teaser: "click here", 
                  content: "test, test, test", inserted_at: Ecto.DateTime.utc()}
-  @invalid_attrs %{}
 
   test "changeset with valid attributes" do
     changeset = Article.changeset(%Article{}, @valid_attrs)
     assert changeset.valid?
   end
 
-  test "changeset with invalid attributes" do
-    changeset = Article.changeset(%Article{}, @invalid_attrs)
+  test "slug is required" do
+    changeset = changeset_with_blank(:slug)
     refute changeset.valid?
+  end
+
+  test "title is required" do
+    changeset = changeset_with_blank(:title)
+    refute changeset.valid?
+  end
+
+  test "teaser is required" do
+    changeset = changeset_with_blank(:teaser)
+    refute changeset.valid?
+  end
+
+  test "content is required" do
+    changeset = changeset_with_blank(:content)
+    refute changeset.valid?
+  end
+
+  test "inserted_at is required" do
+    changeset = changeset_without(:inserted_at)
+    refute changeset.valid?
+  end
+
+  defp changeset_with_blank(key) do
+    attrs = Dict.merge(@valid_attrs, %{key => " "})
+    Article.changeset(%Article{}, attrs)
+  end
+
+  defp changeset_without(key) do
+    attrs = Dict.drop(@valid_attrs, [key])
+    Article.changeset(%Article{}, attrs)
   end
 end

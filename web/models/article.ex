@@ -13,6 +13,7 @@ defmodule Blog.Article do
   def changeset(model, params \\ %{}) do
     model
     |> cast(params, ~w(slug title teaser content inserted_at), [])
+    |> validate_required([:slug, :title, :teaser, :content])
     |> unique_constraint(:slug)
   end
 end
