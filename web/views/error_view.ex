@@ -15,5 +15,5 @@ defmodule Blog.ErrorView do
     render "500.html", assigns
   end
 
-  def page_title(_index, _assigns), do: "An error occurred | "
+  def page_title(_index, _assigns), do: "An error occurred"
 end

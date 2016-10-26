@@ -20,6 +20,6 @@ defmodule Blog.ErrorViewTest do
   end
 
   test "renders page title for error page" do
-    assert Blog.ErrorView.page_title(nil, %{}) == "An error occurred | "
+    assert Blog.ErrorView.page_title(nil, %{}) == "An error occurred"
   end
 end
