@@ -19,7 +19,7 @@
 <h1>Showing Branding</h1>
 <p>Item: <b><%= @branding.item %></b></p>
 <section class="box">
-  <p><%= @branding.copy %></p>
+  <pre><%= @branding.copy %></pre>
 </section>
 <p>HTML preview:</p>
 <section class="box">

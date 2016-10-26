@@ -7,7 +7,9 @@
           <%= content.item %>
         <% end %>
       </td>
-      <td><%= content.copy %></td>
+      <td>
+        <pre><%= content.copy %></pre>
+      </td>
     </tr>
   <% end %>
 </table>
