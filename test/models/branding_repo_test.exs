@@ -4,7 +4,7 @@ defmodule Blog.BrandingRepoTest do
 
   @attrs %{item: "headline", copy: "Test headline"}
 
-  test "converts unique_constraint on item to error" do
+  test "item must be unique" do
     insert_branding(%{item: "headline"})
 
     changeset = Branding.changeset(%Branding{}, @attrs)
