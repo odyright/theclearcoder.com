@@ -2,16 +2,38 @@
   margin-bottom: 1.25em;
   padding: 0.5em 1em;
   border-radius: 5px;
+
+  .close {
+    margin-left: 15px;
+    font-weight: bold;
+    float: right;
+    font-size: 110%;
+    line-height: 1.1em;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      color: black;
+    }
+  }
 }
 
 .alert-danger {
   border: $red 1px solid;
   color: $red;
   background-color: $redLight;
+
+  .close {
+    color: inherit;
+  }
 }
 
 .alert-info {
   border: $brandGreen 1px solid;
   color: $brandGreen;
   background-color: $brandGreenLight;
+
+  .close {
+    color: inherit;
+  }
 }
