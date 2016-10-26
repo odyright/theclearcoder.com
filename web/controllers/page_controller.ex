@@ -13,7 +13,7 @@ defmodule Blog.PageController do
 
   def letsencrypt(conn, %{"content" => content}) do
     if System.get_env("LETSENCRYPT") == "ON" do 
-      text conn, "#{content}.l-LgFiN3ROxzE7NvVOoSSICd208sHQTLgE7IC67LhmQ"
+      text conn, "#{content}#{System.get_env("LETSENCRYPT_RESPONSE")}"
     else
       text conn, ""
     end
