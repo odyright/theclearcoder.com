@@ -10,14 +10,17 @@ defmodule Blog.BrandingCopyTest do
   end
 
   test "item is required" do
-    attrs = Dict.merge(@valid_attrs, %{item: " "})
-    changeset = Branding.changeset(%Branding{}, attrs)
+    changeset = changeset_with_blank(:item)
     refute changeset.valid?
   end
 
   test "copy is required" do
-    attrs = Dict.merge(@valid_attrs, %{copy: " "})
-    changeset = Branding.changeset(%Branding{}, attrs)
+    changeset = changeset_with_blank(:copy)
     refute changeset.valid?
+  end
+
+  defp changeset_with_blank(key) do
+    attrs = Dict.merge(@valid_attrs, %{key => " "})
+    Branding.changeset(%Branding{}, attrs)
   end
 end
