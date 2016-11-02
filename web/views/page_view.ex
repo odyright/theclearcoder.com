@@ -3,6 +3,7 @@ defmodule Blog.PageView do
 
   def page_title(:index, _assigns), do: "Welcome"
   def page_title(:info, _assigns), do: "Info"
+  def page_title(:podcasts, _assigns), do: "Podcasts"
 
   def html_copy(branding, item) do
     branding

@@ -11,6 +11,11 @@ defmodule Blog.PageController do
     render conn, "info.html"
   end
 
+  defp load_branding(conn, _) do
+    content = Repo.all(Blog.Branding)
+    assign(conn, :branding, content)
+  end
+
   def letsencrypt(conn, %{"content" => content}) do
     if System.get_env("LETSENCRYPT") == "ON" do 
       text conn, "#{content}#{System.get_env("LETSENCRYPT_RESPONSE")}"
@@ -19,8 +24,7 @@ defmodule Blog.PageController do
     end
   end
 
-  defp load_branding(conn, _) do
-    content = Repo.all(Blog.Branding)
-    assign(conn, :branding, content)
+  def podcasts(conn, _) do
+    render conn, "podcasts.html"
   end
 end

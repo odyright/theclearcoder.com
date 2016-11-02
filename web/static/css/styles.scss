@@ -116,6 +116,10 @@ button, .btn {
   font-weight: inherit;
 }
 
+.centered {
+  text-align: center;
+}
+
 .container {
   margin: 0 auto;
 }
@@ -194,6 +198,10 @@ img {
   &.round {
     border-radius: 50%;
   }
+
+  &.small {
+    @include dimensions(200px);
+  }
 }
 
 input[type="submit"]:hover {
@@ -223,7 +231,7 @@ nav {
 
   ol li {
     display: inline;
-    margin-right: 1.25em;
+    margin-right: 0.75em;
 
     a { color: $brandDarkGray; }
   }
@@ -271,7 +279,7 @@ time {
   font-style: italic;
 }
 
-@include breakpoint(25em) {
+@include breakpoint(30em) {
   body {
     font-size: 105%;
   }
@@ -286,7 +294,7 @@ time {
     float: right;
 
     li {
-      margin-right: 1.5em;
+      margin-right: 1.1em;
     }
   }
 }

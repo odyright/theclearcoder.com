@@ -20,6 +20,7 @@ defmodule Blog.Router do
                                               only: [:index, :show, :new, :create, :edit, :update, :delete]
     resources "/sessions", SessionController, only: [:new, :create, :delete]
     get "/info",           PageController, :info
+    get "/podcasts",       PageController, :podcasts
     get "/",               PageController, :index
   end
 
