@@ -12,8 +12,12 @@ a {
 }
 
 a:hover {
-  opacity: 0.75;
+  opacity: $opacity;
   color: $brandGreen;
+
+  img {
+    opacity: $opacity;
+  }
 }
 
 .actions {
@@ -182,7 +186,7 @@ img {
 
   &.logo-bw {
     padding-top: 1em;
-    @include dimensions(3em);
+    @include dimensions(2.25em);
     display: block;
     margin: 0 auto;
   }
@@ -194,7 +198,7 @@ img {
 
 input[type="submit"]:hover {
   cursor: pointer;
-  opacity: 0.75;
+  opacity: $opacity;
 }
 
 main {
@@ -317,7 +321,7 @@ time {
   }
 
   img.logo-bw {
-    @include dimensions(3.25em);
+    @include dimensions(2.5em);
   }
 }
 

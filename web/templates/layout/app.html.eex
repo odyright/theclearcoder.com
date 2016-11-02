@@ -45,7 +45,11 @@
           <li><a href="https://soundcloud.com/brian_gamble" target="_blank"><i class="fa fa-soundcloud"></i></a></li>
         </ol>
         <p class="license">&copy; 2016 Brian Gamble. All rights reserved.</p>
-        <div><img class="logo-bw" src="<%= static_path(@conn, "/images/logo-bw.svg") %>" alt="logo" /></div>
+        <p>
+          <a href="<%= page_path(@conn, :index) %>">
+            <img class="logo-bw" src="<%= static_path(@conn, "/images/logo-bw.svg") %>" alt="logo" />
+          </a>
+        </p>
       </div>
     </footer>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script> 
