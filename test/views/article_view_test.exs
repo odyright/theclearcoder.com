@@ -3,8 +3,7 @@ defmodule Blog.ArticleViewTest do
   alias Blog.ArticleView
   
   setup do
-    {:ok, article: insert_article(%{slug: "test-article", title: "Test article", 
-                                    inserted_at: ~N{2016-05-20 12:34:10}})}
+    {:ok, article: Fixtures.build(:article)}
   end
 
   test "returns the created on date as iso8601", %{article: article} do
@@ -20,7 +19,7 @@ defmodule Blog.ArticleViewTest do
   end
 
   test "returns the page title for the show page", %{article: article} do
-    assert ArticleView.page_title(:show, %{article: article}) == "Test article"
+    assert ArticleView.page_title(:show, %{article: article}) == "Test Article"
   end
 
   test "truncates the page title when the article title is longer than 40 chars" do

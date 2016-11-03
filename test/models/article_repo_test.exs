@@ -6,9 +6,10 @@ defmodule Blog.ArticleRepoTest do
            content: "test, test, test", inserted_at: Ecto.DateTime.utc()}
 
   test "converts unique_constraint on slug to error" do
-    insert_article(%{slug: "my-test"})
+    Fixtures.create(:article)
 
-    changeset = Article.changeset(%Article{}, @attrs)
+    new_article = Fixtures.build(:article)
+    changeset = Article.changeset(new_article)
     assert {:error, changeset} = Repo.insert(changeset)
     assert {:slug, {"has already been taken", []}} in changeset.errors
   end

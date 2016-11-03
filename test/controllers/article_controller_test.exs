@@ -7,10 +7,10 @@ defmodule Blog.ArticleControllerTest do
   end
 
   test "GET /articles/:slug for a known article", %{conn: conn} do
-    insert_article(%{slug: "new-beginnings", title: "New beginnings"})
+    Fixtures.create(:article)
 
-    conn = get conn, "/articles/new-beginnings"
-    assert html_response(conn, 200) =~ "<title>New beginnings | Brian Gamble</title>"
+    conn = get conn, "/articles/test-article"
+    assert html_response(conn, 200) =~ "<title>Test Article | Brian Gamble</title>"
   end
 
   test "GET /articles/:slug for a bad article", %{conn: conn} do

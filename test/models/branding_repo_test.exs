@@ -2,12 +2,11 @@ defmodule Blog.BrandingRepoTest do
   use Blog.ModelCase
   alias Blog.Branding
 
-  @attrs %{item: "headline", copy: "Test headline"}
-
   test "item must be unique" do
-    insert_branding(%{item: "headline"})
+    Fixtures.create(:branding)
 
-    changeset = Branding.changeset(%Branding{}, @attrs)
+    new_branding = Fixtures.build(:branding)
+    changeset = Branding.changeset(new_branding)
     assert {:error, changeset} = Repo.insert(changeset)
     assert {:item, {"has already been taken", []}} in changeset.errors
   end

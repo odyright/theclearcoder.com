@@ -23,7 +23,8 @@ defmodule Blog.ModelCase do
       import Ecto.Query
       import Blog.ModelCase
 
-      import Blog.TestHelpers
+      import Blog.Fixtures
+      alias Blog.Fixtures
     end
   end
 
