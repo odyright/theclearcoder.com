@@ -4,5 +4,5 @@
                <%= static_path(@conn, "/images/coding_show@2x.png") %> 2x,
                <%= static_path(@conn, "/images/coding_show@3x.png") %> 3x">
 </div>
-<p>The Coding Show is a weekly podcast co-hosted with William Linton.  We discuss the life of a software developer and touch on topics that affect us in our everyday work.</p>
+<p>The Coding Show is a weekly podcast co-hosted with William Linton.  We discuss the life of a software developer and touch on topics that affect our daily work.</p>
 <p><a href="http://www.thecodingshow.com">http://www.thecodingshow.com/</a></p>
