@@ -23,7 +23,7 @@
         <nav role="navigation">
           <ol>
             <li><%= link "Articles", to: article_path(@conn, :index) %></li>
-            <li><%= link "Podcasts", to: page_path(@conn, :podcasts) %></li>
+            <li><%= link "Projects", to: page_path(@conn, :projects) %></li>
             <li><%= link "Info", to: page_path(@conn, :info) %></li>
             <li><a href="mailto:cc@theclearcoder.com" title="Contact Brian Gamble">Contact</a></li>
           </ol>

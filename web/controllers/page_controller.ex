@@ -24,7 +24,7 @@ defmodule Blog.PageController do
     end
   end
 
-  def podcasts(conn, _) do
-    render conn, "podcasts.html"
+  def projects(conn, _) do
+    render conn, "projects.html"
   end
 end
