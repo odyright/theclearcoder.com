@@ -241,20 +241,6 @@ nav {
   }
 }
 
-ol.social {
-  padding: 0.75em 0;
-  font-size: 1.9em;
-
-  li {
-    display: inline;
-    margin-right: 1em;
-  }
-
-  li:last-child {
-    margin-right: 0;
-  }
-}
-
 p { 
   margin: 0.5em 0; 
 
@@ -273,6 +259,24 @@ section {
 
 section:last-child {
   margin-bottom: 0;
+}
+
+.social {
+  padding: 0.75em 0;
+  font-size: 1.9em;
+
+  li {
+    display: inline;
+    margin-right: 1em;
+
+    span {
+      display: none;
+    }
+  }
+
+  li:last-child {
+    margin-right: 0;
+  }
 }
 
 time {
