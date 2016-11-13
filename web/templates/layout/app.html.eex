@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/reset.css") %>">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
     <link rel="icon" href="<%= static_path(@conn, "/images/favicon.ico") %>" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="<%= static_path(@conn, "/images/touch-icon.png") %>">
+    <link rel="apple-touch-icon" sizes="76x76" href="<%= static_path(@conn, "/images/touch-icon-ipad.png") %>">
+    <link rel="apple-touch-icon" sizes="120x120" href="<%= static_path(@conn, "/images/touch-icon-iphone-retina.png") %>">
+    <link rel="apple-touch-icon" sizes="152x152" href="<%= static_path(@conn, "/images/touch-icon-ipad-retina.png") %>">
     <%= render "analytics.html" %>
   </head>
   <body>
