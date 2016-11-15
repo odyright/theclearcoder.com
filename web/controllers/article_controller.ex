@@ -1,6 +1,6 @@
 defmodule Blog.ArticleController do
   use Blog.Web, :controller
-  plug :authenticate_user when action in [:new, :create, :edit, :update, :delete]
+  plug :authenticate_user when not action in [:index, :show]
 
   alias Blog.Article
 
