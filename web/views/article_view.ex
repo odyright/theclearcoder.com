@@ -17,10 +17,6 @@ defmodule Blog.ArticleView do
     end
   end
 
-  def content_as_html(%Blog.Article{content: content}) do
-    to_html(content)
-  end
-
   def date_as_iso8601(%Blog.Article{inserted_at: dt}) do
     Ecto.DateTime.to_iso8601(dt)
   end
