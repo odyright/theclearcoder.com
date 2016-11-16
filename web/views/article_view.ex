@@ -1,8 +1,6 @@
 defmodule Blog.ArticleView do
   use Blog.Web, :view
-
-  @months  [ "January", "February", "March", "April", "May", "June",
-             "July", "August", "September", "October", "November", "December" ]
+  import Blog.Helpers.DateView, only: [date_as_iso8601: 1, date_as_readable: 1]
 
   def page_title(:show, assigns) do
     assigns.article.title |> concatenate
@@ -15,16 +13,5 @@ defmodule Blog.ArticleView do
     else
       str
     end
-  end
-
-  def date_as_iso8601(%Blog.Article{inserted_at: dt}) do
-    Ecto.DateTime.to_iso8601(dt)
-  end
-
-  def date_as_readable(%Blog.Article{inserted_at: dt}) do
-    month = Enum.at(@months, dt.month - 1) 
-    day   = dt.day
-    year  = dt.year
-    "#{month} #{day}, #{year}"
   end
 end
