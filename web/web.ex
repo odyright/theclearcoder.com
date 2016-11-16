@@ -54,7 +54,7 @@ defmodule Blog.Web do
       import Blog.ErrorHelpers
       import Blog.Gettext
 
-      import Blog.ViewHelpers
+      import Blog.Helpers.HtmlView
     end
   end
 
