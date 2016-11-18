@@ -1,9 +1,9 @@
 <article>
   <h1><%= @podcast.title %></h1>
-  <time datetime="<%= date_as_iso8601(@podcast.inserted_at) %>"><%= date_as_readable(@podcast.inserted_at) %></time>
+  <time datetime="<%= iso8601_date(@podcast.inserted_at) %>"><%= readable_date(@podcast.inserted_at) %></time>
   <section itemprop="articleBody">
     <p><%= to_html(@podcast.description) %></p>
-    <p>Episode #<%= @podcast.episode %> • <%= date_as_readable(@podcast.inserted_at) %> • <%= @podcast.run_time_minutes %> MIN</p>
+    <p>Episode #<%= @podcast.episode %> • <%= readable_date(@podcast.inserted_at) %> • <%= @podcast.run_time_minutes %> MIN</p>
     <audio controls preload="none">
       <source src="<%= @podcast.file_url %>" type="audio/mp3">
       No audio support!

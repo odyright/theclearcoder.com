@@ -18,7 +18,7 @@
     </div>
   <% end %>
   <h1 itemprop="headline"><%= @article.title %></h1>
-  <time datetime="<%= date_as_iso8601(@article.inserted_at) %>" itemprop="datePublished"><%= date_as_readable(@article.inserted_at) %></time>
+  <time datetime="<%= iso8601_date(@article.inserted_at) %>" itemprop="datePublished"><%= readable_date(@article.inserted_at) %></time>
   <section itemprop="articleBody">
     <%= to_html(@article.content) %>
   </section>

@@ -8,7 +8,7 @@
 <%= for podcast <- @podcasts do %>
   <article>
     <h1><%= link "##{podcast.episode}: #{podcast.title}", to: podcast_path(@conn, :show, podcast.episode) %></h1>
-    <time datetime="<%= date_as_iso8601(podcast.inserted_at) %>"><%= date_as_readable(podcast.inserted_at) %></time>
+    <time datetime="<%= iso8601_date(podcast.inserted_at) %>"><%= readable_date(podcast.inserted_at) %></time>
     <section>
       <p><%= to_html(podcast.description) %></p>
       <div>
