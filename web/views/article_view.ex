@@ -4,12 +4,4 @@ defmodule Blog.ArticleView do
 
   def page_title(:show, assigns), do: assigns.article.title
   def page_title(_action, _assigns), do: "Articles"
-
-  defp concatenate(str) do
-    if String.length(str) > 40 do
-      String.slice(str, 0, 40) <> "..."
-    else
-      str
-    end
-  end
 end
