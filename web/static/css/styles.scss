@@ -83,6 +83,14 @@ article {
   }
 }
 
+audio {
+  width: 200px;
+  height: 225px;
+  outline: 1px solid $brandMedGray;
+  background: url('/images/code-life-digital.png') no-repeat top center;
+  background-size: contain;
+}
+
 b, strong {
   font-weight: 700
 }

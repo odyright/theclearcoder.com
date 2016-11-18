@@ -1,0 +1,13 @@
+<article>
+  <h1><%= @podcast.title %></h1>
+  <time datetime="<%= date_as_iso8601(@podcast.inserted_at) %>"><%= date_as_readable(@podcast.inserted_at) %></time>
+  <section itemprop="articleBody">
+    <p><%= to_html(@podcast.description) %></p>
+    <p>Episode #<%= @podcast.episode %> • <%= date_as_readable(@podcast.inserted_at) %> • <%= @podcast.run_time_minutes %> MIN</p>
+    <audio controls preload="none">
+      <source src="<%= @podcast.file_url %>" type="audio/mp3">
+      No audio support!
+    </audio>
+    <p>Download: <a href="<%= @podcast.file_url %>">MP3 Audio</a> (<%= @podcast.file_size_mbytes %>MB)</p>
+  </section>
+</article>
