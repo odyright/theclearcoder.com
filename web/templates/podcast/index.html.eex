@@ -1,0 +1,7 @@
+<div class="centered">
+  <img class="small" src="<%= static_path(@conn, "/images/code-life-digital.png") %>"
+       srcset="<%= static_path(@conn, "/images/code-life-digital.png") %> 1x,
+               <%= static_path(@conn, "/images/code-life-digital@2x.png") %> 2x,
+               <%= static_path(@conn, "/images/code-life-digital@3x.png") %> 3x">
+  <p>The CLD podcast covers topics around the intersections of coding, life, and digital creation.</p>
+</div>
