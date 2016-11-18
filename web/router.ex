@@ -19,7 +19,7 @@ defmodule Blog.Router do
     resources "/articles", ArticleController, param: "slug", 
                                               only: [:index, :show, :new, :create, :edit, :update, :delete]
     resources "/sessions", SessionController, only: [:new, :create, :delete]
-    resources "/podcast",  PodcastController, only: [:index]    
+    resources "/podcast",  PodcastController, only: [:index, :show]    
     get "/info",           PageController, :info
     get "/projects",       PageController, :projects
     get "/",               PageController, :index
