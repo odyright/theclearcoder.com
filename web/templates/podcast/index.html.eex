@@ -1,4 +1,4 @@
-<div class="centered">
+<div class="centered spacing">
   <img class="small" src="<%= static_path(@conn, "/images/code-life-digital.png") %>"
        srcset="<%= static_path(@conn, "/images/code-life-digital.png") %> 1x,
                <%= static_path(@conn, "/images/code-life-digital@2x.png") %> 2x,
