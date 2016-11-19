@@ -19,7 +19,7 @@ defmodule Blog.Podcast do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:episode, :title, :description, :notes, :file_url, :file_size_mbytes, :run_time_minutes])
-    |> validate_required([:episode, :title, :description, :notes, :file_url, :file_size_mbytes, :run_time_minutes])
+    |> validate_required([:episode, :title, :description, :file_url, :file_size_mbytes, :run_time_minutes])
     |> unique_constraint(:episode)
   end
 end
