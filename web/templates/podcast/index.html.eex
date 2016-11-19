@@ -13,7 +13,7 @@
       <p><%= to_html(podcast.description) %></p>
       <div>
         <%= link to: podcast_path(@conn, :show, podcast.episode) do %>
-          <button>Continue reading</button>
+          <button>Listen</button>
         <% end %>
       </div>
     </section>
