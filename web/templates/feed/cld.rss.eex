@@ -38,6 +38,7 @@
       <description>
         <%= podcast.description %>
       </description>
+      <enclosure url="<%= podcast.file_url %>" length="<%= podcast.file_size_mbytes * 1000000 %>" type="audio/mpeg"/>
       <guid>
         <%= podcast.file_url %>
       </guid>
