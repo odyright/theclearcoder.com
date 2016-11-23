@@ -21,7 +21,7 @@ defmodule Blog.Router do
     resources "/sessions", SessionController, only: [:new, :create, :delete]
     resources "/podcast",  PodcastController, only: [:index, :show]    
 
-    get "/feed/cld.xml",   FeedController, :cld
+    get "/feed/podcast.xml", FeedController, :podcast
     get "/info",           PageController, :info
     get "/projects",       PageController, :projects
     get "/",               PageController, :index
