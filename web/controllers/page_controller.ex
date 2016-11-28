@@ -17,10 +17,22 @@ defmodule Blog.PageController do
   end
 
   def letsencrypt(conn, %{"content" => content}) do
-    if System.get_env("LETSENCRYPT") == "ON" do 
-      text conn, "#{content}#{System.get_env("LETSENCRYPT_RESPONSE")}"
+    if is_letsencrypt_on?(conn) do 
+      text conn, "#{content}#{letsencrypt_response(conn)}"
     else
       text conn, ""
+    end
+  end
+
+  defp is_letsencrypt_on?(conn) do
+    conn.assigns[:letsencrypt] == "ON" || System.get_env("LETSENCRYPT") == "ON"
+  end
+
+  defp letsencrypt_response(conn) do
+    if Map.has_key?(conn.assigns, :letsencrypt_response) do
+      conn.assigns[:letsencrypt_response]
+    else
+      System.get_env("LETSENCRYPT_RESPONSE")
     end
   end
 
