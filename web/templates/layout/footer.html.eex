@@ -1,6 +1,7 @@
 <footer role="contentinfo">
   <div class="container">
     <ol class="social">
+      <li><a href="https://keybase.io/theclearcoder" target="_blank"><i class="fa fa-lock"></i><span>Keybase</span></a></li>
       <li><a href="https://www.linkedin.com/in/bjgamble" target="_blank"><i class="fa fa-linkedin"></i><span>LinkedIn</span></a></li>
       <li><a href="https://github.com/theclearcoder" target="_blank"><i class="fa fa-github"></i><span>GitHub</span></a></li>
       <li><a href="https://twitter.com/theclearcoder" target="_blank"><i class="fa fa-twitter"></i><span>Twitter</span></a></li>
