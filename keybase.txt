@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/theclearcoder
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://www.theclearcoder.com
+  * I am theclearcoder (https://keybase.io/theclearcoder) on keybase.
+  * I have a public key with fingerprint 1844 B7AD FFF2 65F9 FAAF  4A96 E9CE 7D2A 657A E2D5
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0101093ae9dc8265377fb5d0f7698cb391f8f6745dca7dc8725e6bb596190f1b2d470a",
+            "fingerprint": "1844b7adfff265f9faaf4a96e9ce7d2a657ae2d5",
+            "host": "keybase.io",
+            "key_id": "e9ce7d2a657ae2d5",
+            "kid": "0101093ae9dc8265377fb5d0f7698cb391f8f6745dca7dc8725e6bb596190f1b2d470a",
+            "uid": "e8d932e8490e0c0418b2f3e7b27f9d19",
+            "username": "theclearcoder"
+        },
+        "service": {
+            "hostname": "www.theclearcoder.com",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1480720311,
+    "expire_in": 157680000,
+    "prev": "b64c0755cda09ff0989e4a1df07ed3f84aed2d3b98fbbc5e9a76bb40b904dd5c",
+    "seqno": 3,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.58
+Comment: https://keybase.io/crypto
+
+yMIrAnicrZJbSFRBGMfXzK2sKDIwKAhPNyvd5lznzFZUFvQQFVGEpLDMnJlxT6t7
+trNHTRYzupqQUQZRUfTQhaDbg9E9sgyjC3axKAVDo+ghii6YQmRzzB6CHpt5GGbm
+9/9/F77m0emBzLRVq7On1mcdbEp70HSiPFC4qP9SSiIOrZLCKSnGBg5WSlnSi8Rs
+KoUlIIuNVMwQtUzF0FUIOdEp4NBApkVUJHOTG1DTqYWhQKCiM4MQHRkyAlwmCtUg
+wFKexO14CXMTrh33hK1sahqBmHLOhSlHHGOuYWQwZDFIFWzoEDOF6kIYdZK+QiRH
+cJKFbEe8iUtkIL1/8P857/LfcUyKVIWZGgIMWECTTaJwlUGiQI6ojHwwydw4LmOC
+9qLMKmXYtRzKXKk6TxJfFbbF/O765QxilZWVob/QkOWUCaeE63iO5ZQKJOp5iWTY
+t/CqEgMaRiKDbhFix6noqlBUMDdpO3EpLAvS8mzfXtZMABWgynKexDYmbJdFbJ/Q
+oWECsfw4rEJYEkOzANR1i2KAOAfIREzDMuUAMqpyU8OMKlQlyOSEWDpDGIpOaYAg
+oFGqW5Jf34a4I4VVkSYuEZZJuySOvXKXSdW3bxUPDaRlBoIZQ/xpC2SOGPtnBu8e
+Hh44sC23bUH6HmXCydNZzYnNFyaufdq4pKb20qEvBT93tu/tr9p/bFPbmIxlL7/X
+z9qxXL6ycKaxuDx163NvV3a71zHqbLRxzL5zF3d1VRfXdiY+PKPX+eze3qzxw+/l
+lvGHl4OhV5vX99uZ6vV71w69t+vMlU27SeXXYEf+ka3d2ovzRfPfzs7fWdBZNO3+
+wXneAtJXkVN77EVBKvQpfVjnlJZs3rP7Sd37tvyc7nVvDhe9e5x6224Hry5tDa9p
+GFLTuuJjdHTJjUXPYnU7ugvBzcnTe1qsaJ8Hy77NiGX/mFt8pI49fzry+LicWOuc
+LcGjTcvvZHwuijSw+kenPmx5fUZpmDRn+y/nuEsB
+=9m5H
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/theclearcoder
+
+==================================================================
