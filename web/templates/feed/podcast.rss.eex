@@ -7,49 +7,33 @@
       <title>CLD</title>
       <link>http://www.theclearcode.com/podcast</link>
     </image>
-    <description>
-      The CLD podcast covers topics around the intersections of coding, life, and digital creation.
-    </description>
+    <description>The CLD podcast covers topics around the intersections of coding, life, and digital creation.</description>
     <language>en-us</language>
     <copyright>Brian Gamble copyright 2016</copyright>
     <atom:link href="http://www.thecodingshow.com/podcast.xml" rel="self" type="application/rss+xml"/>
     <lastBuildDate><%= iso8601_date(@latest_podcast.inserted_at) %></lastBuildDate>
     <itunes:author>Brian Gamble</itunes:author>
-    <itunes:summary>
-      The CLD podcast covers topics around the intersections of coding, life, and digital creation.
-    </itunes:summary>
+    <itunes:summary>The CLD podcast covers topics around the intersections of coding, life, and digital creation.</itunes:summary>
     <itunes:owner>
       <itunes:email>cc@theclearcoder.com</itunes:email>
     </itunes:owner>
     <itunes:explicit>No</itunes:explicit>
-    <itunes:keywords>
-      coding, technology, programming, life, digital creation
-    </itunes:keywords>
+    <itunes:keywords>coding, technology, programming, life, digital creation</itunes:keywords>
     <itunes:image href="http://www.theclearcoder.com/images/large-code-life-digital.png"/>
     <itunes:category text="Technology"/>
     <pubDate><%= iso8601_date(@latest_podcast.inserted_at) %></pubDate>
     <%= for podcast <- @podcasts do %>
     <item>
       <title><%= podcast.episode %>: <%= podcast.title %></title>
-      <link>
-        <%= podcast.file_url %>
-      </link>
+      <link><%= podcast.file_url %></link>
       <pubDate><%= iso8601_date(podcast.inserted_at) %></pubDate>
-      <description>
-        <%= podcast.description %>
-      </description>
+      <description><%= podcast.description %></description>
       <enclosure url="<%= podcast.file_url %>" length="<%= podcast.file_size_mbytes * 1000000 %>" type="audio/mpeg"/>
-      <guid>
-        <%= podcast.file_url %>
-      </guid>
+      <guid><%= podcast.file_url %></guid>
       <itunes:duration><%= podcast.run_time_minutes %>:00</itunes:duration>
-      <itunes:summary>
-        <%= podcast.description %>
-      </itunes:summary>
+      <itunes:summary><%= podcast.description %></itunes:summary>
       <itunes:image href="http://www.theclearcoder.com/images/large-code-life-digital.png"/>
-      <itunes:keywords>
-        coding, technology, programming
-      </itunes:keywords>
+      <itunes:keywords>coding, technology, programming, life, digital creation</itunes:keywords>
       <itunes:explicit>no</itunes:explicit>
     </item>
     <% end %>
