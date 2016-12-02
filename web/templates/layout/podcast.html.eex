@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="I believe in tested, simple, and clear code.">
+    <meta name="author" content="Brian Gamble">
+    <%= page_title(@conn, assigns) %>
+    <%= render "typekit.html" %>
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@theclearcoder" />
+    <meta name="twitter:title" content="CLD #<%= @podcast.episode %>: <%= @podcast.title %>" />
+    <meta name="twitter:description" content="<%= @podcast.description %>" />
+    <meta name="twitter:image" content="<%= static_path(@conn, "/images/code-life-digital.png") %>" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/reset.css") %>">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <link rel="icon" href="<%= static_path(@conn, "/images/favicon.ico") %>" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="<%= static_path(@conn, "/images/touch-icon.png") %>">
+    <link rel="apple-touch-icon" sizes="76x76" href="<%= static_path(@conn, "/images/touch-icon-ipad.png") %>">
+    <link rel="apple-touch-icon" sizes="120x120" href="<%= static_path(@conn, "/images/touch-icon-iphone-retina.png") %>">
+    <link rel="apple-touch-icon" sizes="152x152" href="<%= static_path(@conn, "/images/touch-icon-ipad-retina.png") %>">
+    <%= render "analytics.html" %>
+  </head>
+  <body>
+    <header role="banner">
+      <div class="container">
+        <a title="Home" class="logo" href="<%= page_path(@conn, :index) %>">
+          <img class="logo" src="<%= static_path(@conn, "/images/logo.svg") %>" alt="logo" />
+        </a>
+        <nav role="navigation">
+          <ol>
+            <li><%= link "Articles", to: article_path(@conn, :index) %></li>
+            <li><%= link "Podcast", to: podcast_path(@conn, :index) %></li>
+            <li><%= link "Projects", to: page_path(@conn, :projects) %></li>
+            <li><%= link "Info", to: page_path(@conn, :info) %></li>
+            <li><a href="mailto:cc@theclearcoder.com" title="Contact Brian Gamble">Contact</a></li>
+          </ol>
+        </nav>
+      </div>
+    </header>
+    <main role="main">
+      <div class="container">
+        <%= render "alerts.html", conn: @conn %>
+        <%= render "admin_nav.html", conn: @conn, current_user: @current_user %>
+        <%= render @view_module, @view_template, assigns %>
+      </div>
+    </main>
+    <footer role="contentinfo">
+      <div class="container">
+        <ol class="social">
+          <li><a href="https://www.linkedin.com/in/bjgamble" target="_blank"><i class="fa fa-linkedin"></i><span>LinkedIn</span></a></li>
+          <li><a href="https://github.com/theclearcoder" target="_blank"><i class="fa fa-github"></i><span>GitHub</span></a></li>
+          <li><a href="https://twitter.com/theclearcoder" target="_blank"><i class="fa fa-twitter"></i><span>Twitter</span></a></li>
+          <li><a href="https://www.behance.net/BJGAMBLE4b6e" target="_blank"><i class="fa fa-behance"></i><span>Behance</span></a></li>
+          <li><a href="https://soundcloud.com/brian_gamble" target="_blank"><i class="fa fa-soundcloud"></i><span>SoundCloud</span></a></li>
+        </ol>
+        <p class="license">&copy; 2016 Brian Gamble. All rights reserved.</p>
+        <p>
+          <a href="<%= page_path(@conn, :index) %>">
+            <img class="logo-bw" src="<%= static_path(@conn, "/images/logo-bw.svg") %>" alt="logo" />
+          </a>
+        </p>
+      </div>
+    </footer>
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script> 
+  </body>
+</html>

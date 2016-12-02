@@ -21,6 +21,8 @@ defmodule Blog.PodcastController do
   end
 
   defp render_podcast(conn, podcast) do
-    render conn, "show.html", podcast: podcast
+    conn
+    |> put_layout("podcast.html")
+    |> render("show.html", podcast: podcast)
   end
 end
