@@ -39,4 +39,10 @@ defmodule Blog.PageController do
   def projects(conn, _) do
     render conn, "projects.html"
   end
+
+  def keybase(conn, _) do
+    conn
+    |> put_layout(false)
+    |> render("keybase.txt")
+  end
 end

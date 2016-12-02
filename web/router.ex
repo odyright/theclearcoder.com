@@ -13,8 +13,8 @@ defmodule Blog.Router do
   scope "/", Blog do
     pipe_through :browser 
 
-    # Used for letsencrypt
     get "/.well-known/acme-challenge/:content", PageController, :letsencrypt
+    get "/.well-known/keybase.txt",             PageController, :keybase
 
     resources "/articles", ArticleController, param: "slug", 
                                               only: [:index, :show, :new, :create, :edit, :update, :delete]
