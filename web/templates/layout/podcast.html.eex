@@ -47,23 +47,7 @@
         <%= render @view_module, @view_template, assigns %>
       </div>
     </main>
-    <footer role="contentinfo">
-      <div class="container">
-        <ol class="social">
-          <li><a href="https://www.linkedin.com/in/bjgamble" target="_blank"><i class="fa fa-linkedin"></i><span>LinkedIn</span></a></li>
-          <li><a href="https://github.com/theclearcoder" target="_blank"><i class="fa fa-github"></i><span>GitHub</span></a></li>
-          <li><a href="https://twitter.com/theclearcoder" target="_blank"><i class="fa fa-twitter"></i><span>Twitter</span></a></li>
-          <li><a href="https://www.behance.net/BJGAMBLE4b6e" target="_blank"><i class="fa fa-behance"></i><span>Behance</span></a></li>
-          <li><a href="https://soundcloud.com/brian_gamble" target="_blank"><i class="fa fa-soundcloud"></i><span>SoundCloud</span></a></li>
-        </ol>
-        <p class="license">&copy; 2016 Brian Gamble. All rights reserved.</p>
-        <p>
-          <a href="<%= page_path(@conn, :index) %>">
-            <img class="logo-bw" src="<%= static_path(@conn, "/images/logo-bw.svg") %>" alt="logo" />
-          </a>
-        </p>
-      </div>
-    </footer>
+    <%= render "footer.html", conn: @conn %>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script> 
   </body>
 </html>
