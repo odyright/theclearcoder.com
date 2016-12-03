@@ -1,6 +1,12 @@
 defmodule Blog.Fixtures do
   alias Blog.Repo
 
+  def create(:user) do
+    build(:user)
+    |> Blog.User.registration_changeset(%{password: "password"})
+    |> Repo.insert!()
+  end
+
   def create(schema) do
     build(schema)
     |> Repo.insert!()
@@ -15,5 +21,9 @@ defmodule Blog.Fixtures do
 
   def build(:branding) do
     %Blog.Branding{item: "heading", copy: "I'm Brian Gamble"}
+  end
+
+  def build(:user) do
+    %Blog.User{name: "Joe Tester", username: "jtester"}
   end
 end
