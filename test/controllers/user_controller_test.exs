@@ -25,5 +25,17 @@ defmodule Blog.UserControllerTest do
       assert html_response(conn, 200) =~ ~r/Listing Users/
       assert String.contains?(conn.resp_body, user.name)
     end
+
+    test "shows the requested user", %{conn: conn, user: user} do
+      conn = get conn, user_path(conn, :show, user.id)
+      assert html_response(conn, 200) =~ ~r/Showing User/
+      assert String.contains?(conn.resp_body, user.name)
+    end
+
+    test "presents the form to create a new user", %{conn: conn} do
+      conn = get conn, user_path(conn, :new)
+      assert html_response(conn, 200) =~ ~r/New User/
+      assert String.contains?(conn.resp_body, "form")
+    end
   end
 end
