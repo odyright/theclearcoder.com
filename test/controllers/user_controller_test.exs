@@ -12,4 +12,18 @@ defmodule Blog.UserControllerTest do
       assert conn.halted
     end
   end
+
+  describe "with a logged in user" do
+    setup do
+      user = Fixtures.create(:user)
+      conn = assign(build_conn(), :current_user, user)
+      {:ok, conn: conn, user: user}
+    end
+
+    test "lists all users on index", %{conn: conn, user: user} do
+      conn = get conn, user_path(conn, :index)
+      assert html_response(conn, 200) =~ ~r/Listing Users/
+      assert String.contains?(conn.resp_body, user.name)
+    end
+  end
 end
