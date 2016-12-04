@@ -2,8 +2,8 @@ defmodule Blog.UserViewTest do
   use ExUnit.Case
   alias Blog.UserView
 
-  test "returns page title for index page" do
-    assert UserView.page_title(:index, %{}) == "Users"
+  test "return a generic title with no assigned user" do
+    assert UserView.page_title(:foo, %{}) == "Users"
   end
 
   test "return page title with the username" do
