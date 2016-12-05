@@ -4,6 +4,9 @@
                <%= static_path(@conn, "/images/code-life-digital@2x.png") %> 2x,
                <%= static_path(@conn, "/images/code-life-digital@3x.png") %> 3x">
   <p>The CLD podcast covers topics around the intersections of coding, life, and digital creation.</p>
+  <ol class="social gray">
+    <li><a href="<%= feed_path(@conn, :podcast) %>" target="_blank"><i class="fa fa-rss"></i>&nbsp;RSS</a></li>
+  </ol>
 </div>
 <%= for podcast <- @podcasts do %>
   <article>
