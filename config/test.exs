@@ -17,7 +17,3 @@ config :blog, Blog.Repo,
   database: "blog_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
-
-# add the following config to speed up tests
-config :comeonin, :bcrypt_log_rounds, 4 
-config :comeonin, :pbkdf2_rounds, 1

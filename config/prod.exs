@@ -26,3 +26,8 @@ config :blog, Blog.Repo,
   url: System.get_env("DATABASE_URL"),
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
   ssl: true
+
+# Production values for Comeonin
+config :comeonin,
+  bcrypt_log_rounds: 14,
+  pbkdf2_rounds: 120_000

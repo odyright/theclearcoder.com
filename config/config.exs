@@ -21,6 +21,11 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+# Setup dev/test parameters for Comeonin
+config :comeonin,
+  bcrypt_log_rounds: 4,
+  pbkdf2_rounds: 1_000
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
