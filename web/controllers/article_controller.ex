@@ -15,6 +15,16 @@ defmodule Blog.ArticleController do
     render_article(conn, article)
   end
 
+  defp render_article(conn, nil) do
+    conn
+    |> put_status(:not_found)
+    |> render(Blog.ErrorView, "404.html")
+  end
+
+  defp render_article(conn, article) do
+    render conn, "show.html", article: article
+  end
+
   def new(conn, _) do
     changeset = Article.changeset(%Article{})
     render conn, "new.html", changeset: changeset
@@ -59,15 +69,5 @@ defmodule Blog.ArticleController do
     conn
     |> put_flash(:info, "Article deleted successfully.") 
     |> redirect(to: article_path(conn, :index))
-  end
-
-  defp render_article(conn, nil) do
-    conn
-    |> put_status(:not_found)
-    |> render(Blog.ErrorView, "404.html")
-  end
-
-  defp render_article(conn, article) do
-    render conn, "show.html", article: article
   end
 end
