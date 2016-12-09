@@ -41,7 +41,7 @@ defmodule Blog.Mixfile do
       {:cowboy,              "~> 1.0"},
       {:excoveralls,         "~> 0.5", only: :test},
       {:earmark,             "~> 1.0"},
-      {:comeonin,            "~> 2.0"}
+      {:comeonin,            "~> 3.0"}
    ]
   end
 
