@@ -10,6 +10,10 @@ defmodule Blog.PageViewTest do
     assert PageView.page_title(:info, []) == "Info"
   end
 
+  test "returns the page title for the projects page" do
+    assert PageView.page_title(:projects, []) == "Projects"
+  end
+
   test "returns branding copy as safe html" do
     assert PageView.html_copy([%Blog.Branding{item: "headline", copy: "# I'm Brian"}], "headline") ==
        {:safe, "<h1>I’m Brian</h1>\n"}
