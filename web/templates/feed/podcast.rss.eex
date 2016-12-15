@@ -11,7 +11,9 @@
     <language>en-us</language>
     <copyright>Brian Gamble copyright 2016</copyright>
     <atom:link href="http://www.thecodingshow.com/podcast.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate><%= iso8601_date(@latest_podcast.inserted_at) %></lastBuildDate>
+    <%= if @latest_podcast do %>
+      <lastBuildDate><%= iso8601_date(@latest_podcast.inserted_at) %></lastBuildDate>
+    <% end %>
     <itunes:author>Brian Gamble</itunes:author>
     <itunes:summary>The CLD podcast covers topics around the intersections of coding, life, and digital creation.</itunes:summary>
     <itunes:owner>
@@ -21,7 +23,9 @@
     <itunes:keywords>coding, technology, programming, life, digital creation</itunes:keywords>
     <itunes:image href="http://www.theclearcoder.com/images/large-code-life-digital.png"/>
     <itunes:category text="Technology"/>
-    <pubDate><%= iso8601_date(@latest_podcast.inserted_at) %></pubDate>
+    <%= if @latest_podcast do %>
+      <pubDate><%= iso8601_date(@latest_podcast.inserted_at) %></pubDate>
+    <% end %>
     <%= for podcast <- @podcasts do %>
     <item>
       <title><%= podcast.episode %>: <%= podcast.title %></title>
