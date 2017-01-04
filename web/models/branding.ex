@@ -8,7 +8,7 @@ defmodule Blog.Branding do
 
   def changeset(model, params \\ %{}) do
     model
-    |> cast(params, ~w(item copy), [])
+    |> cast(params, ~w(item copy))
     |> validate_required([:item, :copy])
     |> unique_constraint(:item)
   end

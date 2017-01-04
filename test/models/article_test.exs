@@ -3,7 +3,7 @@ defmodule Blog.ArticleTest do
   alias Blog.Article
 
   @valid_attrs %{slug: "hello-world", title: "Hello, World", teaser: "click here", 
-                 content: "test, test, test", inserted_at: Ecto.DateTime.utc()}
+                 content: "test, test, test", inserted_at: ~N[2016-02-29 00:00:00]}
 
   test "changeset with valid attributes" do
     changeset = Article.changeset(%Article{}, @valid_attrs)

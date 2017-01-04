@@ -2,7 +2,11 @@ defmodule Blog.Helpers.DateView do
   @months  [ "January", "February", "March", "April", "May", "June",
              "July", "August", "September", "October", "November", "December" ]
 
-  def iso8601_date(dt) do
+  def iso8601_date(dt = %NaiveDateTime{}) do
+    NaiveDateTime.to_iso8601(dt)
+  end
+
+  def iso8601_date(dt = %Ecto.DateTime{}) do
     Ecto.DateTime.to_iso8601(dt)
   end
 
