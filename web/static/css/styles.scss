@@ -140,10 +140,39 @@ footer {
   padding: 0.75em 2em;
   border-top: 1px solid $brandLightGray;
   font-size: 0.8em; 
-  text-align: center;
 
-  & ol.social {
-    font-size: 1.9em;
+  ol {
+    padding: 0.5em 0;
+
+    li {
+      display: inline;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    &.menu {
+      li {
+        margin-right: 0.5em;
+      }
+    }
+
+    &.social {
+      font-size: 1.6em;
+
+      li {
+        margin-right: 1em;
+
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+
+  p.license {
+    text-align: center;
   }
 }
 
@@ -281,33 +310,6 @@ section:last-child {
   margin-bottom: 1.5em;
 }
 
-.social {
-  padding: 0.75em 0;
-
-  li {
-    display: inline;
-    margin-right: 1em;
-
-    span {
-      display: none;
-    }
-  }
-
-  li:last-child {
-    margin-right: 0;
-  }
-  
-  &.gray {
-    a {
-      color: $brandDarkGray;
-    }
-
-    a:hover {
-      color: $brandMedGray;
-    }
-  }
-}
-
 time {
   font-style: italic;
 }
@@ -363,6 +365,20 @@ time {
 
   img.logo-bw {
     @include dimensions(2.5em);
+  }
+
+  div.links {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+
+    ol {
+      flex-grow: 1;
+
+      &.social {
+        text-align: right;
+      }
+    }
   }
 }
 

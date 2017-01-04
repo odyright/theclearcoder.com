@@ -1,5 +1,13 @@
 <footer role="contentinfo">
   <div class="container">
+    <div class="links">
+    <ol class="menu">
+      <li><%= link "Home", to: page_path(@conn, :index) %></li>
+      <li><%= link "Articles", to: article_path(@conn, :index) %></li>
+      <li><%= link "Podcast", to: podcast_path(@conn, :index) %></li>
+      <li><%= link "Projects", to: page_path(@conn, :projects) %></li>
+      <li><%= link "Info", to: page_path(@conn, :info) %></li>
+    </ol>
     <ol class="social">
       <li><a href="https://keybase.io/theclearcoder" target="_blank"><i class="fa fa-lock"></i><span>Keybase</span></a></li>
       <li><a href="https://www.linkedin.com/in/bjgamble" target="_blank"><i class="fa fa-linkedin"></i><span>LinkedIn</span></a></li>
@@ -8,6 +16,7 @@
       <li><a href="https://www.behance.net/bjgamble" target="_blank"><i class="fa fa-behance"></i><span>Behance</span></a></li>
       <li><a href="https://soundcloud.com/brian_gamble" target="_blank"><i class="fa fa-soundcloud"></i><span>SoundCloud</span></a></li>
     </ol>
+    </div>
     <p class="license">&copy; 2016 Brian Gamble. All rights reserved.</p>
     <p>
       <a href="<%= page_path(@conn, :index) %>">
