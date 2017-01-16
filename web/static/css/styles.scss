@@ -162,7 +162,7 @@ footer {
       font-size: 1.6em;
 
       li {
-        margin-right: 1em;
+        margin-right: 0.75em;
 
         span {
           display: none;
@@ -377,6 +377,18 @@ time {
 
       &.social {
         text-align: right;
+      }
+    }
+  }
+
+  footer {
+    ol {
+      &.social {
+        font-size: 1.8em;
+
+        li {
+          margin-right: 1em;
+        }
       }
     }
   }
