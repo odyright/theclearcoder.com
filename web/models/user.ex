@@ -7,7 +7,7 @@ defmodule Blog.User do
     field :password, :string, virtual: true
     field :password_hash, :string
 
-    timestamps
+    timestamps()
   end
 
   def changeset(model, params \\ %{}) do

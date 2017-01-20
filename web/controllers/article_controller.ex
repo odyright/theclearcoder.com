@@ -31,7 +31,7 @@ defmodule Blog.ArticleController do
   end
 
   def create(conn, %{"article" => article_params}) do
-    article_params = Dict.merge(%{"inserted_at" => Ecto.DateTime.utc()}, article_params) 
+    article_params = Map.merge(article_params, %{"inserted_at" => Ecto.DateTime.utc()}) 
     changeset = Article.changeset(%Article{}, article_params)
     case Repo.insert(changeset) do
       {:ok, article} ->

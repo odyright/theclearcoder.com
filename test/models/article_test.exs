@@ -36,12 +36,12 @@ defmodule Blog.ArticleTest do
   end
 
   defp changeset_with_blank(key) do
-    attrs = Dict.merge(@valid_attrs, %{key => " "})
+    attrs = Map.merge(@valid_attrs, %{key => " "})
     Article.changeset(%Article{}, attrs)
   end
 
   defp changeset_without(key) do
-    attrs = Dict.drop(@valid_attrs, [key])
+    attrs = Map.drop(@valid_attrs, [key])
     Article.changeset(%Article{}, attrs)
   end
 end

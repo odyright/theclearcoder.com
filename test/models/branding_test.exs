@@ -20,7 +20,7 @@ defmodule Blog.BrandingCopyTest do
   end
 
   defp changeset_with_blank(key) do
-    attrs = Dict.merge(@valid_attrs, %{key => " "})
+    attrs = Map.merge(@valid_attrs, %{key => " "})
     Branding.changeset(%Branding{}, attrs)
   end
 end

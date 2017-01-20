@@ -7,7 +7,7 @@ defmodule Blog.Article do
     field :teaser,  :string
     field :content, :string
 
-    timestamps
+    timestamps()
   end
 
   def changeset(model, params \\ %{}) do

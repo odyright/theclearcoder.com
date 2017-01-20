@@ -36,12 +36,12 @@ defmodule Blog.UserTest do
   end
 
   defp changeset_with(attrs) do
-    new_attrs = Dict.merge(@valid_attrs, attrs)
+    new_attrs = Map.merge(@valid_attrs, attrs)
     User.changeset(%User{}, new_attrs)
   end
 
   defp registration_changeset_with(attrs) do
-    new_attrs = Dict.merge(@valid_attrs, attrs)
+    new_attrs = Map.merge(@valid_attrs, attrs)
     User.registration_changeset(%User{}, new_attrs)
   end
 end
