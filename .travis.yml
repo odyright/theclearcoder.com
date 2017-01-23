@@ -5,10 +5,11 @@ otp_release:
   - 19.2
 sudo: false
 addons:
-  postgresql: "9.6"
+  postgresql: "9.4"
+env:
+  - MIX_ENV=test
 before_script:
-  - MIX_ENV=test mix compile 
-  - MIX_ENV=test mix ecto.create
-  - MIX_ENV=test mix ecto.migrate
+  - mix deps.get --only test
+  - mix do ecto.create, ecto.migrate
 script:
   - mix coveralls
