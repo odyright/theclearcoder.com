@@ -18,7 +18,7 @@
       <li><a href="https://soundcloud.com/brian_gamble" target="_blank"><i class="fa fa-soundcloud"></i><span>SoundCloud</span></a></li>
     </ol>
     </div>
-    <p class="license">&copy; 2016 Brian Gamble. All rights reserved.</p>
+    <p class="license">&copy; 2016&ndash;2017 Brian Gamble. All rights reserved.</p>
     <p>
       <a href="<%= page_path(@conn, :index) %>">
         <img class="logo-bw" src="<%= static_path(@conn, "/images/logo-bw.svg") %>" alt="logo" />
