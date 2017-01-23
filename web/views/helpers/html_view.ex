@@ -3,7 +3,7 @@ defmodule Blog.Helpers.HtmlView do
 
   def to_html(markdown) do
     markdown
-    |> Earmark.to_html
+    |> Earmark.as_html!
     |> Phoenix.HTML.raw
   end
 
