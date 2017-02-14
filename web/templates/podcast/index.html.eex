@@ -5,8 +5,8 @@
                <%= static_path(@conn, "/images/code-life-digital@3x.png") %> 3x">
   <p>The CLD podcast covers topics around the intersections of coding, life, and digital creation.</p>
   <ol class="social gray">
-    <li><a href="<%= feed_path(@conn, :podcast) %>" target="_blank"><i class="fa fa-rss"></i>&nbsp;RSS</a></li>
-    <li><a href="https://goo.gl/app/playmusic?ibi=com.google.PlayMusic&isi=691797987&ius=googleplaymusic&link=https://play.google.com/music/m/Io67zmokgmmznsdamrzlj3hoyty?t%3DCLD" target="_blank"><i class="fa fa-podcast"></i>&nbsp;Google Play</a></li>
+    <li><a href="<%= feed_path(@conn, :podcast) %>"><i class="fa fa-rss"></i>&nbsp;RSS</a></li>
+    <li><a href="https://goo.gl/app/playmusic?ibi=com.google.PlayMusic&isi=691797987&ius=googleplaymusic&link=https://play.google.com/music/m/Io67zmokgmmznsdamrzlj3hoyty?t%3DCLD"><i class="fa fa-podcast"></i>&nbsp;Google Play</a></li>
   </ol>
 </div>
 <%= for podcast <- @podcasts do %>
