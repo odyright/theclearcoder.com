@@ -26,6 +26,7 @@ defmodule Blog.Mixfile do
   end
 
   defp applications(:test), do: applications(:all) ++ [:faker, :blacksmith]
+  defp applications(:dev),  do: applications(:all) ++ [:faker]
   defp applications(_all),  do: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, 
                                  :gettext, :phoenix_ecto, :postgrex, :comeonin]
 
@@ -45,8 +46,8 @@ defmodule Blog.Mixfile do
       {:comeonin,            "~> 3.0"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:excoveralls,         "~> 0.5", only: :test},
-      {:faker,               "~> 0.7", only: :test},
-      {:blacksmith,          "~> 0.1", only: :test}
+      {:faker,               "~> 0.7", only: [:dev, :test]},
+      {:blacksmith,          "~> 0.1", only: [:dev, :test]}
    ]
   end
 
