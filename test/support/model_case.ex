@@ -22,9 +22,6 @@ defmodule Blog.ModelCase do
       import Ecto.Changeset
       import Ecto.Query
       import Blog.ModelCase
-
-      import Blog.Fixtures
-      alias Blog.Fixtures
     end
   end
 

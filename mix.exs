@@ -22,9 +22,12 @@ defmodule Blog.Mixfile do
 
   def application do
     [mod: {Blog, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, 
-                    :gettext, :phoenix_ecto, :postgrex, :comeonin]]
+     applications: applications(Mix.env)]
   end
+
+  defp applications(:test), do: applications(:all) ++ [:faker, :blacksmith]
+  defp applications(_all),  do: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, 
+                                 :gettext, :phoenix_ecto, :postgrex, :comeonin]
 
   defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
   defp elixirc_paths(_),     do: ["lib", "web"]
@@ -34,14 +37,16 @@ defmodule Blog.Mixfile do
       {:phoenix,             "~> 1.2.1"},
       {:phoenix_pubsub,      "~> 1.0"},
       {:phoenix_html,        "~> 2.6"},
-      {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:phoenix_ecto,        "~> 3.0"},
       {:postgrex,            ">= 0.0.0"},
       {:gettext,             "~> 0.11"},
       {:cowboy,              "~> 1.0"},
-      {:excoveralls,         "~> 0.5", only: :test},
       {:earmark,             "~> 1.0"},
-      {:comeonin,            "~> 3.0"}
+      {:comeonin,            "~> 3.0"},
+      {:phoenix_live_reload, "~> 1.0", only: :dev},
+      {:excoveralls,         "~> 0.5", only: :test},
+      {:faker,               "~> 0.7", only: :test},
+      {:blacksmith,          "~> 0.1", only: :test}
    ]
   end
 

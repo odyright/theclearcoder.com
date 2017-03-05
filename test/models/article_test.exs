@@ -2,8 +2,10 @@ defmodule Blog.ArticleTest do
   use Blog.ModelCase, async: true
   alias Blog.Article
 
-  @valid_attrs %{slug: "hello-world", title: "Hello, World", teaser: "click here", 
-                 content: "test, test, test", inserted_at: ~N[2016-02-29 00:00:00]}
+  @valid_attrs %{slug: "hello-world", 
+                 title: "Hello, World", 
+                 teaser: "click here", 
+                 content: "test, test, test"}
 
   test "changeset with valid attributes" do
     changeset = Article.changeset(%Article{}, @valid_attrs)
@@ -30,18 +32,8 @@ defmodule Blog.ArticleTest do
     refute changeset.valid?
   end
 
-  test "inserted_at is required" do
-    changeset = changeset_without(:inserted_at)
-    refute changeset.valid?
-  end
-
   defp changeset_with_blank(key) do
     attrs = Map.merge(@valid_attrs, %{key => " "})
-    Article.changeset(%Article{}, attrs)
-  end
-
-  defp changeset_without(key) do
-    attrs = Map.drop(@valid_attrs, [key])
     Article.changeset(%Article{}, attrs)
   end
 end

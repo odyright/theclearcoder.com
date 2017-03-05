@@ -51,7 +51,7 @@ defmodule Blog.UserControllerTest do
   end
 
   defp login_test_user(context) do
-    user = Fixtures.create(:user)
+    user = Forge.saved_user
     conn = assign(context[:conn], :current_user, user)
     [conn: conn, user: user]
   end

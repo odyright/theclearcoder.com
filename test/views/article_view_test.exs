@@ -7,7 +7,7 @@ defmodule Blog.ArticleViewTest do
   end
 
   test "returns the page title for the show page" do
-    article = Fixtures.build(:article)
-    assert ArticleView.page_title(:show, %{article: article}) == "Test Article"
+    article = Forge.article
+    assert ArticleView.page_title(:show, %{article: article}) == article.title
   end
 end

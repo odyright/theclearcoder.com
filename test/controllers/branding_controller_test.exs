@@ -22,14 +22,14 @@ defmodule Blog.BrandingControllerTest do
     setup :login_test_user
 
     test "'index' lists all branding", %{conn: conn} do
-      brand = Fixtures.create(:branding)
+      brand = Forge.saved_branding
       conn = get conn, branding_path(conn, :index)
       assert html_response(conn, 200) =~ ~r/Branding/
       assert String.contains?(conn.resp_body, brand.item)
     end
 
     test "'show' renders the branding if found", %{conn: conn} do
-      brand = Fixtures.create(:branding)
+      brand = Forge.saved_branding
       conn = get conn, branding_path(conn, :show, brand.id)
       assert html_response(conn, 200) =~ ~r/Showing Branding/
       assert String.contains?(conn.resp_body, brand.item)
@@ -55,14 +55,14 @@ defmodule Blog.BrandingControllerTest do
     end
 
     test "'edit' displays an branding edit form", %{conn: conn} do
-      branding = Fixtures.create(:branding)
+      branding = Forge.saved_branding
       conn = get(conn, branding_path(conn, :edit, branding.id))
       assert html_response(conn, 200) =~ ~r/Edit Branding/
       assert String.contains?(conn.resp_body, branding.item)
     end
 
     test "'update' modifies existing branding in the database", %{conn: conn} do
-      branding = Fixtures.create(:branding)
+      branding = Forge.saved_branding
       put conn, branding_path(conn, :update, branding.id, 
                               %{"branding" => %{"item" => branding.item, "copy" => "new copy"}})
       updated_branding = Repo.get(Blog.Branding, branding.id)
@@ -71,14 +71,14 @@ defmodule Blog.BrandingControllerTest do
     end
 
     test "'delete' removes branding from the database", %{conn: conn} do
-      branding = Fixtures.create(:branding)
+      branding = Forge.saved_branding
       delete conn, branding_path(conn, :delete, branding.id)
       assert Repo.get(Blog.Branding, branding.id) == nil
     end
   end
 
   defp login_test_user(context) do
-    user = Fixtures.create(:user)
+    user = Forge.saved_user
     conn = assign(context[:conn], :current_user, user)
     [conn: conn, user: user]
   end

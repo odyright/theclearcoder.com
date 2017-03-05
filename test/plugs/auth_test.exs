@@ -46,7 +46,7 @@ defmodule Blog.AuthTest do
   end
 
   test "call places user from session into assigns", %{conn: conn} do
-    user = Fixtures.create(:user)
+    user = Forge.saved_user
     conn =
       conn
       |> put_session(:user_id, user.id)
@@ -61,8 +61,8 @@ defmodule Blog.AuthTest do
   end
 
   test "login with a valid username and pass", %{conn: conn} do
-    user = Fixtures.create(:user)
-    {:ok, conn} = Auth.login_by_username_and_pass(conn, "jtester", "password", repo: Repo)
+    user = Forge.saved_user
+    {:ok, conn} = Auth.login_by_username_and_pass(conn, user.username, "password", repo: Repo)
 
     assert conn.assigns.current_user.id == user.id
     assert conn.assigns.current_user.username == user.username
@@ -74,8 +74,8 @@ defmodule Blog.AuthTest do
   end
 
   test "login with password mismatch", %{conn: conn} do
-    _ = Fixtures.create(:user)
+    user = Forge.saved_user
     assert {:error, :unauthorized, _conn} =
-      Auth.login_by_username_and_pass(conn, "jtester", "incorrect", repo: Repo)
+      Auth.login_by_username_and_pass(conn, user.username, "incorrect", repo: Repo)
   end
 end

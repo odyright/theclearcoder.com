@@ -20,9 +20,9 @@ defmodule Blog.ArticleControllerTest do
   end
 
   test "GET /articles/:slug for a known article", %{conn: conn} do
-    article = Fixtures.create(:article)
+    article = Forge.saved_article
 
-    conn = get conn, "/articles/test-article"
+    conn = get conn, "/articles/#{article.slug}"
     assert html_response(conn, 200) =~ article.title
   end
 
