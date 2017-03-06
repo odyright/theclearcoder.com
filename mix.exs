@@ -30,8 +30,9 @@ defmodule Blog.Mixfile do
   defp applications(_all),  do: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, 
                                  :gettext, :phoenix_ecto, :postgrex, :comeonin]
 
-  defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
-  defp elixirc_paths(_),     do: ["lib", "web"]
+  defp elixirc_paths(:test), do: elixirc_paths(:all) ++ ["test/support"]
+  defp elixirc_paths(:dev),  do: elixirc_paths(:all) ++ ["test/support/data"]
+  defp elixirc_paths(_all),  do: ["lib", "web"]
 
   defp deps do
     [
