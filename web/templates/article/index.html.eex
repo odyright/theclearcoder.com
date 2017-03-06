@@ -1,14 +1,18 @@
-<%= for article <- @articles do %>
-  <article>
-    <h1><%= link article.title, to: article_path(@conn, :show, article.slug) %></h1>
-    <time datetime="<%= iso8601_date(article.inserted_at) %>"><%= readable_date(article.inserted_at) %></time>
-    <section>
-      <%= to_html(article.teaser) %>
-      <div>
-        <%= link to: article_path(@conn, :show, article.slug) do %>
-          <button>Continue reading</button>
-        <% end %>
-      </div>
-    </section>
-  </article>
+<%= if Enum.empty?(@articles) do %>
+  <p>No articles posted.</p>
+<% else %>
+  <%= for article <- @articles do %>
+    <article>
+      <h1><%= link article.title, to: article_path(@conn, :show, article.slug) %></h1>
+      <time datetime="<%= iso8601_date(article.inserted_at) %>"><%= readable_date(article.inserted_at) %></time>
+      <section>
+        <%= to_html(article.teaser) %>
+        <div>
+          <%= link to: article_path(@conn, :show, article.slug) do %>
+            <button>Continue reading</button>
+          <% end %>
+        </div>
+      </section>
+    </article>
+  <% end %>
 <% end %>

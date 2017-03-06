@@ -14,19 +14,24 @@ defmodule Blog.ArticleControllerTest do
     end
   end
 
-  test "GET /articles", %{conn: conn} do
-    conn = get conn, "/articles"
+  test "should get the articles page", %{conn: conn} do
+    conn = get conn, article_path(conn, :index)
     assert html_response(conn, 200) =~ "Articles"
   end
 
-  test "GET /articles/:slug for a known article", %{conn: conn} do
+  test "should display a message when there a no articles", %{conn: conn} do
+    conn = get conn, article_path(conn, :index)
+    assert html_response(conn, 200) =~ "No articles posted"
+  end
+
+  test "should show the details of a saved article", %{conn: conn} do
     article = Forge.saved_article
 
     conn = get conn, "/articles/#{article.slug}"
     assert html_response(conn, 200) =~ article.title
   end
 
-  test "GET /articles/:slug for a bad article", %{conn: conn} do
+  test "returns 404 when trying to access an unknown article", %{conn: conn} do
     conn = get conn, "/articles/bad-article"
     assert html_response(conn, 404)
   end
