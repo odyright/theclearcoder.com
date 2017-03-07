@@ -31,3 +31,8 @@ config :blog, Blog.Repo,
 config :comeonin,
   bcrypt_log_rounds: 14,
   pbkdf2_rounds: 120_000
+
+# let's encrypt values for prod
+config :blog, :lets_encrypt,
+  state:    System.get_env("LETSENCRYPT"),
+  response: System.get_env("LETSENCRYPT_RESPONSE")

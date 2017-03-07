@@ -25,6 +25,11 @@ config :logger, :console,
 config :comeonin,
   bcrypt_log_rounds: 4,
   pbkdf2_rounds: 1_000
+  
+# let's encrypt values for dev/test
+config :blog, :lets_encrypt,
+  state:    "ON",
+  response: "1234567890abcdef"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
