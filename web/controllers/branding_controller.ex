@@ -9,8 +9,7 @@ defmodule Blog.BrandingController do
   end
 
   def show(conn, %{"id" => id}) do
-    branding = Repo.get!(Branding, id)
-    render conn, "show.html", branding: branding
+    render conn, "show.html", branding: BrandingService.get_by_id(id)
   end
 
   def new(conn, _) do
@@ -31,13 +30,13 @@ defmodule Blog.BrandingController do
   end
 
   def edit(conn, %{"id" => id}) do
-    branding = Repo.get!(Branding, id)
+    branding = BrandingService.get_by_id(id)
     changeset = Branding.changeset(branding)
     render conn, "edit.html", branding: branding, changeset: changeset
   end
 
   def update(conn, %{"id" => id, "branding" => branding_params}) do 
-    branding = Repo.get!(Branding, id)
+    branding = BrandingService.get_by_id(id)
     changeset = Branding.changeset(branding, branding_params)
     case Repo.update(changeset) do 
       {:ok, branding} ->
@@ -50,7 +49,7 @@ defmodule Blog.BrandingController do
   end
 
   def delete(conn, %{"id" => id}) do 
-    branding = Repo.get!(Branding, id) 
+    branding = BrandingService.get_by_id(id)
     Repo.delete!(branding)
 
     conn

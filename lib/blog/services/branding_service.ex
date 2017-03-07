@@ -28,4 +28,11 @@ defmodule Blog.Services.BrandingService do
     |> order_by(asc: :item)
     |> Repo.all()
   end
+  
+  @doc """
+  Returns a `Blog.Branding` given an id.
+  """
+  def get_by_id(num) do
+    Repo.get(Branding, num)
+  end
 end
