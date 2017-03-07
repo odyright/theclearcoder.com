@@ -21,7 +21,7 @@ defmodule Blog.BrandingControllerTest do
   describe "with a logged in user" do
     setup :login_test_user
 
-    test "'index' lists all branding", %{conn: conn} do
+    test "should get the index", %{conn: conn} do
       brand    = Forge.saved_branding
       conn     = get conn, branding_path(conn, :index)
       response = html_response(conn, 200) 
@@ -30,7 +30,7 @@ defmodule Blog.BrandingControllerTest do
       assert response =~ brand.item
     end
 
-    test "'show' renders the branding if found", %{conn: conn} do
+    test "should show the branding", %{conn: conn} do
       brand    = Forge.saved_branding
       conn     = get conn, branding_path(conn, :show, brand.id)
       response = html_response(conn, 200) 
@@ -39,7 +39,7 @@ defmodule Blog.BrandingControllerTest do
       assert response =~ brand.item
     end
 
-    test "'new' displays the new branding form", %{conn: conn} do
+    test "displays the new branding form", %{conn: conn} do
       conn     = get conn, branding_path(conn, :new)
       response = html_response(conn, 200)
 
@@ -47,14 +47,14 @@ defmodule Blog.BrandingControllerTest do
       assert response =~ "form"
     end
 
-    test "'create' redirects to the index page after creation", %{conn: conn} do
+    test "successful create redirects to the index page", %{conn: conn} do
       conn = post conn, branding_path(conn, :create, %{"branding" => new_branding()})
 
       assert html_response(conn, 302)
       assert conn.request_path == branding_path(conn, :index) 
     end
 
-    test "'create' saves the new branding in the database", %{conn: conn} do
+    test "successful create saves the new branding in the database", %{conn: conn} do
       branding = new_branding()
       post conn, branding_path(conn, :create, %{"branding" => branding})
       saved_branding = Repo.get_by(Blog.Branding, item: branding["item"])
@@ -62,7 +62,14 @@ defmodule Blog.BrandingControllerTest do
       assert branding["item"] == saved_branding.item
     end
 
-    test "'edit' displays an branding edit form", %{conn: conn} do
+    test "failed create will display an error message", %{conn: conn} do
+      branding = Map.delete(new_branding(), "copy")
+      conn = post conn, branding_path(conn, :create, %{"branding" => branding})
+
+      assert html_response(conn, 200) =~ "check the errors below"
+    end
+
+    test "displays the edit branding form", %{conn: conn} do
       branding = Forge.saved_branding
       conn     = get(conn, branding_path(conn, :edit, branding.id))
       response = html_response(conn, 200)
@@ -71,7 +78,7 @@ defmodule Blog.BrandingControllerTest do
       assert response =~ branding.item
     end
 
-    test "'update' modifies existing branding in the database", %{conn: conn} do
+    test "successful update modifies existing branding in the database", %{conn: conn} do
       branding = Forge.saved_branding
       put conn, branding_path(conn, :update, branding.id, 
                               %{"branding" => %{"item" => branding.item, "copy" => "new copy"}})
@@ -81,7 +88,15 @@ defmodule Blog.BrandingControllerTest do
       assert updated_branding.copy == "new copy"
     end
 
-    test "'delete' removes branding from the database", %{conn: conn} do
+    test "failed update will display an error message", %{conn: conn} do
+      branding = Forge.saved_branding
+      conn = put conn, branding_path(conn, :update, branding.id, 
+                                     %{"branding" => %{"item" => "foo", "copy" => " "}})
+
+      assert html_response(conn, 200) =~ "check the errors below"
+    end
+
+    test "delete removes the branding from the database", %{conn: conn} do
       branding = Forge.saved_branding
       delete conn, branding_path(conn, :delete, branding.id)
 
