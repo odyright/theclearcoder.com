@@ -13,12 +13,11 @@ defmodule Blog.BrandingController do
   end
 
   def new(conn, _) do
-    changeset = Branding.changeset(%Branding{})
-    render conn, "new.html", changeset: changeset
+    render conn, "new.html", changeset: BrandingService.new_changeset()
   end
 
   def create(conn, %{"branding" => branding_params}) do
-    changeset = Branding.changeset(%Branding{}, branding_params)
+    changeset = BrandingService.new_changeset(branding_params)
     case Repo.insert(changeset) do
       {:ok, branding} ->
         conn

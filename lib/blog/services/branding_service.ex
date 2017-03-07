@@ -5,8 +5,7 @@ defmodule Blog.Services.BrandingService do
 
   import Ecto.Query
 
-  alias Blog.Repo
-  alias Blog.Branding
+  alias Blog.{Repo, Branding}
 
   @doc """
   Returns all of the saved branding as a map with the key being the name
@@ -34,5 +33,12 @@ defmodule Blog.Services.BrandingService do
   """
   def get_by_id(num) do
     Repo.get(Branding, num)
+  end
+
+  @doc """
+  Returns a branding `Ecto.Changeset` given the params.
+  """
+  def new_changeset(params \\ %{}) do
+    Branding.changeset(%Branding{}, params)
   end
 end

@@ -33,4 +33,17 @@ defmodule Blog.Services.BrandingServiceTest do
     branding = Forge.saved_branding
     assert BrandingService.get_by_id(branding.id) == branding
   end
+
+  test "generates a new branding changeset" do
+    changeset = BrandingService.new_changeset()
+    assert changeset.data == %Blog.Branding{}
+    assert changeset.changes == %{}
+  end
+
+  test "generates a new branding changeset and includes params" do
+    params = %{item: "foo", copy: "bar"}
+    changeset = BrandingService.new_changeset(params)
+    assert changeset.data == %Blog.Branding{}
+    assert changeset.changes == params
+  end
 end
