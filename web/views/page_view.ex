@@ -5,14 +5,9 @@ defmodule Blog.PageView do
   def page_title(:info, _assigns), do: "Info"
   def page_title(:projects, _assigns), do: "Projects"
 
-  def html_copy(branding, item) do
-    branding
-    |> get_copy(item)
+  def html_copy(conn, name) do
+    conn.assigns.copy
+    |> Map.get(name)
     |> to_html
-  end
-
-  def get_copy(content, item) do
-    content = Enum.find(content, fn(branding) -> branding.item == item end)
-    content && content.copy
   end
 end

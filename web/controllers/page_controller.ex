@@ -1,5 +1,6 @@
 defmodule Blog.PageController do
   use Blog.Web, :controller
+  alias Blog.Services.BrandingService
 
   plug :load_branding when action in [:index, :info]
 
@@ -11,17 +12,26 @@ defmodule Blog.PageController do
     render conn, "info.html"
   end
 
-  defp load_branding(conn, _) do
-    content = Repo.all(Blog.Branding)
-    assign(conn, :branding, content)
-  end
-
   def letsencrypt(conn, %{"content" => content}) do
     if is_letsencrypt_on?(conn) do 
       text conn, "#{content}#{letsencrypt_response(conn)}"
     else
       text conn, ""
     end
+  end
+
+  def projects(conn, _) do
+    render conn, "projects.html"
+  end
+
+  def keybase(conn, _) do
+    conn
+    |> put_layout(false)
+    |> render("keybase.txt")
+  end
+
+  defp load_branding(conn, _) do
+    assign(conn, :copy, BrandingService.get_copy)
   end
 
   defp is_letsencrypt_on?(conn) do
@@ -34,15 +44,5 @@ defmodule Blog.PageController do
     else
       System.get_env("LETSENCRYPT_RESPONSE")
     end
-  end
-
-  def projects(conn, _) do
-    render conn, "projects.html"
-  end
-
-  def keybase(conn, _) do
-    conn
-    |> put_layout(false)
-    |> render("keybase.txt")
   end
 end
