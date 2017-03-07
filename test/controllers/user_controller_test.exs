@@ -19,25 +19,32 @@ defmodule Blog.UserControllerTest do
     setup :login_test_user
 
     test "'index' lists all users", %{conn: conn, user: user} do
-      conn = get conn, user_path(conn, :index)
-      assert html_response(conn, 200) =~ ~r/Listing Users/
-      assert String.contains?(conn.resp_body, user.name)
+      conn     = get conn, user_path(conn, :index)
+      response = html_response(conn, 200) 
+      
+      assert response =~ "Listing Users"
+      assert response =~ user.name
     end
 
     test "'show' renders a user if found", %{conn: conn, user: user} do
-      conn = get conn, user_path(conn, :show, user.id)
-      assert html_response(conn, 200) =~ ~r/Showing User/
-      assert String.contains?(conn.resp_body, user.name)
+      conn     = get conn, user_path(conn, :show, user.id)
+      response = html_response(conn, 200)
+      
+      assert response =~ "Showing User"
+      assert response =~ user.name
     end
 
     test "'new' displays the new user form", %{conn: conn} do
-      conn = get conn, user_path(conn, :new)
-      assert html_response(conn, 200) =~ ~r/New User/
-      assert String.contains?(conn.resp_body, "form")
+      conn     = get conn, user_path(conn, :new)
+      response = html_response(conn, 200)
+      
+      assert response =~ "New User"
+      assert response =~ "form"
     end
 
     test "'create' redirects to the index page after creation", %{conn: conn} do
       conn = post conn, user_path(conn, :create, %{"user" => new_user()})
+
       assert html_response(conn, 302)
       assert conn.request_path == user_path(conn, :index) 
     end
@@ -46,6 +53,7 @@ defmodule Blog.UserControllerTest do
       user = new_user()
       post conn, user_path(conn, :create, %{"user" => user})
       saved_user = Repo.get_by(Blog.User, username: user["username"])
+
       assert user["name"] == saved_user.name
     end
   end
