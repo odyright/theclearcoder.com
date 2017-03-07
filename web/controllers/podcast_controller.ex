@@ -1,17 +1,14 @@
 defmodule Blog.PodcastController do
   use Blog.Web, :controller
 
-  alias Blog.Podcast
+  alias Blog.Services.PodcastService
 
   def index(conn, _params) do
-    query = Podcast |> order_by(desc: :inserted_at)
-    podcasts = Repo.all(query)
-    render conn, "index.html", podcasts: podcasts
+    render conn, "index.html", podcasts: PodcastService.list_podcasts()
   end
 
   def show(conn, %{"id" => id}) do
-    podcast = Repo.get_by(Podcast, episode: id)
-    render_podcast(conn, podcast)
+    render_podcast(conn, PodcastService.for_episode(id))
   end
 
   defp render_podcast(conn, nil) do
