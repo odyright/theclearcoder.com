@@ -14,4 +14,14 @@ defmodule Blog.Services.BrandingServiceTest do
       "bar" => bar.copy
     }
   end
+
+  test "returns an empty list with no branding" do
+    assert BrandingService.list_branding() == []
+  end
+
+  test "returns a branding list sorted by item" do
+    foo = Forge.saved_branding(item: "foo")
+    bar = Forge.saved_branding(item: "bar")
+    assert BrandingService.list_branding() == [ bar, foo ]
+  end
 end

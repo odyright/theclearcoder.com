@@ -1,11 +1,11 @@
 defmodule Blog.BrandingController do
   use Blog.Web, :controller
+
   alias Blog.Branding
+  alias Blog.Services.BrandingService
 
   def index(conn, _) do
-    query = Branding |> order_by(asc: :item)
-    branding = Repo.all(query)
-    render conn, "index.html", branding: branding
+    render conn, "index.html", branding: BrandingService.list_branding()
   end
 
   def show(conn, %{"id" => id}) do

@@ -3,6 +3,8 @@ defmodule Blog.Services.BrandingService do
   Service that provides the ability to access branding information.
   """
 
+  import Ecto.Query
+
   alias Blog.Repo
   alias Blog.Branding
 
@@ -16,5 +18,14 @@ defmodule Blog.Services.BrandingService do
     Enum.reduce(branding, %{}, fn(b, acc) -> 
       Map.put(acc, b.item, b.copy)
     end)
+  end
+
+  @doc """
+  Returns a sorted, item ascending list of `Blog.Branding`.
+  """
+  def list_branding() do
+    Branding 
+    |> order_by(asc: :item)
+    |> Repo.all()
   end
 end
