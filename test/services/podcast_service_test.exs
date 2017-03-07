@@ -23,4 +23,15 @@ defmodule Blog.Services.PodcastServiceTest do
     podcast = Forge.saved_podcast
     assert PodcastService.for_episode(podcast.episode) == podcast
   end
+
+  test "returns the date of the newest podcast" do
+    Forge.saved_podcast(inserted_at: Timepiece.days_ago(10))
+    newest = Forge.saved_podcast(episode: 2)
+
+    assert :eq == NaiveDateTime.compare(newest.inserted_at, PodcastService.last_published_on()) 
+  end
+
+  test "returns nil for the date with no podcasts" do
+    assert PodcastService.last_published_on() == nil
+  end
 end
