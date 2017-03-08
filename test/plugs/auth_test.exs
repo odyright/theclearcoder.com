@@ -10,6 +10,16 @@ defmodule Blog.AuthTest do
     {:ok, %{conn: conn}}
   end
 
+  test "should specify the repo" do
+
+    repo = Auth.init(foo: "bar", repo: Blog.Repo)
+    assert repo == Blog.Repo
+
+    assert_raise KeyError, fn ->
+      Auth.init(foo: "bar")
+    end
+  end
+
   test "authenticate_user halts when no current_user exists", %{conn: conn} do
     conn = Auth.authenticate_user(conn, [])
     assert conn.halted
