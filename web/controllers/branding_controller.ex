@@ -28,9 +28,7 @@ defmodule Blog.BrandingController do
   end
 
   def edit(conn, %{"id" => id}) do
-    branding = BrandingService.get_by_id(id)
-    changeset = Branding.changeset(branding)
-    render conn, "edit.html", branding: branding, changeset: changeset
+    render conn, "edit.html", changeset: BrandingService.edit_changeset(id)
   end
 
   def update(conn, %{"id" => id, "branding" => branding_params}) do 

@@ -62,4 +62,18 @@ defmodule Blog.Services.BrandingServiceTest do
     assert Enum.count(changeset.errors) == 1
     assert Repo.get_by(Branding, item: "foo") == nil
   end
+
+  test "returns a edit branding changeset" do
+    branding  = Forge.saved_branding
+    changeset = BrandingService.edit_changeset(branding.id)
+    assert changeset.data == branding
+  end
+
+  test "returns an edit branding changeset with param changes" do
+    branding  = Forge.saved_branding
+    new_copy  = %{copy: "bar baz"}
+    changeset = BrandingService.edit_changeset(branding.id, new_copy)
+    assert changeset.data == branding
+    assert changeset.changes == new_copy
+  end
 end

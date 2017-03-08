@@ -1,6 +1,6 @@
 <h1>Edit Branding</h1>
 
-<%= form_for @changeset, branding_path(@conn, :update, @branding.id), fn f -> %>
+<%= form_for @changeset, branding_path(@conn, :update, @changeset.data.id), fn f -> %>
   <%= if @changeset.action do %>
     <div class="alert alert-danger">
       <p>Oops, something went wrong!  Please check the errors below.</p>
@@ -15,5 +15,5 @@
     <%= error_tag f, :copy %>
   </div>
   <%= submit "Update Branding", class: "btn" %>
-  <%= link "Cancel", to: branding_path(@conn, :show, @branding.id), class: "btn btn-cancel" %>
+  <%= link "Cancel", to: branding_path(@conn, :show, @changeset.data.id), class: "btn btn-cancel" %>
 <% end %>

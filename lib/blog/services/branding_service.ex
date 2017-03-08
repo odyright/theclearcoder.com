@@ -50,4 +50,13 @@ defmodule Blog.Services.BrandingService do
     new_changeset(params)
     |> Repo.insert()
   end
+
+  @doc """
+  Returns an `Ecto.Changeset` loaded with the `Blog.Branding` specified by the id.  If
+  new parameters are given, they will be contained in the changes.
+  """
+  def edit_changeset(id, new_params \\ %{}) do
+    get_by_id(id)
+    |> Branding.changeset(new_params)
+  end
 end
