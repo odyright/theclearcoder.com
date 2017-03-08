@@ -21,4 +21,11 @@ defmodule Blog.Services.ArticleService do
   def get_by_slug(slug) do
     Repo.get_by(Article, slug: slug)
   end
+ 
+  @doc """
+  Returns an article `Ecto.Changeset` with the given params.
+  """
+  def new_changeset(params \\ %{}) do
+    Article.changeset(%Article{}, params)
+  end
 end

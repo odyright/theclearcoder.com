@@ -15,9 +15,9 @@ defmodule Blog.ArticleController do
     |> render_article(conn)
   end
 
-  def new(conn, _) do
-    changeset = Article.changeset(%Article{})
-    render conn, "new.html", changeset: changeset
+  def new(conn, _params) do
+    conn
+    |> render("new.html", changeset: ArticleService.new_changeset())
   end
 
   def create(conn, %{"article" => article_params}) do

@@ -37,4 +37,22 @@ defmodule Blog.ArticleControllerTest do
     conn = get conn, "/articles/bad-article"
     assert response(conn, 404)
   end
+
+  describe "with a logged in user" do
+    setup :login_test_user
+
+    test "displays the new branding form with the new action", %{conn: conn} do
+      conn     = get conn, article_path(conn, :new)
+      response = html_response(conn, 200)
+
+      assert response =~ "New Article"
+      assert response =~ "form"
+    end
+  end
+
+  defp login_test_user(context) do
+    user = Forge.saved_user
+    conn = assign(context[:conn], :current_user, user)
+    [conn: conn, user: user]
+  end
 end
