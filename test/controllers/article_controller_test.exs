@@ -48,11 +48,30 @@ defmodule Blog.ArticleControllerTest do
       assert response =~ "New Article"
       assert response =~ "form"
     end
+
+    test "successful create redirects and sets a flash message", %{conn: conn} do
+      params = new_article()
+      conn = post conn, article_path(conn, :create, %{"article" => params})
+
+      assert response(conn, 302) =~ article_path(conn, :index)
+      assert get_flash(conn, :info) == "#{params.title} created!"
+    end
+
+    test "failed create will display an error message", %{conn: conn} do
+      params = Map.put(new_article(), "teaser", " ")
+      conn = post conn, article_path(conn, :create, %{"article" => params})
+
+      assert html_response(conn, 200) =~ "check the errors below"
+    end
   end
 
   defp login_test_user(context) do
     user = Forge.saved_user
     conn = assign(context[:conn], :current_user, user)
     [conn: conn, user: user]
+  end
+
+  defp new_article() do
+    %{slug: "foo", title: "Unsubscribe", teaser: "It's the story of the year!", content: "It's gripping!"}
   end
 end

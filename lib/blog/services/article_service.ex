@@ -28,4 +28,15 @@ defmodule Blog.Services.ArticleService do
   def new_changeset(params \\ %{}) do
     Article.changeset(%Article{}, params)
   end
+
+  @doc """
+  Saves a new article record to the database.  Returns {:ok, `Blog.Article`} if
+  successful, otherwise an {:error, `Ecto.Changeset`} that contains the errors.
+  """
+  def create(params) do
+    params_with_date = Map.put(params, "inserted_at", Timepiece.now()) 
+
+    Article.changeset(%Article{}, params_with_date)
+    |> Repo.insert()
+  end
 end

@@ -20,10 +20,8 @@ defmodule Blog.ArticleController do
     |> render("new.html", changeset: ArticleService.new_changeset())
   end
 
-  def create(conn, %{"article" => article_params}) do
-    article_params = Map.merge(article_params, %{"inserted_at" => Ecto.DateTime.utc()}) 
-    changeset = Article.changeset(%Article{}, article_params)
-    case Repo.insert(changeset) do
+  def create(conn, %{"article" => params}) do
+    case ArticleService.create(params) do
       {:ok, article} ->
         conn
         |> put_flash(:info, "#{article.title} created!")
