@@ -3,11 +3,11 @@ defmodule Blog.ArticleController do
   plug :authenticate_user when not action in [:index, :show]
 
   alias Blog.Article
+  alias Blog.Services.ArticleService
 
   def index(conn, _params) do
-    query = Article |> order_by(desc: :inserted_at)
-    articles = Repo.all(query)
-    render conn, "index.html", articles: articles
+    conn
+    |> render("index.html", articles: ArticleService.list_articles())
   end
 
   def show(conn, %{"slug" => slug}) do
