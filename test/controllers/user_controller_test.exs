@@ -18,7 +18,7 @@ defmodule Blog.UserControllerTest do
   describe "with a logged in user" do
     setup :login_test_user
 
-    test "'index' lists all users", %{conn: conn, user: user} do
+    test "should display a list of all the users", %{conn: conn, user: user} do
       conn     = get conn, user_path(conn, :index)
       response = html_response(conn, 200) 
       
@@ -26,7 +26,7 @@ defmodule Blog.UserControllerTest do
       assert response =~ user.name
     end
 
-    test "'show' renders a user if found", %{conn: conn, user: user} do
+    test "should display the user details", %{conn: conn, user: user} do
       conn     = get conn, user_path(conn, :show, user.id)
       response = html_response(conn, 200)
       
@@ -34,7 +34,7 @@ defmodule Blog.UserControllerTest do
       assert response =~ user.name
     end
 
-    test "'new' displays the new user form", %{conn: conn} do
+    test "should display the new user form", %{conn: conn} do
       conn     = get conn, user_path(conn, :new)
       response = html_response(conn, 200)
       
@@ -42,19 +42,19 @@ defmodule Blog.UserControllerTest do
       assert response =~ "form"
     end
 
-    test "'create' redirects to the index page after creation", %{conn: conn} do
-      conn = post conn, user_path(conn, :create, %{"user" => new_user()})
+    test "successful create redirects and sets a flash message", %{conn: conn} do
+      user_params = new_user()
+      conn = post conn, user_path(conn, :create, %{"user" => user_params})
 
-      assert html_response(conn, 302)
-      assert conn.request_path == user_path(conn, :index) 
+      assert redirected_to(conn, 302) =~ user_path(conn, :index)
+      assert get_flash(conn, :info) == "#{user_params["name"]} created!"
     end
 
-    test "'create' saves the new user in the database", %{conn: conn} do
-      user = new_user()
-      post conn, user_path(conn, :create, %{"user" => user})
-      saved_user = Repo.get_by(Blog.User, username: user["username"])
+    test "failed create displays an error message", %{conn: conn} do
+      params_with_blank_username = Map.put(new_user(), "username", " ")
+      conn = post conn, user_path(conn, :create, %{"user" => params_with_blank_username})
 
-      assert user["name"] == saved_user.name
+      assert html_response(conn, 200) =~ "check the errors below"
     end
   end
 
