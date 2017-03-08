@@ -11,4 +11,13 @@ defmodule Blog.Services.ArticleServiceTest do
     newest = Forge.saved_article
     assert ArticleService.list_articles() == [newest, oldest]
   end
+
+  test "return nil with an unknown article" do
+    assert ArticleService.get_by_slug("foo") == nil
+  end
+
+  test "returns the requested article" do
+    article = Forge.saved_article
+    assert ArticleService.get_by_slug(article.slug) == article
+  end
 end

@@ -14,4 +14,11 @@ defmodule Blog.Services.ArticleService do
     |> order_by(desc: :inserted_at)
     |> Repo.all()
   end
+
+  @doc """
+  Returns a `Blog.Article` given a slug.
+  """
+  def get_by_slug(slug) do
+    Repo.get_by(Article, slug: slug)
+  end
 end

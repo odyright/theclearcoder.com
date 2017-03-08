@@ -11,18 +11,8 @@ defmodule Blog.ArticleController do
   end
 
   def show(conn, %{"slug" => slug}) do
-    article = Repo.get_by(Article, slug: slug)
-    render_article(conn, article)
-  end
-
-  defp render_article(conn, nil) do
-    conn
-    |> put_status(:not_found)
-    |> render(Blog.ErrorView, "404.html")
-  end
-
-  defp render_article(conn, article) do
-    render conn, "show.html", article: article
+    ArticleService.get_by_slug(slug)
+    |> render_article(conn)
   end
 
   def new(conn, _) do
@@ -69,5 +59,15 @@ defmodule Blog.ArticleController do
     conn
     |> put_flash(:info, "Article deleted successfully.") 
     |> redirect(to: article_path(conn, :index))
+  end
+
+  defp render_article(nil, conn) do
+    conn
+    |> put_status(:not_found)
+    |> render(Blog.ErrorView, "404.html")
+  end
+
+  defp render_article(article, conn) do
+    render conn, "show.html", article: article
   end
 end
