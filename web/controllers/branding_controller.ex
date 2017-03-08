@@ -3,15 +3,18 @@ defmodule Blog.BrandingController do
   alias Blog.Services.BrandingService
 
   def index(conn, _) do
-    render conn, "index.html", branding: BrandingService.list_branding()
+    conn 
+    |> render("index.html", branding: BrandingService.list_branding())
   end
 
   def show(conn, %{"id" => id}) do
-    render conn, "show.html", branding: BrandingService.get_by_id(id)
+    conn
+    |> render("show.html", branding: BrandingService.get_by_id(id))
   end
 
   def new(conn, _) do
-    render conn, "new.html", changeset: BrandingService.new_changeset()
+    conn
+    |> render("new.html", changeset: BrandingService.new_changeset())
   end
 
   def create(conn, %{"branding" => params}) do
@@ -26,7 +29,8 @@ defmodule Blog.BrandingController do
   end
 
   def edit(conn, %{"id" => id}) do
-    render conn, "edit.html", changeset: BrandingService.edit_changeset(id)
+    conn
+    |> render("edit.html", changeset: BrandingService.edit_changeset(id))
   end
 
   def update(conn, %{"id" => id, "branding" => branding_params}) do 
@@ -41,8 +45,7 @@ defmodule Blog.BrandingController do
   end
 
   def delete(conn, %{"id" => id}) do 
-    branding = BrandingService.get_by_id(id)
-    Repo.delete!(branding)
+    BrandingService.delete(id)
 
     conn
     |> put_flash(:info, "Branding deleted successfully.") 

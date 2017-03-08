@@ -68,4 +68,12 @@ defmodule Blog.Services.BrandingService do
     edit_changeset(id, params)
     |> Repo.update()
   end
+
+  @doc """
+  Delete a branding record in the database given the id.
+  """
+  def delete(id) do
+    get_by_id(id)
+    |> Repo.delete()
+  end
 end

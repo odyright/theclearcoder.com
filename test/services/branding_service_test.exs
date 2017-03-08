@@ -93,4 +93,10 @@ defmodule Blog.Services.BrandingServiceTest do
     assert Enum.count(changeset.errors) == 1
     assert Repo.get(Branding, branding.id) == branding
   end
+
+  test "deletes an existing record in the database" do
+    branding = Forge.saved_branding
+    BrandingService.delete(branding.id)
+    assert Repo.get(Branding, branding.id) == nil
+  end
 end
