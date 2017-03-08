@@ -72,6 +72,23 @@ defmodule Blog.ArticleControllerTest do
       assert response =~ "Edit Article"
       assert response =~ article.title
     end
+
+    test "successful update redirects and sets a flash message", %{conn: conn} do
+      article = Forge.saved_article
+      conn = put conn, article_path(conn, :update, article.slug,
+                                     %{"article" => %{"content" => "new content"}})
+
+      assert response(conn, 302) =~ article_path(conn, :show, article.slug)
+      assert get_flash(conn, :info) =~ "Article updated successfully"
+    end
+
+    test "failed update will display an error message", %{conn: conn} do
+      article = Forge.saved_article
+      conn = put conn, article_path(conn, :update, article.slug,
+                                     %{"article" => %{"content" => "  "}})
+      
+      assert html_response(conn, 200) =~ "check the errors below"
+    end
   end
 
   defp login_test_user(context) do

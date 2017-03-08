@@ -64,6 +64,14 @@ defmodule Blog.Services.ArticleServiceTest do
     assert changeset.changes == new_content
   end
 
+  test "updates an existing record in the database" do
+    article  = Forge.saved_article
+    params   = %{content: "some new content"}
+    {:ok, updated_article} = ArticleService.update(article.slug, params)
+    assert updated_article.title == article.title
+    assert updated_article.content == params.content
+  end
+
   defp new_article_params() do
     a = Forge.article
     %{"slug" => a.slug, "title" => a.title, "teaser" => a.teaser, "content" => a.content}

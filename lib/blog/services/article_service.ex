@@ -48,4 +48,13 @@ defmodule Blog.Services.ArticleService do
     get_by_slug(slug)
     |> Article.changeset(params)
   end
+
+  @doc """
+  Updates an existing article record in the database.  Returns {:ok, `Blog.Article`} if
+  successful, otherwise an {:error, `Ecto.Changeset`} that contains the errors.
+  """
+  def update(slug, params) do
+    edit_changeset(slug, params)
+    |> Repo.update() 
+  end
 end
