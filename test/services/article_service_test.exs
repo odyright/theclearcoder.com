@@ -72,6 +72,12 @@ defmodule Blog.Services.ArticleServiceTest do
     assert updated_article.content == params.content
   end
 
+  test "deletes an existing record in the database" do
+    article = Forge.saved_article
+    ArticleService.delete(article.slug)
+    assert Repo.get_by(Article, slug: article.slug) == nil
+  end
+
   defp new_article_params() do
     a = Forge.article
     %{"slug" => a.slug, "title" => a.title, "teaser" => a.teaser, "content" => a.content}

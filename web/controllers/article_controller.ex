@@ -2,7 +2,6 @@ defmodule Blog.ArticleController do
   use Blog.Web, :controller
   plug :authenticate_user when not action in [:index, :show]
 
-  alias Blog.Article
   alias Blog.Services.ArticleService
 
   def index(conn, _params) do
@@ -48,8 +47,7 @@ defmodule Blog.ArticleController do
   end
 
   def delete(conn, %{"slug" => slug}) do 
-    article = Repo.get_by!(Article, slug: slug) 
-    Repo.delete!(article)
+    ArticleService.delete(slug)
 
     conn
     |> put_flash(:info, "Article deleted successfully.") 

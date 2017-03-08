@@ -57,4 +57,12 @@ defmodule Blog.Services.ArticleService do
     edit_changeset(slug, params)
     |> Repo.update() 
   end
+
+  @doc """
+  Delete an article record in the database given the slug.
+  """
+  def delete(slug) do
+    get_by_slug(slug)
+    |> Repo.delete!()
+  end
 end

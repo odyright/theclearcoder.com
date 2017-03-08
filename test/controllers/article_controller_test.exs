@@ -89,6 +89,14 @@ defmodule Blog.ArticleControllerTest do
       
       assert html_response(conn, 200) =~ "check the errors below"
     end
+
+    test "delete redirects and sets a flash message", %{conn: conn} do
+      article = Forge.saved_article
+      conn = delete conn, article_path(conn, :delete, article.slug)
+
+      assert response(conn, 302) =~ article_path(conn, :index)
+      assert get_flash(conn, :info) =~ "Article deleted successfully"
+    end
   end
 
   defp login_test_user(context) do
