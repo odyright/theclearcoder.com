@@ -39,4 +39,13 @@ defmodule Blog.Services.ArticleService do
     Article.changeset(%Article{}, params_with_date)
     |> Repo.insert()
   end
+
+  @doc """
+  Returns an `Ecto.Changeset` loaded with the `Blog.Article` specified by the slug.  If
+  new parameters are given, they will be contained in the changes.
+  """
+  def edit_changeset(slug, params \\ %{}) do
+    get_by_slug(slug)
+    |> Article.changeset(params)
+  end
 end

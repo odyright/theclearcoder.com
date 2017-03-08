@@ -50,6 +50,20 @@ defmodule Blog.Services.ArticleServiceTest do
     assert Repo.get_by(Article, slug: params["slug"]) == nil
   end
 
+  test "returns a edit article changeset" do
+    article   = Forge.saved_article
+    changeset = ArticleService.edit_changeset(article.slug)
+    assert changeset.data == article
+  end
+
+  test "returns an edit article changeset with param changes" do
+    article     = Forge.saved_article
+    new_content = %{content: "Elixir in action"}
+    changeset   = ArticleService.edit_changeset(article.slug, new_content)
+    assert changeset.data == article
+    assert changeset.changes == new_content
+  end
+
   defp new_article_params() do
     a = Forge.article
     %{"slug" => a.slug, "title" => a.title, "teaser" => a.teaser, "content" => a.content}

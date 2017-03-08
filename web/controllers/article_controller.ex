@@ -32,9 +32,8 @@ defmodule Blog.ArticleController do
   end
 
   def edit(conn, %{"slug" => slug}) do
-    article = Repo.get_by!(Article, slug: slug)
-    changeset = Article.changeset(article)
-    render(conn, "edit.html", article: article, changeset: changeset)
+    conn
+    |> render("edit.html", changeset: ArticleService.edit_changeset(slug))
   end
 
   def update(conn, %{"slug" => slug, "article" => article_params}) do 

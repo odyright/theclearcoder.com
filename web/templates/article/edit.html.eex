@@ -1,6 +1,6 @@
 <h1>Edit Article</h1>
 
-<%= form_for @changeset, article_path(@conn, :update, @article.slug), fn f -> %>
+<%= form_for @changeset, article_path(@conn, :update, @changeset.data.slug), fn f -> %>
   <%= if @changeset.action do %>
     <div class="alert alert-danger">
       <p>Oops, something went wrong!  Please check the errors below.</p>
@@ -23,5 +23,5 @@
     <%= error_tag f, :content %>
   </div>
   <%= submit "Update Article", class: "btn" %>
-  <%= link "Cancel", to: article_path(@conn, :show, @article.slug), class: "btn btn-cancel" %>
+  <%= link "Cancel", to: article_path(@conn, :show, @changeset.data.slug), class: "btn btn-cancel" %>
 <% end %>

@@ -63,6 +63,15 @@ defmodule Blog.ArticleControllerTest do
 
       assert html_response(conn, 200) =~ "check the errors below"
     end
+
+    test "displays an edit branding form with the edit action", %{conn: conn} do
+      article  = Forge.saved_article
+      conn     = get(conn, article_path(conn, :edit, article.slug))
+      response = html_response(conn, 200)
+
+      assert response =~ "Edit Article"
+      assert response =~ article.title
+    end
   end
 
   defp login_test_user(context) do
