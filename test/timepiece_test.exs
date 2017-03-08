@@ -13,5 +13,10 @@ defmodule TimepieceTest do
     assert :eq == NaiveDateTime.compare(expected, actual)
   end
 
+  test "determines if a datetime is less than a minute old" do
+    assert Timepiece.last_minute?(~N[2017-03-06 12:26:24], &now/0)
+    refute Timepiece.last_minute?(~N[2017-03-06 12:25:24], &now/0)
+  end
+
   defp now(), do: ~N[2017-03-06 12:27:10]
 end
