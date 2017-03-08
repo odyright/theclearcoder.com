@@ -16,9 +16,8 @@ defmodule Blog.BrandingController do
     render conn, "new.html", changeset: BrandingService.new_changeset()
   end
 
-  def create(conn, %{"branding" => branding_params}) do
-    changeset = BrandingService.new_changeset(branding_params)
-    case Repo.insert(changeset) do
+  def create(conn, %{"branding" => params}) do
+    case BrandingService.create(params) do
       {:ok, branding} ->
         conn
         |> put_flash(:info, "#{branding.item} created!")

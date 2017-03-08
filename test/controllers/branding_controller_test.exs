@@ -47,19 +47,11 @@ defmodule Blog.BrandingControllerTest do
       assert response =~ "form"
     end
 
-    test "successful create redirects to the index page", %{conn: conn} do
+    test "successful create redirects and sets a flash message", %{conn: conn} do
       conn = post conn, branding_path(conn, :create, %{"branding" => new_branding()})
 
-      assert html_response(conn, 302)
-      assert conn.request_path == branding_path(conn, :index) 
-    end
-
-    test "successful create saves the new branding in the database", %{conn: conn} do
-      branding = new_branding()
-      post conn, branding_path(conn, :create, %{"branding" => branding})
-      saved_branding = Repo.get_by(Blog.Branding, item: branding["item"])
-
-      assert branding["item"] == saved_branding.item
+      assert response(conn, 302) =~ branding_path(conn, :index) 
+      assert get_flash(conn, :info) == "TheBrand created!"
     end
 
     test "failed create will display an error message", %{conn: conn} do

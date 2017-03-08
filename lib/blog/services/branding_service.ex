@@ -41,4 +41,13 @@ defmodule Blog.Services.BrandingService do
   def new_changeset(params \\ %{}) do
     Branding.changeset(%Branding{}, params)
   end
+
+  @doc """
+  Saves a new branding record to the database.  Returns {:ok, `Blog.Branding`} if
+  successful, otherwise {:error, `Ecto.Changeset`} that contains the errors. 
+  """
+  def create(params) do
+    new_changeset(params)
+    |> Repo.insert()
+  end
 end

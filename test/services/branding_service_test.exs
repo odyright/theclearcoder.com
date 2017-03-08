@@ -1,5 +1,7 @@
 defmodule Blog.Services.BrandingServiceTest do
   use Blog.ModelCase
+
+  alias Blog.Branding
   alias Blog.Services.BrandingService
 
   test "returns an empty map with no branding" do
@@ -36,14 +38,28 @@ defmodule Blog.Services.BrandingServiceTest do
 
   test "generates a new branding changeset" do
     changeset = BrandingService.new_changeset()
-    assert changeset.data == %Blog.Branding{}
+    assert changeset.data == %Branding{}
     assert changeset.changes == %{}
   end
 
   test "generates a new branding changeset and includes params" do
     params = %{item: "foo", copy: "bar"}
     changeset = BrandingService.new_changeset(params)
-    assert changeset.data == %Blog.Branding{}
+    assert changeset.data == %Branding{}
     assert changeset.changes == params
+  end
+
+  test "creates a new record in the database" do
+    params = %{item: "foo", copy: "bar"}
+    {:ok, branding} = BrandingService.create(params)
+    assert Repo.get_by(Branding, item: "foo") == branding
+  end
+
+  test "returns an error changeset when create fails" do
+    params = %{item: "foo", copy: " "}
+    {:error, changeset} = BrandingService.create(params)
+    refute changeset.valid?
+    assert Enum.count(changeset.errors) == 1
+    assert Repo.get_by(Branding, item: "foo") == nil
   end
 end
