@@ -76,4 +76,21 @@ defmodule Blog.Services.BrandingServiceTest do
     assert changeset.data == branding
     assert changeset.changes == new_copy
   end
+
+  test "updates an existing record in the database" do
+    branding = Forge.saved_branding
+    params   = %{copy: "some new copy"}
+    {:ok, updated_branding} = BrandingService.update(branding.id, params)
+    assert updated_branding.item == branding.item
+    assert updated_branding.copy == params[:copy]
+  end
+
+  test "returns an error changes when update fails" do
+    branding = Forge.saved_branding
+    params   = %{copy: " "}
+    {:error, changeset} = BrandingService.update(branding.id, params)
+    refute changeset.valid?
+    assert Enum.count(changeset.errors) == 1
+    assert Repo.get(Branding, branding.id) == branding
+  end
 end

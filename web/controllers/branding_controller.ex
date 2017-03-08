@@ -1,7 +1,5 @@
 defmodule Blog.BrandingController do
   use Blog.Web, :controller
-
-  alias Blog.Branding
   alias Blog.Services.BrandingService
 
   def index(conn, _) do
@@ -32,15 +30,13 @@ defmodule Blog.BrandingController do
   end
 
   def update(conn, %{"id" => id, "branding" => branding_params}) do 
-    branding = BrandingService.get_by_id(id)
-    changeset = Branding.changeset(branding, branding_params)
-    case Repo.update(changeset) do 
+    case BrandingService.update(id, branding_params) do
       {:ok, branding} ->
         conn
         |> put_flash(:info, "Branding updated successfully.") 
         |> redirect(to: branding_path(conn, :show, branding.id))
       {:error, changeset} ->
-        render(conn, "edit.html", branding: branding, changeset: changeset)
+        render(conn, "edit.html", changeset: changeset)
     end 
   end
 

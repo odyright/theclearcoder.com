@@ -59,4 +59,13 @@ defmodule Blog.Services.BrandingService do
     get_by_id(id)
     |> Branding.changeset(new_params)
   end
+
+  @doc """
+  Updates a new branding record in the database.  Returns {:ok, `Blog.Branding`} if
+  successful, otherwise {:error, `Ecto.Changeset`} that contains the errors. 
+  """
+  def update(id, params) do
+    edit_changeset(id, params)
+    |> Repo.update()
+  end
 end

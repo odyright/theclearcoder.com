@@ -39,7 +39,7 @@ defmodule Blog.BrandingControllerTest do
       assert response =~ brand.item
     end
 
-    test "displays the new branding form", %{conn: conn} do
+    test "displays the new branding form with the new action", %{conn: conn} do
       conn     = get conn, branding_path(conn, :new)
       response = html_response(conn, 200)
 
@@ -61,7 +61,7 @@ defmodule Blog.BrandingControllerTest do
       assert html_response(conn, 200) =~ "check the errors below"
     end
 
-    test "displays the edit branding form", %{conn: conn} do
+    test "displays an edit branding form with the edit action", %{conn: conn} do
       branding = Forge.saved_branding
       conn     = get(conn, branding_path(conn, :edit, branding.id))
       response = html_response(conn, 200)
@@ -70,14 +70,13 @@ defmodule Blog.BrandingControllerTest do
       assert response =~ branding.item
     end
 
-    test "successful update modifies existing branding in the database", %{conn: conn} do
+    test "successful update redirects and sets a flash message", %{conn: conn} do
       branding = Forge.saved_branding
-      put conn, branding_path(conn, :update, branding.id, 
-                              %{"branding" => %{"item" => branding.item, "copy" => "new copy"}})
-      updated_branding = Repo.get(Blog.Branding, branding.id)
-
-      assert updated_branding.item == branding.item
-      assert updated_branding.copy == "new copy"
+      conn = put conn, branding_path(conn, :update, branding.id, 
+                                     %{"branding" => %{"item" => branding.item, "copy" => "new copy"}})
+      
+      assert response(conn, 302) =~ branding_path(conn, :show, branding.id) 
+      assert get_flash(conn, :info) =~ "Branding updated successfully"
     end
 
     test "failed update will display an error message", %{conn: conn} do
