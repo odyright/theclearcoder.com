@@ -1,7 +1,7 @@
 defmodule Blog.SessionController do
   use Blog.Web, :controller
 
-  def new(conn, _) do
+  def new(conn, _params) do
     render conn, "new.html"
   end
 
@@ -18,7 +18,7 @@ defmodule Blog.SessionController do
     end
   end
 
-  def delete(conn, _) do
+  def delete(conn, _params) do
     conn
     |> Blog.Auth.logout()
     |> redirect(to: page_path(conn, :index))
