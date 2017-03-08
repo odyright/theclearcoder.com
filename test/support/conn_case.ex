@@ -27,6 +27,8 @@ defmodule Blog.ConnCase do
 
       import Blog.Router.Helpers
 
+      import Test.Context.Helpers
+
       # The default endpoint for testing
       @endpoint Blog.Endpoint
     end

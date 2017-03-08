@@ -58,12 +58,6 @@ defmodule Blog.UserControllerTest do
     end
   end
 
-  defp login_test_user(context) do
-    user = Forge.saved_user
-    conn = assign(context[:conn], :current_user, user)
-    [conn: conn, user: user]
-  end
-
   defp new_user() do
     %{"name" => "John Doe", "password" => "password", "username" => "jdoe"}
   end

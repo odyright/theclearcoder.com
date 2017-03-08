@@ -95,12 +95,6 @@ defmodule Blog.BrandingControllerTest do
     end
   end
 
-  defp login_test_user(context) do
-    user = Forge.saved_user
-    conn = assign(context[:conn], :current_user, user)
-    [conn: conn, user: user]
-  end
-
   defp new_branding() do
     %{"item" => "TheBrand", "copy" => "The is some cool test branding."}
   end

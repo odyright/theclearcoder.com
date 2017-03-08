@@ -99,12 +99,6 @@ defmodule Blog.ArticleControllerTest do
     end
   end
 
-  defp login_test_user(context) do
-    user = Forge.saved_user
-    conn = assign(context[:conn], :current_user, user)
-    [conn: conn, user: user]
-  end
-
   defp new_article() do
     %{slug: "foo", title: "Unsubscribe", teaser: "It's the story of the year!", content: "It's gripping!"}
   end
