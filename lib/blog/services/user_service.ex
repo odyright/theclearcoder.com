@@ -14,4 +14,11 @@ defmodule Blog.Services.UserService do
     |> order_by(:name)
     |> Repo.all()
   end
+
+  @doc """
+  Returns a `Blog.User` given an id.
+  """
+  def get_by_id(id) do
+    Repo.get(User, id)
+  end
 end

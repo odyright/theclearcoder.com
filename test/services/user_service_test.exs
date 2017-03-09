@@ -17,4 +17,14 @@ defmodule Blog.Services.UserServiceTest do
     assert Enum.at(users, 1).name == "Brady"
     assert Enum.at(users, 2).name == "Henry"
   end
+
+  test "return nil with an unknown users" do
+    assert UserService.get_by_id(99) == nil
+  end
+
+  test "returns the requested user" do
+    expected_user = Forge.saved_user
+    user = UserService.get_by_id(expected_user.id)
+    assert expected_user.name == user.name
+  end
 end

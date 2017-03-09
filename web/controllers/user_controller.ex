@@ -9,8 +9,8 @@ defmodule Blog.UserController do
   end
 
   def show(conn, %{"id" => id}) do
-    user = Repo.get(Blog.User, id)
-    render conn, "show.html", user: user
+    conn
+    |> render("show.html", user: UserService.get_by_id(id))
   end
 
   def new(conn, _params) do
