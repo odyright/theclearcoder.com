@@ -65,6 +65,6 @@ defmodule Blog.UserControllerTest do
   # Since I'm using Faker and Earkmark, handle the case when a user's name contains
   # an apostrophe.
   defp print_name(user) do
-    String.replace(user.name, "'", "’")
+    String.replace(user.name, "'", "&#39;")
   end
 end

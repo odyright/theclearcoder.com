@@ -1,6 +1,5 @@
 defmodule Blog.UserController do
   use Blog.Web, :controller
-  alias Blog.User
   alias Blog.Services.UserService
 
   def index(conn, _params) do
@@ -18,9 +17,8 @@ defmodule Blog.UserController do
     |> render("new.html", changeset: UserService.new_changeset())
   end
 
-  def create(conn, %{"user" => user_params}) do
-    changeset = User.registration_changeset(%User{}, user_params)
-    case Repo.insert(changeset) do
+  def create(conn, %{"user" => params}) do
+    case UserService.create(params) do
       {:ok, user} ->
         conn
         |> put_flash(:info, "#{user.name} created!")

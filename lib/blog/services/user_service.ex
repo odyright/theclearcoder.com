@@ -28,4 +28,13 @@ defmodule Blog.Services.UserService do
   def new_changeset() do
     User.changeset(%User{})
   end
+
+  @doc """
+  Saves a new user record to the database.  Returns {:ok, `Blog.User`} if
+  successful, otherwise an {:error, `Ecto.Changeset`} that contains the errors.
+  """
+  def create(params) do
+    User.registration_changeset(%User{}, params)
+    |> Repo.insert()
+  end
 end

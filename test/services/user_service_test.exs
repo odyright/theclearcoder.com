@@ -34,4 +34,23 @@ defmodule Blog.Services.UserServiceTest do
     assert changeset.data == %User{}
     assert changeset.changes == %{}
   end
+
+  test "creates a new user in the database" do
+    params = new_user_params()
+    {:ok, new_user} = UserService.create(params)
+    assert new_user.name == params["name"]
+    assert new_user.username == params["username"]
+  end
+
+  test "returns an error changeset when create fails" do
+    params = Map.put(new_user_params(), "username", "  ")
+    {:error, changeset} = UserService.create(params)
+    refute changeset.valid?
+    assert Enum.count(changeset.errors) == 1
+    assert Repo.get_by(User, name: params["name"]) == nil
+  end
+
+  defp new_user_params() do
+    %{"name" => "John Doe", "username" => "jdoe", "password" => "password"}
+  end
 end
