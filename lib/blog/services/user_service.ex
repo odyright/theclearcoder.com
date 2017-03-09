@@ -21,4 +21,11 @@ defmodule Blog.Services.UserService do
   def get_by_id(id) do
     Repo.get(User, id)
   end
+
+  @doc """
+  Returns a branding `Ecto.Changeset` given the params.
+  """
+  def new_changeset() do
+    User.changeset(%User{})
+  end
 end

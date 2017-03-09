@@ -1,5 +1,6 @@
 defmodule Blog.Services.UserServiceTest do
   use Blog.ModelCase 
+  alias Blog.User
   alias Blog.Services.UserService
 
   test "returns an empty list with no users" do
@@ -26,5 +27,11 @@ defmodule Blog.Services.UserServiceTest do
     expected_user = Forge.saved_user
     user = UserService.get_by_id(expected_user.id)
     assert expected_user.name == user.name
+  end
+
+  test "generates a new user changeset" do
+    changeset = UserService.new_changeset()
+    assert changeset.data == %User{}
+    assert changeset.changes == %{}
   end
 end
