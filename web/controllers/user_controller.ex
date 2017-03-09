@@ -1,10 +1,11 @@
 defmodule Blog.UserController do
   use Blog.Web, :controller
   alias Blog.User
+  alias Blog.Services.UserService
 
   def index(conn, _params) do
-    users = Repo.all(Blog.User)
-    render conn, "index.html", users: users
+    conn
+    |> render("index.html", users: UserService.list_users())
   end
 
   def show(conn, %{"id" => id}) do
