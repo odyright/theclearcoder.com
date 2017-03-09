@@ -12,4 +12,4 @@ before_script:
   - mix deps.get --only test
   - mix do ecto.create, ecto.migrate
 script:
-  - mix coveralls
+  - mix coveralls.travis
