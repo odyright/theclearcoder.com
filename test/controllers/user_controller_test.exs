@@ -23,7 +23,7 @@ defmodule Blog.UserControllerTest do
       response = html_response(conn, 200) 
       
       assert response =~ "Listing Users"
-      assert response =~ user.name
+      assert response =~ print_name(user)
     end
 
     test "should display the user details", %{conn: conn, user: user} do
@@ -31,7 +31,7 @@ defmodule Blog.UserControllerTest do
       response = html_response(conn, 200)
       
       assert response =~ "Showing User"
-      assert response =~ user.name
+      assert response =~ print_name(user)
     end
 
     test "should display the new user form", %{conn: conn} do
@@ -60,5 +60,11 @@ defmodule Blog.UserControllerTest do
 
   defp new_user() do
     %{"name" => "John Doe", "password" => "password", "username" => "jdoe"}
+  end
+
+  # Since I'm using Faker and Earkmark, handle the case when a user's name contains
+  # an apostrophe.
+  defp print_name(user) do
+    String.replace(user.name, "'", "’")
   end
 end
