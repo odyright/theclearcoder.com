@@ -19,6 +19,9 @@ defmodule Blog.ArticleTest do
   test "a slug is generated from the title" do
     changeset = Article.changeset(%Article{}, @valid_attrs)
     assert changeset.changes.slug == "hello-world"
+    
+    changeset = Article.changeset(%Article{title: "Another way", teaser: "foo", content: "bar"})
+    assert changeset.changes.slug == "another-way"
   end
 
   test "teaser is required" do

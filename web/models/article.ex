@@ -19,7 +19,7 @@ defmodule Blog.Article do
   end
 
   defp add_slug(changeset) do
-    if title = get_change(changeset, :title) do
+    if title = get_change(changeset, :title) || changeset.data.title do
       put_change(changeset, :slug, slugify(title)) 
     else
       changeset

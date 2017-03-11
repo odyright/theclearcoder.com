@@ -4,7 +4,7 @@ defmodule Blog.ArticleRepoTest do
 
   test "converts unique_constraint on slug to error" do
     article = Forge.saved_article
-    new_article = Forge.article(slug: article.slug)
+    new_article = Forge.article(title: article.title)
 
     changeset = Article.changeset(new_article)
     assert {:error, changeset} = Repo.insert(changeset)
