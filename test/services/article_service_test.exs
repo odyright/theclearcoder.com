@@ -29,17 +29,17 @@ defmodule Blog.Services.ArticleServiceTest do
   end
 
   test "generates a new article changeset and includes params" do
-    params = %{title: "a new one", teaser: "foo"}
+    params = new_article_params()
     changeset = ArticleService.new_changeset(params)
     assert changeset.data == %Article{}
-    assert changeset.changes == params
+    assert Enum.count(changeset.changes) == 4
+    assert changeset.changes.title == params["title"]
   end
 
   test "creates a new record in the database" do
     params = new_article_params()
     {:ok, article} = ArticleService.create(params)
     assert Timepiece.last_minute?(article.inserted_at)
-    assert Repo.get_by(Article, slug: params["slug"]) == article
   end
 
   test "returns an error changeset when create fails" do
@@ -47,7 +47,6 @@ defmodule Blog.Services.ArticleServiceTest do
     {:error, changeset} = ArticleService.create(params)
     refute changeset.valid?
     assert Enum.count(changeset.errors) == 1
-    assert Repo.get_by(Article, slug: params["slug"]) == nil
   end
 
   test "returns a edit article changeset" do
@@ -75,11 +74,11 @@ defmodule Blog.Services.ArticleServiceTest do
   test "deletes an existing record in the database" do
     article = Forge.saved_article
     ArticleService.delete(article.slug)
-    assert Repo.get_by(Article, slug: article.slug) == nil
+    assert is_nil(Repo.get_by(Article, slug: article.slug))
   end
 
   defp new_article_params() do
     a = Forge.article
-    %{"slug" => a.slug, "title" => a.title, "teaser" => a.teaser, "content" => a.content}
+    %{"title" => a.title, "teaser" => a.teaser, "content" => a.content}
   end
 end

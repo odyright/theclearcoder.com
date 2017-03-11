@@ -1,8 +1,14 @@
 defmodule Blacksmith.Config do
-  alias Blog.Repo
+  alias Blog.{Repo, Article, User}
 
-  def save(map = %Blog.User{}) do
-    Blog.User.registration_changeset(map, %{password: "password"})
+  def save(map = %User{}) do
+    User.registration_changeset(map, %{password: "password"})
+    |> Repo.insert!()
+  end
+
+  def save(map = %Article{}) do
+    %Article{}
+    |> Article.changeset(%{"title" => map.title, "teaser" => map.teaser, "content" => map.content})
     |> Repo.insert!()
   end
 

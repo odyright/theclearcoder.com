@@ -2,33 +2,32 @@ defmodule Blog.ArticleTest do
   use Blog.ModelCase, async: true
   alias Blog.Article
 
-  @valid_attrs %{slug: "hello-world", 
-                 title: "Hello, World", 
-                 teaser: "click here", 
-                 content: "test, test, test"}
+  @valid_attrs %{"title"   => "Hello, World!", 
+                 "teaser"  => "click here", 
+                 "content" => "test, test, test"}
 
   test "changeset with valid attributes" do
     changeset = Article.changeset(%Article{}, @valid_attrs)
     assert changeset.valid?
   end
 
-  test "slug is required" do
-    changeset = changeset_with_blank(:slug)
+  test "title is required" do
+    changeset = changeset_with_blank("title")
     refute changeset.valid?
   end
 
-  test "title is required" do
-    changeset = changeset_with_blank(:title)
-    refute changeset.valid?
+  test "a slug is generated from the title" do
+    changeset = Article.changeset(%Article{}, @valid_attrs)
+    assert changeset.changes.slug == "hello-world"
   end
 
   test "teaser is required" do
-    changeset = changeset_with_blank(:teaser)
+    changeset = changeset_with_blank("teaser")
     refute changeset.valid?
   end
 
   test "content is required" do
-    changeset = changeset_with_blank(:content)
+    changeset = changeset_with_blank("content")
     refute changeset.valid?
   end
 

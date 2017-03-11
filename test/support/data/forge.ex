@@ -6,7 +6,6 @@ defmodule Forge do
   @save_all_function &Blacksmith.Config.save_all/1
 
   register :article, %Article{
-    slug:    Faker.Lorem.characters(5..10) |> List.to_string |> String.downcase,
     title:   Faker.Lorem.sentence(),
     teaser:  Faker.Lorem.sentence(),
     content: Enum.join(Faker.Lorem.sentences(), "\n")
