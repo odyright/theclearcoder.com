@@ -1,5 +1,5 @@
 defmodule Blog.Services.BrandingServiceTest do
-  use Blog.ModelCase
+  use Blog.ModelCase, async: true
 
   alias Blog.Branding
   alias Blog.Services.BrandingService

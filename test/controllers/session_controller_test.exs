@@ -1,5 +1,5 @@
 defmodule Blog.SessionControllerTest do
-  use Blog.ConnCase
+  use Blog.ConnCase, async: true
 
   test "should display the login form with new", %{conn: conn} do
     conn = get conn, session_path(conn, :new)

@@ -1,5 +1,5 @@
 defmodule Blog.PodcastTest do
-  use Blog.ModelCase
+  use Blog.ModelCase, async: true
 
   alias Blog.Podcast
 

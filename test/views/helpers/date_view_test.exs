@@ -1,5 +1,5 @@
 defmodule Blog.Helpers.DateViewTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   alias Blog.Helpers.DateView
 
   test "returns a NaiveDateTime as iso8601" do

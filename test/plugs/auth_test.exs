@@ -1,5 +1,5 @@
 defmodule Blog.AuthTest do
-  use Blog.ConnCase
+  use Blog.ConnCase, async: true
   alias Blog.Auth
 
   setup %{conn: conn} do

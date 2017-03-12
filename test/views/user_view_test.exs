@@ -1,5 +1,5 @@
 defmodule Blog.UserViewTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   alias Blog.UserView
 
   test "return a generic title with no assigned user" do

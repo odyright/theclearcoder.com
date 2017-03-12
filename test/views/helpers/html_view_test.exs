@@ -1,5 +1,5 @@
 defmodule Blog.Helpers.HtmlViewTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   alias Blog.Helpers.HtmlView
 
   test "converts markdown to safe html" do

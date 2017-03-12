@@ -1,5 +1,5 @@
 defmodule TimepieceTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
 
   test "5 days ago" do
     expected = ~N[2017-03-01 12:27:10]
