@@ -1,0 +1,20 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong!  Please check the errors below.</p>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= text_input f, :title, placeholder: "Title", class: "form-control" %>
+    <%= error_tag f, :title %>
+  </div>
+  <div class="form-group">
+    <%= text_input f, :teaser, placeholder: "Teaser", class: "form-control" %>
+    <%= error_tag f, :teaser %>
+  </div>
+  <div class="form-group">
+    <%= textarea f, :content, placeholder: "Content goes here...", rows: 15, class: "form-control" %>
+    <%= error_tag f, :content %>
+  </div>
+  <%= submit @button_text, class: "btn" %>
+<% end %>
