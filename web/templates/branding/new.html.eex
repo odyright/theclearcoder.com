@@ -1,18 +1,3 @@
 <h1>New Branding</h1>
 
-<%= form_for @changeset, branding_path(@conn, :create), fn f -> %>
-  <%= if @changeset.action do %>
-    <div class="alert alert-danger">
-      <p>Oops, something went wrong!  Please check the errors below.</p>
-    </div>
-  <% end %>
-  <div class="form-group">
-    <%= text_input f, :item, placeholder: "Item", class: "form-control" %>
-    <%= error_tag f, :item %>
-  </div>
-  <div class="form-group">
-    <%= textarea f, :copy, placeholder: "Copy", rows: 10, class: "form-control" %>
-    <%= error_tag f, :copy %>
-  </div>
-  <%= submit "Create Branding", class: "btn" %>
-<% end %>
+<%= render Blog.BrandingView, "form.html", changeset: @changeset, action: branding_path(@conn, :create), button_text: "Create Branding" %>
