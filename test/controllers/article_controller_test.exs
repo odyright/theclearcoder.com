@@ -100,6 +100,6 @@ defmodule Blog.ArticleControllerTest do
   end
 
   defp new_article() do
-    %{slug: "foo", title: "Unsubscribe", teaser: "It's the story of the year!", content: "It's gripping!"}
+    %{title: "Unsubscribe", teaser: "It's the story of the year!", content: "It's gripping!"}
   end
 end
