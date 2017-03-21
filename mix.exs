@@ -2,27 +2,25 @@ defmodule Blog.Mixfile do
   use Mix.Project
 
   def project do
-    [app:               :blog,
-     version:           "0.0.1",
-     elixir:            "~> 1.3",
-     elixirc_paths:     elixirc_paths(Mix.env),
-     compilers:         [:phoenix, :gettext] ++ Mix.compilers,
-     build_embedded:    Mix.env == :prod,
-     start_permanent:   Mix.env == :prod,
-     aliases:           aliases(),
-     test_coverage:     [tool: ExCoveralls],
-     preferred_cli_env: [
-       "coveralls": :test,
-       "coveralls.detail": :test,
-       "coveralls.post": :test,
-       "coveralls.html": :test
-     ],
-     deps: deps()]
+    [
+      app:               :blog,
+      version:           "0.0.1",
+      elixir:            "~> 1.3",
+      elixirc_paths:     elixirc_paths(Mix.env),
+      compilers:         [:phoenix, :gettext] ++ Mix.compilers,
+      build_embedded:    Mix.env == :prod,
+      start_permanent:   Mix.env == :prod,
+      aliases:           aliases(),
+      test_coverage:     [tool: ExCoveralls],
+      deps: deps()
+    ]
   end
 
   def application do
-    [mod: {Blog, []},
-     applications: applications(Mix.env)]
+    [
+      mod: {Blog, []},
+      applications: applications(Mix.env)
+    ]
   end
 
   defp applications(:test), do: applications(:all) ++ [:faker, :blacksmith]
