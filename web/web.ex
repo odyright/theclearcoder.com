@@ -30,7 +30,6 @@ defmodule Blog.Web do
     quote do
       use Phoenix.Controller
 
-      alias Blog.Repo
       import Ecto
       import Ecto.Query
 

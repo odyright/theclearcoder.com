@@ -1,12 +1,13 @@
 defmodule Blog.SessionController do
   use Blog.Web, :controller
+  alias Blog.{Auth, Repo}
 
   def new(conn, _params) do
     render conn, "new.html"
   end
 
   def create(conn, %{"session" => %{"username" => user, "password" => pass}}) do
-    case Blog.Auth.login_by_username_and_pass(conn, user, pass, repo: Repo) do
+    case Auth.login_by_username_and_pass(conn, user, pass, repo: Repo) do
       {:ok, conn} ->
         conn
         |> put_flash(:info, "Welcome back!")
@@ -20,7 +21,7 @@ defmodule Blog.SessionController do
 
   def delete(conn, _params) do
     conn
-    |> Blog.Auth.logout()
+    |> Auth.logout()
     |> redirect(to: page_path(conn, :index))
   end
 end
