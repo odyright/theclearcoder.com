@@ -30,7 +30,7 @@ I'm really excited about Elixir and Phoenix, so I built my personal site using t
 - Now start the Phoenix app:
 
   ```
-  mix phoenix.server
+  mix phx.server
   ```
 
 Have fun!
