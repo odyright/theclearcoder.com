@@ -20,13 +20,7 @@ defmodule Blog.Web.ConnCase do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
 
-      alias Blog.Repo
-      import Ecto
-      import Ecto.Changeset
-      import Ecto.Query
-
       import Blog.Web.Router.Helpers
-
       import Test.Context.Helpers
 
       # The default endpoint for testing

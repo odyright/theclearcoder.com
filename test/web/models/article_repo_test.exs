@@ -1,5 +1,5 @@
 defmodule Blog.ArticleRepoTest do
-  use Blog.ModelCase
+  use Blog.DataCase
   alias Blog.Article
 
   test "converts unique_constraint on slug to error" do

@@ -1,5 +1,6 @@
 defmodule Blog.Article do
-  use Blog.Web, :model
+  use Ecto.Schema
+  import Ecto.Changeset
 
   schema "articles" do
     field :slug,    :string
@@ -10,8 +11,8 @@ defmodule Blog.Article do
     timestamps()
   end
 
-  def changeset(model, params \\ %{}) do
-    model
+  def changeset(article, params \\ %{}) do
+    article
     |> cast(params, ~w(title teaser content))
     |> add_slug()
     |> validate_required([:title, :teaser, :content])

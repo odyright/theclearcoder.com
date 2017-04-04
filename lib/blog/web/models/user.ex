@@ -1,5 +1,6 @@
 defmodule Blog.User do
-  use Blog.Web, :model
+  use Ecto.Schema
+  import Ecto.Changeset
 
   schema "users" do
     field :name, :string
@@ -10,15 +11,15 @@ defmodule Blog.User do
     timestamps()
   end
 
-  def changeset(model, params \\ %{}) do
-    model
+  def changeset(user, params \\ %{}) do
+    user
     |> cast(params, ~w(name username))
     |> validate_required([:name, :username])
     |> validate_length(:username, min: 1, max: 20)
   end
 
-  def registration_changeset(model, params) do
-    model
+  def registration_changeset(user, params) do
+    user
     |> changeset(params)
     |> cast(params, ~w(password))
     |> validate_length(:password, min: 6, max: 100)

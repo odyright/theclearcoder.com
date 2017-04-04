@@ -1,6 +1,6 @@
 defmodule Blog.Web.AuthTest do
   use Blog.Web.ConnCase, async: true
-  alias Blog.Web.Auth
+  alias Blog.{Web.Auth, Repo}
 
   setup %{conn: conn} do
     conn =

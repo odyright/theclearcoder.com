@@ -1,5 +1,5 @@
 defmodule Blog.ArticleTest do
-  use Blog.ModelCase, async: true
+  use Blog.DataCase, async: true
   alias Blog.Article
 
   @valid_attrs %{"title"   => "Hello, World!", 

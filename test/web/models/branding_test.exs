@@ -1,5 +1,5 @@
 defmodule Blog.BrandingCopyTest do
-  use Blog.ModelCase, async: true
+  use Blog.DataCase, async: true
   alias Blog.Branding
 
   @valid_attrs %{item: "headline", copy: "I'm a developer"}

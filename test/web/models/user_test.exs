@@ -1,5 +1,5 @@
 defmodule Blog.UserTest do
-  use Blog.ModelCase, async: true
+  use Blog.DataCase, async: true
   alias Blog.User
 
   @valid_attrs %{name: "Joe Test", username: "jtest", password: "iamatester"}

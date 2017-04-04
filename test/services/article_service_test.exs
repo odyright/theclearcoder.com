@@ -1,5 +1,5 @@
 defmodule Blog.Services.ArticleServiceTest do
-  use Blog.ModelCase, async: true
+  use Blog.DataCase, async: true
   alias Blog.Article
   alias Blog.Services.ArticleService
 

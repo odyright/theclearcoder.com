@@ -1,5 +1,6 @@
 defmodule Blog.Podcast do
-  use Blog.Web, :model
+  use Ecto.Schema
+  import Ecto.Changeset
 
   schema "podcasts" do
     field :episode, :integer
@@ -16,8 +17,8 @@ defmodule Blog.Podcast do
   @doc """
   Builds a changeset based on the `struct` and `params`.
   """
-  def changeset(struct, params \\ %{}) do
-    struct
+  def changeset(podcast, params \\ %{}) do
+    podcast
     |> cast(params, [:episode, :title, :description, :notes, :file_url, :file_size_mbytes, :run_time_minutes])
     |> validate_required([:episode, :title, :description, :file_url, :file_size_mbytes, :run_time_minutes])
     |> unique_constraint(:episode)

@@ -1,5 +1,6 @@
 defmodule Blog.Web.BrandingControllerTest do
   use Blog.Web.ConnCase, async: true
+  alias Blog.Repo
 
   describe "with guest access" do
     test "login is required for all actions", %{conn: conn} do

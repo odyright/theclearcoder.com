@@ -1,5 +1,5 @@
 defmodule Blog.Services.PodcastServiceTest do
-  use Blog.ModelCase, async: true
+  use Blog.DataCase, async: true
   alias Blog.Services.PodcastService
 
   test "returns an empty list with no podcasts" do

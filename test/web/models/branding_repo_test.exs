@@ -1,5 +1,5 @@
 defmodule Blog.BrandingRepoTest do
-  use Blog.ModelCase
+  use Blog.DataCase
   alias Blog.Branding
 
   test "item must be unique" do

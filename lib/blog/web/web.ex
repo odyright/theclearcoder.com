@@ -16,22 +16,11 @@ defmodule Blog.Web do
   below.
   """
 
-  def model do
-    quote do
-      use Ecto.Schema
-
-      import Ecto
-      import Ecto.Changeset
-      import Ecto.Query
-    end
-  end
-
   def controller do
     quote do
       use Phoenix.Controller, namespace: Blog.Web
 
-      import Ecto
-      import Ecto.Query
+      import Plug.Conn
 
       import Blog.Web.Router.Helpers
       import Blog.Web.Gettext
@@ -61,6 +50,8 @@ defmodule Blog.Web do
   def router do
     quote do
       use Phoenix.Router
+      import Plug.Conn
+      import Phoenix.Controller
 
       import Blog.Web.Auth, only: [authenticate_user: 2]
     end
