@@ -1,4 +1,4 @@
-defmodule Blog.UserController do
+defmodule Blog.Web.UserController do
   use Blog.Web, :controller
   alias Blog.Services.UserService
 

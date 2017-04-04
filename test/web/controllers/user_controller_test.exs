@@ -1,5 +1,5 @@
-defmodule Blog.UserControllerTest do
-  use Blog.ConnCase, async: true
+defmodule Blog.Web.UserControllerTest do
+  use Blog.Web.ConnCase, async: true
 
   describe "with guest access" do
     test "login is required for all actions", %{conn: conn} do

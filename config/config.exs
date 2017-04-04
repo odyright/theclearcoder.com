@@ -9,10 +9,10 @@ config :blog,
   ecto_repos: [Blog.Repo]
 
 # Configures the endpoint
-config :blog, Blog.Endpoint,
+config :blog, Blog.Web.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "rMB57c4S2vu6d2qcpNb1KuiUrGyrzbRp9vPQur7ZUrRv9vpIS+sMtDK/Sr3aukUi",
-  render_errors: [view: Blog.ErrorView, accepts: ~w(html json)],
+  render_errors: [view: Blog.Web.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Blog.PubSub,
            adapter: Phoenix.PubSub.PG2]
 

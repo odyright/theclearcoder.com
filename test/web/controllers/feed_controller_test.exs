@@ -1,5 +1,5 @@
-defmodule Blog.FeedControllerTest do
-  use Blog.ConnCase, async: true
+defmodule Blog.Web.FeedControllerTest do
+  use Blog.Web.ConnCase, async: true
 
   test "'podcast' renders the xml feed for the CLD podcast", %{conn: conn} do
     episode_1 = Forge.saved_podcast(inserted_at: Timepiece.days_ago(2))

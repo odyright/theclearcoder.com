@@ -1,4 +1,4 @@
-defmodule Blog.UserView do
+defmodule Blog.Web.UserView do
   use Blog.Web, :view
 
   def page_title(_action, assigns) do

@@ -1,4 +1,4 @@
-defmodule Blog.Helpers.HtmlView do
+defmodule Blog.Web.Helpers.HtmlView do
   def to_html(nil), do: ""
 
   def to_html(markdown) do

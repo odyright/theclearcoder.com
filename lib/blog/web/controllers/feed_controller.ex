@@ -1,4 +1,4 @@
-defmodule Blog.FeedController do
+defmodule Blog.Web.FeedController do
   use Blog.Web, :controller
 
   alias Blog.Services.PodcastService

@@ -1,6 +1,6 @@
-defmodule Blog.Helpers.DateViewTest do
+defmodule Blog.Web.Helpers.DateViewTest do
   use ExUnit.Case, async: true
-  alias Blog.Helpers.DateView
+  alias Blog.Web.Helpers.DateView
 
   test "returns a NaiveDateTime as iso8601" do
     assert DateView.iso8601_date(~N{2016-05-20 12:34:10}) == "2016-05-20T12:34:10"

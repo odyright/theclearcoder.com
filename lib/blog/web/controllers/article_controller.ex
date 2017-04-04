@@ -1,4 +1,4 @@
-defmodule Blog.ArticleController do
+defmodule Blog.Web.ArticleController do
   use Blog.Web, :controller
   plug :authenticate_user when not action in [:index, :show]
 
@@ -57,7 +57,7 @@ defmodule Blog.ArticleController do
   defp render_article(nil, conn) do
     conn
     |> put_status(:not_found)
-    |> render(Blog.ErrorView, "404.html")
+    |> render(Blog.Web.ErrorView, "404.html")
   end
 
   defp render_article(article, conn) do

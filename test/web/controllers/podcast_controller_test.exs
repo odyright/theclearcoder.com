@@ -1,5 +1,5 @@
-defmodule Blog.PodcastControllerTest do
-  use Blog.ConnCase, async: true
+defmodule Blog.Web.PodcastControllerTest do
+  use Blog.Web.ConnCase, async: true
 
   test "should get index", %{conn: conn} do
     conn = get conn, podcast_path(conn, :index)

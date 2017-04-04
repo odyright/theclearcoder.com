@@ -1,4 +1,4 @@
-defmodule Blog.PodcastController do
+defmodule Blog.Web.PodcastController do
   use Blog.Web, :controller
 
   alias Blog.Services.PodcastService
@@ -14,7 +14,7 @@ defmodule Blog.PodcastController do
   defp render_podcast(conn, nil) do
     conn
     |> put_status(:not_found)
-    |> render(Blog.ErrorView, "404.html")
+    |> render(Blog.Web.ErrorView, "404.html")
   end
 
   defp render_podcast(conn, podcast) do

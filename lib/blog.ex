@@ -9,7 +9,7 @@ defmodule Blog do
     # Define workers and child supervisors to be supervised
     children = [
       # Start the endpoint when the application starts
-      supervisor(Blog.Endpoint, []),
+      supervisor(Blog.Web.Endpoint, []),
       # Start the ecto repository
       supervisor(Blog.Repo, [])
       # Start your own worker by calling: Blog.Worker.start_link(arg1, arg2, arg3)
@@ -25,7 +25,7 @@ defmodule Blog do
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
-    Blog.Endpoint.config_change(changed, removed)
+    Blog.Web.Endpoint.config_change(changed, removed)
     :ok
   end
 end

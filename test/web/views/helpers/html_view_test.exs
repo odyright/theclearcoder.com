@@ -1,6 +1,6 @@
-defmodule Blog.Helpers.HtmlViewTest do
+defmodule Blog.Web.Helpers.HtmlViewTest do
   use ExUnit.Case, async: true
-  alias Blog.Helpers.HtmlView
+  alias Blog.Web.Helpers.HtmlView
 
   test "converts markdown to safe html" do
     assert HtmlView.to_html("Hello world") == {:safe, "<p>Hello world</p>\n"}

@@ -1,4 +1,4 @@
 <h1>Edit Article</h1>
 
-<%= render Blog.ArticleView, "form.html", changeset: @changeset, action: article_path(@conn, :update, @changeset.data.slug), button_text: "Update Article" %>
+<%= render Blog.Web.ArticleView, "form.html", changeset: @changeset, action: article_path(@conn, :update, @changeset.data.slug), button_text: "Update Article" %>
 <%= link "Cancel", to: article_path(@conn, :show, @changeset.data.slug), class: "btn btn-cancel" %>

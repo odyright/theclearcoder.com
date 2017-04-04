@@ -1,4 +1,4 @@
-defmodule Blog.ErrorView do
+defmodule Blog.Web.ErrorView do
   use Blog.Web, :view
 
   def render("404.html", _assigns) do

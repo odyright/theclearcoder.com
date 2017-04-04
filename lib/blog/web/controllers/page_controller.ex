@@ -1,4 +1,4 @@
-defmodule Blog.PageController do
+defmodule Blog.Web.PageController do
   use Blog.Web, :controller
   alias Blog.Services.{BrandingService, ChallengeService}
 

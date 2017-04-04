@@ -1,8 +1,8 @@
-defmodule Blog.Auth do
+defmodule Blog.Web.Auth do
   import Plug.Conn
   import Comeonin.Bcrypt, only: [checkpw: 2, dummy_checkpw: 0]
   import Phoenix.Controller
-  alias Blog.Router.Helpers
+  alias Blog.Web.Router.Helpers
 
   def init(opts) do
     Keyword.fetch!(opts, :repo)

@@ -1,6 +1,6 @@
-defmodule Blog.PageViewTest do
-  use Blog.ConnCase, async: true
-  alias Blog.PageView
+defmodule Blog.Web.PageViewTest do
+  use Blog.Web.ConnCase, async: true
+  alias Blog.Web.PageView
 
   @copy %{"headline" => "# I'm Brian"}
 

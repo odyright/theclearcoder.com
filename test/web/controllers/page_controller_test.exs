@@ -1,5 +1,5 @@
-defmodule Blog.PageControllerTest do
-  use Blog.ConnCase, async: true
+defmodule Blog.Web.PageControllerTest do
+  use Blog.Web.ConnCase, async: true
 
   test "should get index", %{conn: conn} do
     conn = get conn, page_path(conn, :index)

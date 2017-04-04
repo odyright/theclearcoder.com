@@ -1,6 +1,7 @@
-defmodule Blog.SessionController do
+defmodule Blog.Web.SessionController do
   use Blog.Web, :controller
-  alias Blog.{Auth, Repo}
+  alias Blog.Web.Auth
+  alias Blog.Repo
 
   def new(conn, _params) do
     render conn, "new.html"

@@ -28,20 +28,21 @@ defmodule Blog.Web do
 
   def controller do
     quote do
-      use Phoenix.Controller
+      use Phoenix.Controller, namespace: Blog.Web
 
       import Ecto
       import Ecto.Query
 
-      import Blog.Router.Helpers
-      import Blog.Gettext
-      import Blog.Auth, only: [authenticate_user: 2]
+      import Blog.Web.Router.Helpers
+      import Blog.Web.Gettext
+      import Blog.Web.Auth, only: [authenticate_user: 2]
     end
   end
 
   def view do
     quote do
-      use Phoenix.View, root: "lib/blog/web/templates"
+      use Phoenix.View, root: "lib/blog/web/templates",
+                        namespace: Blog.Web
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_csrf_token: 0, get_flash: 2, view_module: 1, action_name: 1]
@@ -49,11 +50,11 @@ defmodule Blog.Web do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import Blog.Router.Helpers
-      import Blog.ErrorHelpers
-      import Blog.Gettext
+      import Blog.Web.Router.Helpers
+      import Blog.Web.ErrorHelpers
+      import Blog.Web.Gettext
 
-      import Blog.Helpers.HtmlView, only: [to_html: 1]
+      import Blog.Web.Helpers.HtmlView, only: [to_html: 1]
     end
   end
 
@@ -61,14 +62,14 @@ defmodule Blog.Web do
     quote do
       use Phoenix.Router
 
-      import Blog.Auth, only: [authenticate_user: 2]
+      import Blog.Web.Auth, only: [authenticate_user: 2]
     end
   end
 
   def channel do
     quote do
       use Phoenix.Channel
-      import Blog.Gettext
+      import Blog.Web.Gettext
     end
   end
 

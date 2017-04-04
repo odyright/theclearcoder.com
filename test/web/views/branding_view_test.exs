@@ -1,7 +1,7 @@
-defmodule Blog.BrandingViewTest do
-  use Blog.ConnCase, async: true
+defmodule Blog.Web.BrandingViewTest do
+  use Blog.Web.ConnCase, async: true
   import Phoenix.View
-  alias Blog.{BrandingView, Branding}
+  alias Blog.{Web.BrandingView, Branding}
 
   test "return a generic title with no assigned branding" do
     assert BrandingView.page_title(:index, %{}) == "Branding"

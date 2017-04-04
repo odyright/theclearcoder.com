@@ -1,4 +1,4 @@
-defmodule Blog.PageView do
+defmodule Blog.Web.PageView do
   use Blog.Web, :view
 
   def page_title(:index, _assigns), do: "Welcome"

@@ -1,4 +1,4 @@
-defmodule Blog.Router do
+defmodule Blog.Web.Router do
   use Blog.Web, :router
 
   pipeline :browser do
@@ -7,10 +7,10 @@ defmodule Blog.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
-    plug Blog.Auth, repo: Blog.Repo
+    plug Blog.Web.Auth, repo: Blog.Repo
   end
 
-  scope "/", Blog do
+  scope "/", Blog.Web do
     pipe_through :browser 
 
     get "/.well-known/acme-challenge/:content", PageController, :letsencrypt
@@ -27,7 +27,7 @@ defmodule Blog.Router do
     get "/",               PageController, :index
   end
 
-  scope "/admin", Blog do
+  scope "/admin", Blog.Web do
     pipe_through [:browser, :authenticate_user] 
 
     resources "/users", UserController, only: [:index, :show, :new, :create]

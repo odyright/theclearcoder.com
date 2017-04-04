@@ -1,5 +1,5 @@
-defmodule Blog.ArticleControllerTest do
-  use Blog.ConnCase, async: true
+defmodule Blog.Web.ArticleControllerTest do
+  use Blog.Web.ConnCase, async: true
 
   test "authentication required for new, create, edit, update, delete", %{conn: conn} do
     Enum.each [

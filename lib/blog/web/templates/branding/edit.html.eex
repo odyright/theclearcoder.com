@@ -1,4 +1,4 @@
 <h1>Edit Branding</h1>
 
-<%= render Blog.BrandingView, "form.html", changeset: @changeset, action: branding_path(@conn, :update, @changeset.data.id), button_text: "Update Branding" %>
+<%= render Blog.Web.BrandingView, "form.html", changeset: @changeset, action: branding_path(@conn, :update, @changeset.data.id), button_text: "Update Branding" %>
 <%= link "Cancel", to: branding_path(@conn, :show, @changeset.data.id), class: "btn btn-cancel" %>

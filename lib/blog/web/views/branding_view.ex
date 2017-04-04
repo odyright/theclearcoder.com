@@ -1,4 +1,4 @@
-defmodule Blog.BrandingView do
+defmodule Blog.Web.BrandingView do
   use Blog.Web, :view
 
   def page_title(:index, _), do: "Branding"

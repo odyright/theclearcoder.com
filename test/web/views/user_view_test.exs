@@ -1,6 +1,6 @@
-defmodule Blog.UserViewTest do
+defmodule Blog.Web.UserViewTest do
   use ExUnit.Case, async: true
-  alias Blog.UserView
+  alias Blog.Web.UserView
 
   test "return a generic title with no assigned user" do
     assert UserView.page_title(:foo, %{}) == "Users"

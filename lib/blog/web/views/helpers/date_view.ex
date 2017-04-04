@@ -1,4 +1,4 @@
-defmodule Blog.Helpers.DateView do
+defmodule Blog.Web.Helpers.DateView do
   @months  [ "January", "February", "March", "April", "May", "June",
              "July", "August", "September", "October", "November", "December" ]
 
