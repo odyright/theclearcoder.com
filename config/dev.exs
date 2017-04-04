@@ -20,8 +20,8 @@ config :blog, Blog.Endpoint,
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
-      ~r{web/views/.*(ex)$},
-      ~r{web/templates/.*(eex)$}
+      ~r{lib/blog/web/views/.*(ex)$},
+      ~r{lib/blog/web/templates/.*(eex)$}
     ]
   ]
 

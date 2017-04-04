@@ -5,7 +5,7 @@ defmodule Blog.Mixfile do
     [
       app:               :blog,
       version:           "0.0.1",
-      elixir:            "~> 1.3",
+      elixir:            "~> 1.4",
       elixirc_paths:     elixirc_paths(Mix.env),
       compilers:         [:phoenix, :gettext] ++ Mix.compilers,
       build_embedded:    Mix.env == :prod,
@@ -30,7 +30,7 @@ defmodule Blog.Mixfile do
 
   defp elixirc_paths(:test), do: elixirc_paths(:all) ++ ["test/support"]
   defp elixirc_paths(:dev),  do: elixirc_paths(:all) ++ ["test/support/data"]
-  defp elixirc_paths(_all),  do: ["lib", "web"]
+  defp elixirc_paths(_all),  do: ["lib"]
 
   defp deps do
     [
