@@ -8,7 +8,6 @@ defmodule Blog.Mixfile do
       elixir:            "~> 1.4",
       elixirc_paths:     elixirc_paths(Mix.env),
       compilers:         [:phoenix, :gettext] ++ Mix.compilers,
-      build_embedded:    Mix.env == :prod,
       start_permanent:   Mix.env == :prod,
       aliases:           aliases(),
       test_coverage:     [tool: ExCoveralls],
@@ -18,8 +17,8 @@ defmodule Blog.Mixfile do
 
   def application do
     [
-      mod: {Blog, []},
-      applications: applications(Mix.env)
+      mod: {Blog.Application, []},
+      extra_applications: applications(Mix.env)
     ]
   end
 
