@@ -24,7 +24,7 @@ I'm really excited about Elixir and Phoenix, so I built my personal site using t
   mix ecto.create
   mix ecto.migrate
   mix run priv/repo/seeds.exs
-  npm install
+  cd assets && npm install
   ```
 
 - Now start the Phoenix app:
