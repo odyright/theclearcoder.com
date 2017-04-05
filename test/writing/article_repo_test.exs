@@ -1,6 +1,6 @@
-defmodule Blog.ArticleRepoTest do
+defmodule Blog.Writing.ArticleRepoTest do
   use Blog.DataCase
-  alias Blog.Article
+  alias Blog.Writing.Article
 
   test "converts unique_constraint on slug to error" do
     article = Forge.saved_article

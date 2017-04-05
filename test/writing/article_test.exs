@@ -1,6 +1,6 @@
-defmodule Blog.ArticleTest do
+defmodule Blog.Writing.ArticleTest do
   use Blog.DataCase, async: true
-  alias Blog.Article
+  alias Blog.Writing.Article
 
   @valid_attrs %{"title"   => "Hello, World!", 
                  "teaser"  => "click here", 

@@ -1,7 +1,7 @@
 defmodule Blog.Web.ArticleViewTest do
   use Blog.Web.ConnCase, async: true
   import Phoenix.View
-  alias Blog.{Web.ArticleView, Article}
+  alias Blog.{Web.ArticleView, Writing.Article}
   
   test "returns the page title for the index page" do
     assert ArticleView.page_title(:index, %{}) == "Articles"

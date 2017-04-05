@@ -1,6 +1,6 @@
 # Clear out existing data
 Blog.Repo.delete_all(Blog.Branding)
-Blog.Repo.delete_all(Blog.Article)
+Blog.Repo.delete_all(Blog.Writing.Article)
 
 # Add dummy branding for dev
 Forge.saved_branding(
