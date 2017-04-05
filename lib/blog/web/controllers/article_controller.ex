@@ -2,11 +2,11 @@ defmodule Blog.Web.ArticleController do
   use Blog.Web, :controller
   plug :authenticate_user when not action in [:index, :show]
 
-  alias Blog.Writing
+  alias Blog.{Writing, Writing.Article}
 
   def index(conn, _params) do
-    conn
-    |> render("index.html", articles: Writing.list_articles())
+    articles = Writing.list_articles()
+    render(conn, "index.html", articles: articles)
   end
 
   def show(conn, %{"slug" => slug}) do
@@ -15,8 +15,8 @@ defmodule Blog.Web.ArticleController do
   end
 
   def new(conn, _params) do
-    conn
-    |> render("new.html", changeset: Writing.new_changeset())
+    changeset = Article.new_changeset()
+    render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"article" => params}) do
@@ -31,8 +31,8 @@ defmodule Blog.Web.ArticleController do
   end
 
   def edit(conn, %{"slug" => slug}) do
-    conn
-    |> render("edit.html", changeset: Writing.edit_changeset(slug))
+    changeset = Writing.edit_changeset(slug)
+    render(conn, "edit.html", changeset: changeset)
   end
 
   def update(conn, %{"slug" => slug, "article" => article_params}) do 

@@ -34,8 +34,27 @@ defmodule Blog.Writing.ArticleTest do
     refute changeset.valid?
   end
 
+  test "generates a new article changeset" do
+    changeset = Article.new_changeset()
+    assert changeset.data == %Article{}
+    assert changeset.changes == %{}
+  end
+
+  test "generates a new article changeset and includes params" do
+    params = new_article_params()
+    changeset = Article.new_changeset(params)
+    assert changeset.data == %Article{}
+    assert Enum.count(changeset.changes) == 4
+    assert changeset.changes.title == params["title"]
+  end
+
   defp changeset_with_blank(key) do
     attrs = Map.merge(@valid_attrs, %{key => " "})
     Article.changeset(%Article{}, attrs)
+  end
+
+  defp new_article_params() do
+    a = Forge.article
+    %{"title" => a.title, "teaser" => a.teaser, "content" => a.content}
   end
 end

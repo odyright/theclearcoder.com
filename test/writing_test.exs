@@ -21,20 +21,6 @@ defmodule Blog.WritingTest do
     assert Writing.get_by_slug(article.slug) == article
   end
 
-  test "generates a new article changeset" do
-    changeset = Writing.new_changeset()
-    assert changeset.data == %Article{}
-    assert changeset.changes == %{}
-  end
-
-  test "generates a new article changeset and includes params" do
-    params = new_article_params()
-    changeset = Writing.new_changeset(params)
-    assert changeset.data == %Article{}
-    assert Enum.count(changeset.changes) == 4
-    assert changeset.changes.title == params["title"]
-  end
-
   test "creates a new record in the database" do
     params = new_article_params()
     {:ok, article} = Writing.create(params)

@@ -23,13 +23,6 @@ defmodule Blog.Writing do
   end
  
   @doc """
-  Returns an article `Ecto.Changeset` with the given params.
-  """
-  def new_changeset(params \\ %{}) do
-    Article.changeset(%Article{}, params)
-  end
-
-  @doc """
   Saves a new article record to the database.  Returns {:ok, `Blog.Writing.Article`} if
   successful, otherwise an {:error, `Ecto.Changeset`} that contains the errors.
   """

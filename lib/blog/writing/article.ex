@@ -1,6 +1,7 @@
 defmodule Blog.Writing.Article do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Blog.Writing.Article
 
   schema "articles" do
     field :slug,    :string
@@ -17,6 +18,13 @@ defmodule Blog.Writing.Article do
     |> add_slug()
     |> validate_required([:title, :teaser, :content])
     |> unique_constraint(:slug)
+  end
+
+  @doc """
+  Returns an article `Ecto.Changeset` with the given params.
+  """
+  def new_changeset(params \\ %{}) do
+    Article.changeset(%Article{}, params)
   end
 
   defp add_slug(changeset) do
