@@ -13,12 +13,12 @@ defmodule Blog.WritingTest do
   end
 
   test "return nil with an unknown article" do
-    assert Writing.get_by_slug("foo") == nil
+    assert Writing.get_article("foo") == nil
   end
 
   test "returns the requested article" do
     article = Forge.saved_article
-    assert Writing.get_by_slug(article.slug) == article
+    assert Writing.get_article(article.slug) == article
   end
 
   test "creates a new record in the database" do

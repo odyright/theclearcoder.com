@@ -10,7 +10,7 @@ defmodule Blog.Web.ArticleController do
   end
 
   def show(conn, %{"slug" => slug}) do
-    Writing.get_by_slug(slug)
+    Writing.get_article(slug)
     |> render_article(conn)
   end
 

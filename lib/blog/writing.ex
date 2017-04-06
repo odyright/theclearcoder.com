@@ -18,7 +18,7 @@ defmodule Blog.Writing do
   @doc """
   Returns a `Blog.Writing.Article` given a slug.
   """
-  def get_by_slug(slug) do
+  def get_article(slug) do
     Repo.get_by(Article, slug: slug)
   end
  
@@ -38,7 +38,7 @@ defmodule Blog.Writing do
   new parameters are given, they will be contained in the changes.
   """
   def edit_changeset(slug, params \\ %{}) do
-    get_by_slug(slug)
+    get_article(slug)
     |> Article.changeset(params)
   end
 
@@ -55,7 +55,7 @@ defmodule Blog.Writing do
   Delete an article record in the database given the slug.
   """
   def delete(slug) do
-    get_by_slug(slug)
+    get_article(slug)
     |> Repo.delete!()
   end
 end
