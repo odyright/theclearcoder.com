@@ -2,10 +2,10 @@
   <h2>About</h2>
   <div class="clear">
     <img class="round align-right" src="<%= static_path(@conn, "/images/brian.jpg") %>" height="125" width="125">
-    <%= html_copy(@conn, "bio") %>
+    <%= html_copy(@conn, :bio) %>
   </div>
 </section>
 <section>
   <h2>Colophon</h2>
-  <%= html_copy(@conn, "colophon") %>
+  <%= html_copy(@conn, :colophon) %>
 </section>

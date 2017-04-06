@@ -12,8 +12,8 @@ defmodule Blog.Services.BrandingServiceTest do
     foo = Forge.saved_branding(item: "foo")
     bar = Forge.saved_branding(item: "bar")
     assert BrandingService.get_copy() == %{
-      "foo" => foo.copy,
-      "bar" => bar.copy
+      :foo => foo.copy,
+      :bar => bar.copy
     }
   end
 

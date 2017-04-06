@@ -2,7 +2,7 @@ defmodule Blog.Web.PageViewTest do
   use Blog.Web.ConnCase, async: true
   alias Blog.Web.PageView
 
-  @copy %{"headline" => "# I'm Brian"}
+  @copy %{:headline => "# I'm Brian"}
 
   test "returns the page title for the index page" do
     assert PageView.page_title(:index, []) == "Welcome"
@@ -18,12 +18,12 @@ defmodule Blog.Web.PageViewTest do
 
   test "returns branding copy as safe html", %{conn: conn} do
     conn = assign_copy(conn) 
-    assert PageView.html_copy(conn, "headline") == {:safe, "<h1>I’m Brian</h1>\n"}
+    assert PageView.html_copy(conn, :headline) == {:safe, "<h1>I’m Brian</h1>\n"}
   end
 
   test "returns an empty string if branding copy doesn't exist", %{conn: conn} do
     conn = assign_copy(conn)
-    assert PageView.html_copy(conn, "foo") == ""
+    assert PageView.html_copy(conn, :foo) == ""
   end
 
   defp assign_copy(conn), do: assign(conn, :copy, @copy)

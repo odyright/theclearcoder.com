@@ -15,7 +15,7 @@ defmodule Blog.Services.BrandingService do
   def get_copy() do
     branding = Repo.all(Branding)
     Enum.reduce(branding, %{}, fn(b, acc) -> 
-      Map.put(acc, b.item, b.copy)
+      Map.put(acc, String.to_atom(b.item), b.copy)
     end)
   end
 
