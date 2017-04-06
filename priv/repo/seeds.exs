@@ -1,6 +1,10 @@
 # Clear out existing data
 Blog.Repo.delete_all(Blog.Branding)
 Blog.Repo.delete_all(Blog.Writing.Article)
+Blog.Repo.delete_all(Blog.User)
+
+# Add dev user
+Forge.saved_user(name: "John Doe", username: "jdoe")
 
 # Add dummy branding for dev
 Forge.saved_branding(
