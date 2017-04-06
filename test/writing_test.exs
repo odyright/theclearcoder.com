@@ -49,11 +49,11 @@ defmodule Blog.WritingTest do
   end
 
   test "updates an existing record in the database" do
-    article  = Forge.saved_article
-    params   = %{content: "some new content"}
-    {:ok, updated_article} = Writing.update(article.slug, params)
+    article = Forge.saved_article
+    changes = %{content: "some new content"}
+    {:ok, updated_article} = Writing.update_article(article, changes)
     assert updated_article.title == article.title
-    assert updated_article.content == params.content
+    assert updated_article.content == changes.content
   end
 
   test "deletes an existing record in the database" do

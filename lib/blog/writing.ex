@@ -43,11 +43,13 @@ defmodule Blog.Writing do
   end
 
   @doc """
-  Updates an existing article record in the database.  Returns {:ok, `Blog.Writing.Article`} if
-  successful, otherwise an {:error, `Ecto.Changeset`} that contains the errors.
+  Takes a `Blog.Writing.Article` and updates it given the new parameters.  Returns 
+  {:ok, `Blog.Writing.Article`} if successful, otherwise an {:error, `Ecto.Changeset`} 
+  that contains the errors.
   """
-  def update(slug, params) do
-    edit_changeset(slug, params)
+  def update_article(article, changes) do
+    article
+    |> Article.changeset(changes)
     |> Repo.update() 
   end
 

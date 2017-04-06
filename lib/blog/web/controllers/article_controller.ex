@@ -35,8 +35,9 @@ defmodule Blog.Web.ArticleController do
     render(conn, "edit.html", changeset: changeset)
   end
 
-  def update(conn, %{"slug" => slug, "article" => article_params}) do 
-    case Writing.update(slug, article_params) do
+  def update(conn, %{"slug" => slug, "article" => new_params}) do 
+    article = Writing.get_article(slug)
+    case Writing.update_article(article, new_params) do
       {:ok, article} ->
         conn
         |> put_flash(:info, "Article updated successfully.") 
