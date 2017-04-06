@@ -1,6 +1,6 @@
 defmodule Blog.BrandingRepoTest do
   use Blog.DataCase
-  alias Blog.Branding
+  alias Blog.Marketing.Branding
 
   test "item must be unique" do
     Forge.saved_branding

@@ -1,24 +1,24 @@
 defmodule Blog.Web.BrandingController do
   use Blog.Web, :controller
-  alias Blog.Services.BrandingService
+  alias Blog.Marketing
 
   def index(conn, _) do
-    conn 
-    |> render("index.html", branding: BrandingService.list_branding())
+    branding = Marketing.list_branding()
+    render(conn, "index.html", branding: branding)
   end
 
   def show(conn, %{"id" => id}) do
-    conn
-    |> render("show.html", branding: BrandingService.get_by_id(id))
+    branding = Marketing.get_by_id(id)
+    render(conn, "show.html", branding: branding)
   end
 
   def new(conn, _) do
-    conn
-    |> render("new.html", changeset: BrandingService.new_changeset())
+    changeset = Marketing.new_changeset()
+    render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"branding" => params}) do
-    case BrandingService.create(params) do
+    case Marketing.create(params) do
       {:ok, branding} ->
         conn
         |> put_flash(:info, "#{branding.item} created!")
@@ -29,12 +29,12 @@ defmodule Blog.Web.BrandingController do
   end
 
   def edit(conn, %{"id" => id}) do
-    conn
-    |> render("edit.html", changeset: BrandingService.edit_changeset(id))
+    changeset = Marketing.edit_changeset(id)
+    render(conn, "edit.html", changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "branding" => branding_params}) do 
-    case BrandingService.update(id, branding_params) do
+    case Marketing.update(id, branding_params) do
       {:ok, branding} ->
         conn
         |> put_flash(:info, "Branding updated successfully.") 
@@ -45,7 +45,7 @@ defmodule Blog.Web.BrandingController do
   end
 
   def delete(conn, %{"id" => id}) do 
-    BrandingService.delete(id)
+    Marketing.delete(id)
 
     conn
     |> put_flash(:info, "Branding deleted successfully.") 

@@ -1,4 +1,4 @@
-defmodule Blog.Branding do
+defmodule Blog.Marketing.Branding do
   use Ecto.Schema
   import Ecto.Changeset
 

@@ -1,6 +1,6 @@
 defmodule Blog.Web.PageController do
   use Blog.Web, :controller
-  alias Blog.Services.{BrandingService, ChallengeService}
+  alias Blog.{Marketing, Services.ChallengeService}
 
   plug :load_branding when action in [:index, :info]
 
@@ -27,6 +27,6 @@ defmodule Blog.Web.PageController do
   end
 
   defp load_branding(conn, _) do
-    assign(conn, :copy, BrandingService.get_copy)
+    assign(conn, :copy, Marketing.get_copy)
   end
 end

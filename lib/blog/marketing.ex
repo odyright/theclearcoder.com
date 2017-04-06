@@ -1,11 +1,11 @@
-defmodule Blog.Services.BrandingService do
+defmodule Blog.Marketing do
   @moduledoc """
   Service that provides the ability to access branding information.
   """
 
   import Ecto.Query
 
-  alias Blog.{Repo, Branding}
+  alias Blog.{Repo, Marketing.Branding}
 
   @doc """
   Returns all of the saved branding as a map with the key being the name

@@ -1,63 +1,62 @@
-defmodule Blog.Services.BrandingServiceTest do
+defmodule Blog.MarketingTest do
   use Blog.DataCase, async: true
 
-  alias Blog.Branding
-  alias Blog.Services.BrandingService
+  alias Blog.{Marketing, Marketing.Branding}
 
   test "returns an empty map with no branding" do
-    assert BrandingService.get_copy() == %{}
+    assert Marketing.get_copy() == %{}
   end
 
   test "returns the branding content as a map" do
     foo = Forge.saved_branding(item: "foo")
     bar = Forge.saved_branding(item: "bar")
-    assert BrandingService.get_copy() == %{
+    assert Marketing.get_copy() == %{
       :foo => foo.copy,
       :bar => bar.copy
     }
   end
 
   test "returns an empty list with no branding" do
-    assert BrandingService.list_branding() == []
+    assert Marketing.list_branding() == []
   end
 
   test "returns a branding list sorted by item" do
     foo = Forge.saved_branding(item: "foo")
     bar = Forge.saved_branding(item: "bar")
-    assert BrandingService.list_branding() == [ bar, foo ]
+    assert Marketing.list_branding() == [ bar, foo ]
   end
 
   test "returns nil when trying to retrieve a brand that doesn't exist" do
-    assert BrandingService.get_by_id(1) == nil
+    assert Marketing.get_by_id(1) == nil
   end
 
   test "return the branding record by the id" do
     branding = Forge.saved_branding
-    assert BrandingService.get_by_id(branding.id) == branding
+    assert Marketing.get_by_id(branding.id) == branding
   end
 
   test "generates a new branding changeset" do
-    changeset = BrandingService.new_changeset()
+    changeset = Marketing.new_changeset()
     assert changeset.data == %Branding{}
     assert changeset.changes == %{}
   end
 
   test "generates a new branding changeset and includes params" do
     params = %{item: "foo", copy: "bar"}
-    changeset = BrandingService.new_changeset(params)
+    changeset = Marketing.new_changeset(params)
     assert changeset.data == %Branding{}
     assert changeset.changes == params
   end
 
   test "creates a new record in the database" do
     params = %{item: "foo", copy: "bar"}
-    {:ok, branding} = BrandingService.create(params)
+    {:ok, branding} = Marketing.create(params)
     assert Repo.get_by(Branding, item: "foo") == branding
   end
 
   test "returns an error changeset when create fails" do
     params = %{item: "foo", copy: " "}
-    {:error, changeset} = BrandingService.create(params)
+    {:error, changeset} = Marketing.create(params)
     refute changeset.valid?
     assert Enum.count(changeset.errors) == 1
     assert Repo.get_by(Branding, item: "foo") == nil
@@ -65,14 +64,14 @@ defmodule Blog.Services.BrandingServiceTest do
 
   test "returns a edit branding changeset" do
     branding  = Forge.saved_branding
-    changeset = BrandingService.edit_changeset(branding.id)
+    changeset = Marketing.edit_changeset(branding.id)
     assert changeset.data == branding
   end
 
   test "returns an edit branding changeset with param changes" do
     branding  = Forge.saved_branding
     new_copy  = %{copy: "bar baz"}
-    changeset = BrandingService.edit_changeset(branding.id, new_copy)
+    changeset = Marketing.edit_changeset(branding.id, new_copy)
     assert changeset.data == branding
     assert changeset.changes == new_copy
   end
@@ -80,7 +79,7 @@ defmodule Blog.Services.BrandingServiceTest do
   test "updates an existing record in the database" do
     branding = Forge.saved_branding
     params   = %{copy: "some new copy"}
-    {:ok, updated_branding} = BrandingService.update(branding.id, params)
+    {:ok, updated_branding} = Marketing.update(branding.id, params)
     assert updated_branding.item == branding.item
     assert updated_branding.copy == params[:copy]
   end
@@ -88,7 +87,7 @@ defmodule Blog.Services.BrandingServiceTest do
   test "returns an error changes when update fails" do
     branding = Forge.saved_branding
     params   = %{copy: " "}
-    {:error, changeset} = BrandingService.update(branding.id, params)
+    {:error, changeset} = Marketing.update(branding.id, params)
     refute changeset.valid?
     assert Enum.count(changeset.errors) == 1
     assert Repo.get(Branding, branding.id) == branding
@@ -96,7 +95,7 @@ defmodule Blog.Services.BrandingServiceTest do
 
   test "deletes an existing record in the database" do
     branding = Forge.saved_branding
-    BrandingService.delete(branding.id)
+    Marketing.delete(branding.id)
     assert Repo.get(Branding, branding.id) == nil
   end
 end

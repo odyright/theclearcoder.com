@@ -1,6 +1,6 @@
 defmodule Blog.Web.BrandingControllerTest do
   use Blog.Web.ConnCase, async: true
-  alias Blog.Repo
+  alias Blog.{Repo, Marketing.Branding}
 
   describe "with guest access" do
     test "login is required for all actions", %{conn: conn} do
@@ -92,7 +92,7 @@ defmodule Blog.Web.BrandingControllerTest do
       branding = Forge.saved_branding
       delete conn, branding_path(conn, :delete, branding.id)
 
-      assert Repo.get(Blog.Branding, branding.id) == nil
+      assert Repo.get(Branding, branding.id) == nil
     end
   end
 
