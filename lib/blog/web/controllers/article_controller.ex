@@ -20,7 +20,7 @@ defmodule Blog.Web.ArticleController do
   end
 
   def create(conn, %{"article" => params}) do
-    case Writing.create(params) do
+    case Writing.create_article(params) do
       {:ok, article} ->
         conn
         |> put_flash(:info, "#{article.title} created!")
@@ -49,7 +49,8 @@ defmodule Blog.Web.ArticleController do
   end
 
   def delete(conn, %{"slug" => slug}) do 
-    Writing.delete(slug)
+    Writing.get_article(slug)
+    |> Writing.delete_article()
 
     conn
     |> put_flash(:info, "Article deleted successfully.") 

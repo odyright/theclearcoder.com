@@ -26,7 +26,7 @@ defmodule Blog.Writing do
   Saves a new article record to the database.  Returns {:ok, `Blog.Writing.Article`} if
   successful, otherwise an {:error, `Ecto.Changeset`} that contains the errors.
   """
-  def create(params) do
+  def create_article(params) do
     params_with_date = Map.put(params, "inserted_at", Timepiece.now()) 
 
     Article.changeset(%Article{}, params_with_date)
@@ -45,10 +45,10 @@ defmodule Blog.Writing do
   end
 
   @doc """
-  Delete an article record in the database given the slug.
+  Delete a given `Blog.Writing.Article` from the database.
   """
-  def delete(slug) do
-    get_article(slug)
+  def delete_article(article) do
+    article
     |> Repo.delete!()
   end
 end

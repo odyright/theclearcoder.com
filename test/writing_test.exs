@@ -23,13 +23,13 @@ defmodule Blog.WritingTest do
 
   test "creates a new record in the database" do
     params = new_article_params()
-    {:ok, article} = Writing.create(params)
+    {:ok, article} = Writing.create_article(params)
     assert Timepiece.last_minute?(article.inserted_at)
   end
 
   test "returns an error changeset when create fails" do
     params = Map.put(new_article_params(), "content", "  ")
-    {:error, changeset} = Writing.create(params)
+    {:error, changeset} = Writing.create_article(params)
     refute changeset.valid?
     assert Enum.count(changeset.errors) == 1
   end
@@ -44,7 +44,7 @@ defmodule Blog.WritingTest do
 
   test "deletes an existing record in the database" do
     article = Forge.saved_article
-    Writing.delete(article.slug)
+    Writing.delete_article(article)
     assert is_nil(Repo.get_by(Article, slug: article.slug))
   end
 
