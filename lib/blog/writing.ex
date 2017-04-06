@@ -34,15 +34,6 @@ defmodule Blog.Writing do
   end
 
   @doc """
-  Returns an `Ecto.Changeset` loaded with the `Blog.Writing.Article` specified by the slug.  If
-  new parameters are given, they will be contained in the changes.
-  """
-  def edit_changeset(slug, params \\ %{}) do
-    get_article(slug)
-    |> Article.changeset(params)
-  end
-
-  @doc """
   Takes a `Blog.Writing.Article` and updates it given the new parameters.  Returns 
   {:ok, `Blog.Writing.Article`} if successful, otherwise an {:error, `Ecto.Changeset`} 
   that contains the errors.

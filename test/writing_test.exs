@@ -34,20 +34,6 @@ defmodule Blog.WritingTest do
     assert Enum.count(changeset.errors) == 1
   end
 
-  test "returns a edit article changeset" do
-    article   = Forge.saved_article
-    changeset = Writing.edit_changeset(article.slug)
-    assert changeset.data == article
-  end
-
-  test "returns an edit article changeset with param changes" do
-    article     = Forge.saved_article
-    new_content = %{content: "Elixir in action"}
-    changeset   = Writing.edit_changeset(article.slug, new_content)
-    assert changeset.data == article
-    assert changeset.changes == new_content
-  end
-
   test "updates an existing record in the database" do
     article = Forge.saved_article
     changes = %{content: "some new content"}

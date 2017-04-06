@@ -31,7 +31,8 @@ defmodule Blog.Web.ArticleController do
   end
 
   def edit(conn, %{"slug" => slug}) do
-    changeset = Writing.edit_changeset(slug)
+    changeset = Writing.get_article(slug)
+                |> Article.changeset()
     render(conn, "edit.html", changeset: changeset)
   end
 
