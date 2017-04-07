@@ -8,7 +8,7 @@ defmodule Blog.Web.BrandingController do
   end
 
   def show(conn, %{"id" => id}) do
-    branding = Marketing.get_by_id(id)
+    branding = Marketing.get_branding(id)
     render(conn, "show.html", branding: branding)
   end
 

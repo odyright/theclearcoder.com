@@ -27,12 +27,12 @@ defmodule Blog.MarketingTest do
   end
 
   test "returns nil when trying to retrieve a brand that doesn't exist" do
-    assert Marketing.get_by_id(1) == nil
+    assert Marketing.get_branding(1) == nil
   end
 
   test "return the branding record by the id" do
     branding = Forge.saved_branding
-    assert Marketing.get_by_id(branding.id) == branding
+    assert Marketing.get_branding(branding.id) == branding
   end
 
   test "creates a new record in the database" do

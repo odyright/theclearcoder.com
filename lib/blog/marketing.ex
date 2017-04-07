@@ -20,7 +20,7 @@ defmodule Blog.Marketing do
   end
 
   @doc """
-  Returns a sorted, item ascending list of `Blog.Branding`.
+  Returns a sorted, item ascending list of `Blog.Marketing.Branding`.
   """
   def list_branding() do
     Branding 
@@ -29,14 +29,14 @@ defmodule Blog.Marketing do
   end
   
   @doc """
-  Returns a `Blog.Branding` given an id.
+  Returns a `Blog.Marketing.Branding` given an id.
   """
-  def get_by_id(num) do
+  def get_branding(num) do
     Repo.get(Branding, num)
   end
 
   @doc """
-  Saves a new branding record to the database.  Returns {:ok, `Blog.Branding`} if
+  Saves a new branding record to the database.  Returns {:ok, `Blog.Marketing.Branding`} if
   successful, otherwise {:error, `Ecto.Changeset`} that contains the errors. 
   """
   def create(params) do
@@ -45,16 +45,16 @@ defmodule Blog.Marketing do
   end
 
   @doc """
-  Returns an `Ecto.Changeset` loaded with the `Blog.Branding` specified by the id.  If
+  Returns an `Ecto.Changeset` loaded with the `Blog.Marketing.Branding` specified by the id.  If
   new parameters are given, they will be contained in the changes.
   """
   def edit_changeset(id, new_params \\ %{}) do
-    get_by_id(id)
+    get_branding(id)
     |> Branding.changeset(new_params)
   end
 
   @doc """
-  Updates a new branding record in the database.  Returns {:ok, `Blog.Branding`} if
+  Updates a new branding record in the database.  Returns {:ok, `Blog.Marketing.Branding`} if
   successful, otherwise {:error, `Ecto.Changeset`} that contains the errors. 
   """
   def update(id, params) do
@@ -66,7 +66,7 @@ defmodule Blog.Marketing do
   Delete a branding record in the database given the id.
   """
   def delete(id) do
-    get_by_id(id)
+    get_branding(id)
     |> Repo.delete()
   end
 end
