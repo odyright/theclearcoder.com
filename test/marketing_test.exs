@@ -35,19 +35,6 @@ defmodule Blog.MarketingTest do
     assert Marketing.get_by_id(branding.id) == branding
   end
 
-  test "generates a new branding changeset" do
-    changeset = Marketing.new_changeset()
-    assert changeset.data == %Branding{}
-    assert changeset.changes == %{}
-  end
-
-  test "generates a new branding changeset and includes params" do
-    params = %{item: "foo", copy: "bar"}
-    changeset = Marketing.new_changeset(params)
-    assert changeset.data == %Branding{}
-    assert changeset.changes == params
-  end
-
   test "creates a new record in the database" do
     params = %{item: "foo", copy: "bar"}
     {:ok, branding} = Marketing.create(params)

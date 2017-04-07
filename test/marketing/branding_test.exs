@@ -19,6 +19,19 @@ defmodule Blog.Marketing.BrandingTest do
     refute changeset.valid?
   end
 
+  test "generates a new branding changeset" do
+    changeset = Branding.new_changeset()
+    assert changeset.data == %Branding{}
+    assert changeset.changes == %{}
+  end
+
+  test "generates a new branding changeset and includes params" do
+    params = %{item: "foo", copy: "bar"}
+    changeset = Branding.new_changeset(params)
+    assert changeset.data == %Branding{}
+    assert changeset.changes == params
+  end
+
   defp changeset_with_blank(key) do
     attrs = Map.merge(@valid_attrs, %{key => " "})
     Branding.changeset(%Branding{}, attrs)

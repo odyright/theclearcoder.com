@@ -1,6 +1,6 @@
 defmodule Blog.Web.BrandingController do
   use Blog.Web, :controller
-  alias Blog.Marketing
+  alias Blog.{Marketing, Marketing.Branding}
 
   def index(conn, _) do
     branding = Marketing.list_branding()
@@ -13,7 +13,7 @@ defmodule Blog.Web.BrandingController do
   end
 
   def new(conn, _) do
-    changeset = Marketing.new_changeset()
+    changeset = Branding.new_changeset()
     render(conn, "new.html", changeset: changeset)
   end
 
