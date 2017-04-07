@@ -37,13 +37,13 @@ defmodule Blog.MarketingTest do
 
   test "creates a new record in the database" do
     params = %{item: "foo", copy: "bar"}
-    {:ok, branding} = Marketing.create(params)
+    {:ok, branding} = Marketing.create_branding(params)
     assert Repo.get_by(Branding, item: "foo") == branding
   end
 
   test "returns an error changeset when create fails" do
     params = %{item: "foo", copy: " "}
-    {:error, changeset} = Marketing.create(params)
+    {:error, changeset} = Marketing.create_branding(params)
     refute changeset.valid?
     assert Enum.count(changeset.errors) == 1
     assert Repo.get_by(Branding, item: "foo") == nil

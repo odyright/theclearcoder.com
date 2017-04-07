@@ -18,7 +18,7 @@ defmodule Blog.Web.BrandingController do
   end
 
   def create(conn, %{"branding" => params}) do
-    case Marketing.create(params) do
+    case Marketing.create_branding(params) do
       {:ok, branding} ->
         conn
         |> put_flash(:info, "#{branding.item} created!")

@@ -39,7 +39,7 @@ defmodule Blog.Marketing do
   Saves a new branding record to the database.  Returns {:ok, `Blog.Marketing.Branding`} if
   successful, otherwise {:error, `Ecto.Changeset`} that contains the errors. 
   """
-  def create(params) do
+  def create_branding(params) do
     Branding.new_changeset(params)
     |> Repo.insert()
   end
