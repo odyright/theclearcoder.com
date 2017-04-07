@@ -1,6 +1,6 @@
 defmodule Blog.Web.PageController do
   use Blog.Web, :controller
-  alias Blog.{Marketing, Services.ChallengeService}
+  alias Blog.{Marketing, AcmeChallenge}
 
   plug :load_branding when action in [:index, :info]
 
@@ -19,7 +19,7 @@ defmodule Blog.Web.PageController do
   end
 
   def letsencrypt(conn, %{"content" => content}) do
-    text conn, ChallengeService.get_response(content)
+    text conn, AcmeChallenge.get_response(content)
   end
 
   def projects(conn, _params) do

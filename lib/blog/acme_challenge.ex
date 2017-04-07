@@ -1,4 +1,4 @@
-defmodule Blog.Services.ChallengeService do
+defmodule Blog.AcmeChallenge do
   def get_response(content) do
     values = get_app_values()
 
