@@ -1,4 +1,4 @@
-defmodule Blog.BrandingRepoTest do
+defmodule Blog.Marketing.BrandingRepoTest do
   use Blog.DataCase
   alias Blog.Marketing.Branding
 

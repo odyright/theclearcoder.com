@@ -1,4 +1,4 @@
-defmodule Blog.BrandingCopyTest do
+defmodule Blog.Marketing.BrandingTest do
   use Blog.DataCase, async: true
   alias Blog.Marketing.Branding
 
