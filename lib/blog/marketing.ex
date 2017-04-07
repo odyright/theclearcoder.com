@@ -57,8 +57,9 @@ defmodule Blog.Marketing do
   Updates a new branding record in the database.  Returns {:ok, `Blog.Marketing.Branding`} if
   successful, otherwise {:error, `Ecto.Changeset`} that contains the errors. 
   """
-  def update(id, params) do
-    edit_changeset(id, params)
+  def update_branding(branding, changes) do
+    branding
+    |> Branding.changeset(changes)
     |> Repo.update()
   end
 

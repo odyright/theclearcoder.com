@@ -66,7 +66,7 @@ defmodule Blog.MarketingTest do
   test "updates an existing record in the database" do
     branding = Forge.saved_branding
     params   = %{copy: "some new copy"}
-    {:ok, updated_branding} = Marketing.update(branding.id, params)
+    {:ok, updated_branding} = Marketing.update_branding(branding, params)
     assert updated_branding.item == branding.item
     assert updated_branding.copy == params[:copy]
   end
@@ -74,7 +74,7 @@ defmodule Blog.MarketingTest do
   test "returns an error changes when update fails" do
     branding = Forge.saved_branding
     params   = %{copy: " "}
-    {:error, changeset} = Marketing.update(branding.id, params)
+    {:error, changeset} = Marketing.update_branding(branding, params)
     refute changeset.valid?
     assert Enum.count(changeset.errors) == 1
     assert Repo.get(Branding, branding.id) == branding

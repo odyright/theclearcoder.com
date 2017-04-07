@@ -34,7 +34,8 @@ defmodule Blog.Web.BrandingController do
   end
 
   def update(conn, %{"id" => id, "branding" => branding_params}) do 
-    case Marketing.update(id, branding_params) do
+    branding = Marketing.get_branding(id)
+    case Marketing.update_branding(branding, branding_params) do
       {:ok, branding} ->
         conn
         |> put_flash(:info, "Branding updated successfully.") 
