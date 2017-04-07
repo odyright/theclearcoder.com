@@ -49,20 +49,6 @@ defmodule Blog.MarketingTest do
     assert Repo.get_by(Branding, item: "foo") == nil
   end
 
-  test "returns a edit branding changeset" do
-    branding  = Forge.saved_branding
-    changeset = Marketing.edit_changeset(branding.id)
-    assert changeset.data == branding
-  end
-
-  test "returns an edit branding changeset with param changes" do
-    branding  = Forge.saved_branding
-    new_copy  = %{copy: "bar baz"}
-    changeset = Marketing.edit_changeset(branding.id, new_copy)
-    assert changeset.data == branding
-    assert changeset.changes == new_copy
-  end
-
   test "updates an existing record in the database" do
     branding = Forge.saved_branding
     params   = %{copy: "some new copy"}

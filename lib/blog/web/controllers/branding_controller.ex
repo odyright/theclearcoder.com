@@ -29,7 +29,8 @@ defmodule Blog.Web.BrandingController do
   end
 
   def edit(conn, %{"id" => id}) do
-    changeset = Marketing.edit_changeset(id)
+    changeset = Marketing.get_branding(id)
+                |> Branding.changeset()
     render(conn, "edit.html", changeset: changeset)
   end
 

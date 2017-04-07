@@ -45,15 +45,6 @@ defmodule Blog.Marketing do
   end
 
   @doc """
-  Returns an `Ecto.Changeset` loaded with the `Blog.Marketing.Branding` specified by the id.  If
-  new parameters are given, they will be contained in the changes.
-  """
-  def edit_changeset(id, new_params \\ %{}) do
-    get_branding(id)
-    |> Branding.changeset(new_params)
-  end
-
-  @doc """
   Updates a new branding record in the database.  Returns {:ok, `Blog.Marketing.Branding`} if
   successful, otherwise {:error, `Ecto.Changeset`} that contains the errors. 
   """
