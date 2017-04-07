@@ -82,7 +82,7 @@ defmodule Blog.MarketingTest do
 
   test "deletes an existing record in the database" do
     branding = Forge.saved_branding
-    Marketing.delete(branding.id)
+    Marketing.delete_branding(branding)
     assert Repo.get(Branding, branding.id) == nil
   end
 end

@@ -46,7 +46,8 @@ defmodule Blog.Web.BrandingController do
   end
 
   def delete(conn, %{"id" => id}) do 
-    Marketing.delete(id)
+    Marketing.get_branding(id)
+    |> Marketing.delete_branding()
 
     conn
     |> put_flash(:info, "Branding deleted successfully.") 

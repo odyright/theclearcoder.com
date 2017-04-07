@@ -64,10 +64,9 @@ defmodule Blog.Marketing do
   end
 
   @doc """
-  Delete a branding record in the database given the id.
+  Delete a branding record in the database given a `Blog.Marketing.Branding`.
   """
-  def delete(id) do
-    get_branding(id)
-    |> Repo.delete()
+  def delete_branding(branding) do
+    Repo.delete(branding)
   end
 end
