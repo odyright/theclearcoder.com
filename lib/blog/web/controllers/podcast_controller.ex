@@ -1,14 +1,14 @@
 defmodule Blog.Web.PodcastController do
   use Blog.Web, :controller
 
-  alias Blog.Services.PodcastService
+  alias Blog.Media
 
   def index(conn, _params) do
-    render conn, "index.html", podcasts: PodcastService.list_podcasts()
+    render conn, "index.html", podcasts: Media.list_podcasts()
   end
 
   def show(conn, %{"id" => id}) do
-    render_podcast(conn, PodcastService.for_episode(id))
+    render_podcast(conn, Media.for_episode(id))
   end
 
   defp render_podcast(conn, nil) do

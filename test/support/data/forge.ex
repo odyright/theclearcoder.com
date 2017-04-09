@@ -1,6 +1,6 @@
 defmodule Forge do
   use Blacksmith
-  alias Blog.{User, Writing.Article, Marketing.Branding, Podcast}
+  alias Blog.{User, Writing.Article, Marketing.Branding, Media.Podcast}
 
   @save_one_function &Blacksmith.Config.save/1
   @save_all_function &Blacksmith.Config.save_all/1

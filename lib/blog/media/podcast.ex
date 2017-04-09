@@ -1,4 +1,4 @@
-defmodule Blog.Podcast do
+defmodule Blog.Media.Podcast do
   use Ecto.Schema
   import Ecto.Changeset
 

@@ -1,37 +1,37 @@
-defmodule Blog.Services.PodcastServiceTest do
+defmodule Blog.MediaTest do
   use Blog.DataCase, async: true
-  alias Blog.Services.PodcastService
+  alias Blog.Media
 
   test "returns an empty list with no podcasts" do
-    assert PodcastService.list_podcasts() == []
+    assert Media.list_podcasts() == []
   end
 
   test "returns podcasts in order by date descending" do
     oldest = Forge.saved_podcast(inserted_at: Timepiece.days_ago(10))
     newest = Forge.saved_podcast(episode: 2)
 
-    list = PodcastService.list_podcasts()
+    list = Media.list_podcasts()
     assert Enum.count(list) == 2
     assert [newest, oldest] == list
   end
 
   test "returns nil when requesting an unsaved episode" do
-    assert PodcastService.for_episode(1) == nil
+    assert Media.for_episode(1) == nil
   end
 
   test "returns the podcast that matches the episode" do
     podcast = Forge.saved_podcast
-    assert PodcastService.for_episode(podcast.episode) == podcast
+    assert Media.for_episode(podcast.episode) == podcast
   end
 
   test "returns the date of the newest podcast" do
     Forge.saved_podcast(inserted_at: Timepiece.days_ago(10))
     newest = Forge.saved_podcast(episode: 2)
 
-    assert :eq == NaiveDateTime.compare(newest.inserted_at, PodcastService.last_published_on()) 
+    assert :eq == NaiveDateTime.compare(newest.inserted_at, Media.last_published_on()) 
   end
 
   test "returns nil for the date with no podcasts" do
-    assert PodcastService.last_published_on() == nil
+    assert Media.last_published_on() == nil
   end
 end

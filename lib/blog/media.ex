@@ -1,10 +1,10 @@
-defmodule Blog.Services.PodcastService do
+defmodule Blog.Media do
   @moduledoc """
-  A module that provides functions for accessing `Blog.Podcast` data.
+  A module that provides functions for accessing media related data.
   """
 
   import Ecto.Query
-  alias Blog.{Repo, Podcast}
+  alias Blog.{Repo, Media.Podcast}
 
   @doc """
   Returns a sorted, date descending list of `Blog.Podcast`.

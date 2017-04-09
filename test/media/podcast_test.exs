@@ -1,7 +1,7 @@
-defmodule Blog.PodcastTest do
+defmodule Blog.Media.PodcastTest do
   use Blog.DataCase, async: true
 
-  alias Blog.Podcast
+  alias Blog.Media.Podcast
 
   @valid_attrs %{description: "some content", episode: 42, file_size_mbytes: 42, file_url: "some content", notes: "some content", run_time_minutes: 42, title: "some content"}
   @invalid_attrs %{}
