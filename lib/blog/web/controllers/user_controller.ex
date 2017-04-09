@@ -3,18 +3,18 @@ defmodule Blog.Web.UserController do
   alias Blog.Admin
 
   def index(conn, _params) do
-    conn
-    |> render("index.html", users: Admin.list_users())
+    users = Admin.list_users()
+    render(conn, "index.html", users: users)
   end
 
   def show(conn, %{"id" => id}) do
-    conn
-    |> render("show.html", user: Admin.get_by_id(id))
+    user = Admin.get_user(id)
+    render(conn, "show.html", user: user)
   end
 
   def new(conn, _params) do
-    conn
-    |> render("new.html", changeset: Admin.new_changeset())
+    changeset = Admin.new_changeset()
+    render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"user" => params}) do

@@ -18,7 +18,7 @@ defmodule Blog.Admin do
   @doc """
   Returns a `Blog.Admin.User` given an id.
   """
-  def get_by_id(id) do
+  def get_user(id) do
     Repo.get(User, id)
   end
 

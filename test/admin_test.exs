@@ -19,12 +19,12 @@ defmodule Blog.AdminTest do
   end
 
   test "return nil with an unknown users" do
-    assert Admin.get_by_id(99) == nil
+    assert Admin.get_user(99) == nil
   end
 
   test "returns the requested user" do
     expected_user = Forge.saved_user
-    user = Admin.get_by_id(expected_user.id)
+    user = Admin.get_user(expected_user.id)
     assert expected_user.name == user.name
   end
 
