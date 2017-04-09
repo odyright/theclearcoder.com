@@ -23,13 +23,6 @@ defmodule Blog.Admin do
   end
 
   @doc """
-  Returns a branding `Ecto.Changeset` given the params.
-  """
-  def new_changeset() do
-    User.changeset(%User{})
-  end
-
-  @doc """
   Saves a new user record to the database.  Returns {:ok, `Blog.Admin.User`} if
   successful, otherwise an {:error, `Ecto.Changeset`} that contains the errors.
   """

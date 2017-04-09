@@ -1,6 +1,6 @@
 defmodule Blog.Web.UserController do
   use Blog.Web, :controller
-  alias Blog.Admin
+  alias Blog.{Admin, Admin.User}
 
   def index(conn, _params) do
     users = Admin.list_users()
@@ -13,7 +13,7 @@ defmodule Blog.Web.UserController do
   end
 
   def new(conn, _params) do
-    changeset = Admin.new_changeset()
+    changeset = User.new_changeset()
     render(conn, "new.html", changeset: changeset)
   end
 

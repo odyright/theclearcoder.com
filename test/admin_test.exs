@@ -28,12 +28,6 @@ defmodule Blog.AdminTest do
     assert expected_user.name == user.name
   end
 
-  test "generates a new user changeset" do
-    changeset = Admin.new_changeset()
-    assert changeset.data == %User{}
-    assert changeset.changes == %{}
-  end
-
   test "creates a new user in the database" do
     params = new_user_params()
     {:ok, new_user} = Admin.create(params)

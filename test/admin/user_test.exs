@@ -31,6 +31,12 @@ defmodule Blog.Admin.UserTest do
     refute changeset.valid?
   end
 
+  test "generates a new user changeset" do
+    changeset = User.new_changeset()
+    assert changeset.data == %User{}
+    assert changeset.changes == %{}
+  end
+
   defp changeset_with_blank(key) do
     changeset_with(%{key => " "})
   end

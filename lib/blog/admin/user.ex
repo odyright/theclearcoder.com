@@ -1,6 +1,7 @@
 defmodule Blog.Admin.User do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Blog.Admin.User
 
   schema "users" do
     field :name, :string
@@ -25,6 +26,13 @@ defmodule Blog.Admin.User do
     |> validate_length(:password, min: 6, max: 100)
     |> put_pass_hash()
   end 
+
+  @doc """
+  Returns a branding `Ecto.Changeset` given the params.
+  """
+  def new_changeset() do
+    User.changeset(%User{})
+  end
 
   defp put_pass_hash(changeset) do
     case changeset do
