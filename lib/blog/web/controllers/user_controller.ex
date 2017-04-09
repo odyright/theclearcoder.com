@@ -18,7 +18,7 @@ defmodule Blog.Web.UserController do
   end
 
   def create(conn, %{"user" => params}) do
-    case Admin.create(params) do
+    case Admin.create_user(params) do
       {:ok, user} ->
         conn
         |> put_flash(:info, "#{user.name} created!")

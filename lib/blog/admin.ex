@@ -26,7 +26,7 @@ defmodule Blog.Admin do
   Saves a new user record to the database.  Returns {:ok, `Blog.Admin.User`} if
   successful, otherwise an {:error, `Ecto.Changeset`} that contains the errors.
   """
-  def create(params) do
+  def create_user(params) do
     User.registration_changeset(%User{}, params)
     |> Repo.insert()
   end

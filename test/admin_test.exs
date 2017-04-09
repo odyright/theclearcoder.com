@@ -30,14 +30,14 @@ defmodule Blog.AdminTest do
 
   test "creates a new user in the database" do
     params = new_user_params()
-    {:ok, new_user} = Admin.create(params)
+    {:ok, new_user} = Admin.create_user(params)
     assert new_user.name == params["name"]
     assert new_user.username == params["username"]
   end
 
   test "returns an error changeset when create fails" do
     params = Map.put(new_user_params(), "username", "  ")
-    {:error, changeset} = Admin.create(params)
+    {:error, changeset} = Admin.create_user(params)
     refute changeset.valid?
     assert Enum.count(changeset.errors) == 1
     assert Repo.get_by(User, name: params["name"]) == nil
