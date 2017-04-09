@@ -1,7 +1,7 @@
 # Clear out existing data
 Blog.Repo.delete_all(Blog.Branding)
 Blog.Repo.delete_all(Blog.Writing.Article)
-Blog.Repo.delete_all(Blog.User)
+Blog.Repo.delete_all(Blog.Admin.User)
 
 # Add dev user
 Forge.saved_user(name: "John Doe", username: "jdoe")

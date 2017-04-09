@@ -1,6 +1,6 @@
-defmodule Blog.UserTest do
+defmodule Blog.Admin.UserTest do
   use Blog.DataCase, async: true
-  alias Blog.User
+  alias Blog.Admin.User
 
   @valid_attrs %{name: "Joe Test", username: "jtest", password: "iamatester"}
 

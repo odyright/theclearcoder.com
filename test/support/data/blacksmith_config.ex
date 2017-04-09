@@ -1,5 +1,5 @@
 defmodule Blacksmith.Config do
-  alias Blog.{Repo, User}
+  alias Blog.{Repo, Admin.User}
 
   def save(schema = %User{}) do
     User.registration_changeset(schema, %{password: "password"})

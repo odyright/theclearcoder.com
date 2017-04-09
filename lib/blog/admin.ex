@@ -1,13 +1,13 @@
-defmodule Blog.Services.UserService do
+defmodule Blog.Admin do
   @moduledoc """
   Service that provides the ability to access users..
   """
 
   import Ecto.Query
-  alias Blog.{Repo, User}
+  alias Blog.{Repo, Admin.User}
 
   @doc """
-  Returns a sorted, name ascending list of `Blog.User`.
+  Returns a sorted, name ascending list of `Blog.Admin.User`.
   """
   def list_users() do
     User
@@ -16,7 +16,7 @@ defmodule Blog.Services.UserService do
   end
 
   @doc """
-  Returns a `Blog.User` given an id.
+  Returns a `Blog.Admin.User` given an id.
   """
   def get_by_id(id) do
     Repo.get(User, id)
@@ -30,7 +30,7 @@ defmodule Blog.Services.UserService do
   end
 
   @doc """
-  Saves a new user record to the database.  Returns {:ok, `Blog.User`} if
+  Saves a new user record to the database.  Returns {:ok, `Blog.Admin.User`} if
   successful, otherwise an {:error, `Ecto.Changeset`} that contains the errors.
   """
   def create(params) do
